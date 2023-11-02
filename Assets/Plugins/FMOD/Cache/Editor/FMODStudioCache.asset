@@ -1,5 +1,1627 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9138019822370150143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Sub Speaker
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Sub Speaker
+  Guid:
+    Data1: -146580264
+    Data2: 1108798031
+    Data3: 1061110673
+    Data4: 1920217041
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 3
+  Length: 2000
+--- !u!114 &-9020406196415676835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Transceiver Room/Megaphone Transceiver
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Transceiver Room/Megaphone Transceiver
+  Guid:
+    Data1: -60866647
+    Data2: 1082302962
+    Data3: 1783457696
+    Data4: -402833817
+  Banks:
+  - {fileID: -686350264932460468}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7453701023871043860}
+  MinDistance: 0
+  MaxDistance: 3
+  Length: 30
+--- !u!114 &-9008850179243893594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Drone 2
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Drone 2
+  Guid:
+    Data1: 1597698537
+    Data2: 1269031702
+    Data3: 1905839513
+    Data4: -1443572521
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11989
+--- !u!114 &-8988052791301883430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Danger Room Music/Colour
+  m_EditorClassIdentifier: 
+  Name: Colour
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 3882644723
+    data2: 4036504016
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8903704532515961970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Piano/Note
+  m_EditorClassIdentifier: 
+  Name: Note
+  StudioPath: 
+  Min: 0
+  Max: 25
+  Default: 0
+  ID:
+    data1: 3740869586
+    data2: 2450093958
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8852836233434419439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Panning Room/Two Robots
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Panning Room/Two Robots
+  Guid:
+    Data1: -983814030
+    Data2: 1182501445
+    Data3: 560498623
+    Data4: 1889665898
+  Banks:
+  - {fileID: -2070587200237379789}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 473456108795928732}
+  - {fileID: -4492677115376470225}
+  MinDistance: 1
+  MaxDistance: 2.5
+  Length: 22000
+--- !u!114 &-8758684032467361649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Radio Transceiver/On
+  m_EditorClassIdentifier: 
+  Name: On
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2881270569
+    data2: 3833778449
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8482409529252694236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SoundVFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/SoundVFX.bank
+  Name: SoundVFX
+  StudioPath: bank:/SoundVFX
+  lastModified: 638345289354813456
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8360579465733427607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Event Cone Angle Room/Event Cone
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Event Cone Angle Room/Event Cone
+  Guid:
+    Data1: 195326497
+    Data2: 1160011160
+    Data3: 1102210225
+    Data4: 1585629418
+  Banks:
+  - {fileID: 1923816570695353326}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0.9
+  MaxDistance: 20
+  Length: 9375
+--- !u!114 &-8284409711653713234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 2
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 2
+  Guid:
+    Data1: 1124769686
+    Data2: 1331185626
+    Data3: 2037100963
+    Data4: -1565117006
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11087
+--- !u!114 &-7664539462306276887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/TargetHit
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/TargetHit
+  Guid:
+    Data1: 834876265
+    Data2: 1082352070
+    Data3: -2090575487
+    Data4: 193026522
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3433531414377112801}
+  MinDistance: 1
+  MaxDistance: 15
+  Length: 10000
+--- !u!114 &-7453701023871043860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Megaphone Transceiver/On
+  m_EditorClassIdentifier: 
+  Name: On
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2881270569
+    data2: 3833778449
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7285681439037904399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Port Arrive
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Port Arrive
+  Guid:
+    Data1: -125505235
+    Data2: 1177010958
+    Data3: 277953956
+    Data4: 962761410
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1880
+--- !u!114 &-7275546357752078731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/S. Gallery Music/Round
+  m_EditorClassIdentifier: 
+  Name: Round
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3691887008
+    data2: 1900245620
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7221210826263159225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Surfaces Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Surfaces Room.bank
+  Name: Surfaces Room
+  StudioPath: bank:/Surfaces Room
+  lastModified: 638345289354828467
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7048940336696532370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 1 (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 1 (2)
+  Guid:
+    Data1: 1366663254
+    Data2: 1091108426
+    Data3: 845351050
+    Data4: -1126859331
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
+--- !u!114 &-7028429165163938166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/VolumeControl Room/music
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/VolumeControl Room/music
+  Guid:
+    Data1: 1412136504
+    Data2: 1276827689
+    Data3: -1692934524
+    Data4: 159750276
+  Banks:
+  - {fileID: 2859338087168626477}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 244937
+--- !u!114 &-6842308218987917142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Thunder Dome/Water
+  m_EditorClassIdentifier: 
+  Name: Water
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2632165748
+    data2: 89957298
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-6616295119486082147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/UI/Button Click 01
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/UI/Button Click 01
+  Guid:
+    Data1: -1893337896
+    Data2: 1273723249
+    Data3: -1364347737
+    Data4: 1695724016
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 155
+--- !u!114 &-6502248158293746486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Scatter Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Scatter Room.bank
+  Name: Scatter Room
+  StudioPath: bank:/Scatter Room
+  lastModified: 638345289354358063
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6469012084718219457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Room Atmos
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Room Atmos
+  Guid:
+    Data1: 826724635
+    Data2: 1205678469
+    Data3: -1830281575
+    Data4: -516063345
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 271687
+--- !u!114 &-6403305640967972530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Elevator
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Elevator
+  Guid:
+    Data1: 159989769
+    Data2: 1200336170
+    Data3: 917503111
+    Data4: -480438459
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5934749079764617991}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7734
+--- !u!114 &-6352257336891258683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 2 (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 2 (2)
+  Guid:
+    Data1: 743318763
+    Data2: 1190550207
+    Data3: -701832524
+    Data4: -1287339474
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
+--- !u!114 &-6306373536350341407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Interactive Music/Danger Room Music
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Interactive Music/Danger Room Music
+  Guid:
+    Data1: -157638690
+    Data2: 1232471895
+    Data3: 490451884
+    Data4: -2035747687
+  Banks:
+  - {fileID: 3479774789110575082}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8988052791301883430}
+  MinDistance: 7.2000003
+  MaxDistance: 20
+  Length: 92160
+--- !u!114 &-6195379122878465437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Shooter Rail
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Shooter Rail
+  Guid:
+    Data1: 508734581
+    Data2: 1310894668
+    Data3: -1181728619
+    Data4: 1233153881
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3408248777419585782}
+  - {fileID: 2556689092245801438}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25500
+--- !u!114 &-5892408565517252315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Custom Distance Attenuation Room/Canon Fire
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Custom Distance Attenuation Room/Canon Fire
+  Guid:
+    Data1: -146214831
+    Data2: 1242922525
+    Data3: 1358848154
+    Data4: -417317209
+  Banks:
+  - {fileID: -3591049193228169705}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 7
+  Length: 5438
+--- !u!114 &-5886262390736499529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Shooting Gallery.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Shooting Gallery.bank
+  Name: Shooting Gallery
+  StudioPath: bank:/Shooting Gallery
+  lastModified: 638345289354513199
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-5776786752306338775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/8-bit Asteroid Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/8-bit Asteroid Explosion
+  Guid:
+    Data1: -883018133
+    Data2: 1261014065
+    Data3: -108531069
+    Data4: 1814270148
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1848797548255258738}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5734264494396743917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Elevator Music/End
+  m_EditorClassIdentifier: 
+  Name: End
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3387093452
+    data2: 1444951929
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5725461489995255192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/rail exit
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/rail exit
+  Guid:
+    Data1: -789802626
+    Data2: 1299478674
+    Data3: -583936848
+    Data4: -745570413
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -518839948443551305}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5630262929301651106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Transmit Transceiver/PostTransmitVolume
+  m_EditorClassIdentifier: 
+  Name: PostTransmitVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 4283835612
+    data2: 1901131195
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5613304276798951535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Scatter Room/Surround Panner Room
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Scatter Room/Surround Panner Room
+  Guid:
+    Data1: -1482784914
+    Data2: 1194330395
+    Data3: 2021355685
+    Data4: 1848176578
+  Banks:
+  - {fileID: -6502248158293746486}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9777
+--- !u!114 &-5341684733464111237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Car Engine/Load
+  m_EditorClassIdentifier: 
+  Name: Load
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: -1
+  ID:
+    data1: 3978399419
+    data2: 2956723295
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5204292032453237967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Sound Spin Room/Elevator Music
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Sound Spin Room/Elevator Music
+  Guid:
+    Data1: 644966701
+    Data2: 1328232543
+    Data3: 1799282092
+    Data4: 2079091856
+  Banks:
+  - {fileID: 6216700157854316383}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5734264494396743917}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 17090
+--- !u!114 &-5060953937081472734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Doors/Reverb
+  m_EditorClassIdentifier: 
+  Name: Reverb
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 511072534
+    data2: 2489693448
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4909387808657164690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Snapshot Room/It's Dark Under the Water (Mas)
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Snapshot Room/It's Dark Under the Water (Mas)
+  Guid:
+    Data1: -287923237
+    Data2: 1279441266
+    Data3: 1295154083
+    Data4: -621167567
+  Banks:
+  - {fileID: 4936031547754083827}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 8.9
+  MaxDistance: 50
+  Length: 106666
+--- !u!114 &-4700982486488012266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Surfaces Room/Treadmill
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Surfaces Room/Treadmill
+  Guid:
+    Data1: 241470630
+    Data2: 1227106295
+    Data3: 1392514697
+    Data4: -1243792160
+  Banks:
+  - {fileID: -7221210826263159225}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14302
+--- !u!114 &-4538375287502926698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Player Parameter Room/Car Engine
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Player Parameter Room/Car Engine
+  Guid:
+    Data1: 1705303904
+    Data2: 1185885380
+    Data3: -1745090631
+    Data4: -1478164242
+  Banks:
+  - {fileID: -4427112077784663868}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -146679329349047023}
+  - {fileID: -5341684733464111237}
+  MinDistance: 1
+  MaxDistance: 6
+  Length: 2463
+--- !u!114 &-4492677115376470225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Two Robots/Voice
+  m_EditorClassIdentifier: 
+  Name: Voice
+  StudioPath: 
+  Min: 1
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3131159259
+    data2: 1185714381
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4442893269124689412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cannon Move/Direction
+  m_EditorClassIdentifier: 
+  Name: Direction
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: -1
+  ID:
+    data1: 842099027
+    data2: 1549244627
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4427112077784663868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player Parameter Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Player Parameter Room.bank
+  Name: Player Parameter Room
+  StudioPath: bank:/Player Parameter Room
+  lastModified: 638345289354242979
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-4411663168828912602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  StudioPath: 
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 2395651500
+    data2: 3832535947
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4062637302511141739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Footsteps
+  Guid:
+    Data1: 1814214941
+    Data2: 1199906722
+    Data3: 351196346
+    Data4: 79908276
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4411663168828912602}
+  - {fileID: 1855270157322144694}
+  - {fileID: -3303578308978425808}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
+--- !u!114 &-3759540099177091857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/S. Gallery Music
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/S. Gallery Music
+  Guid:
+    Data1: -211605069
+    Data2: 1291817932
+    Data3: 1711962299
+    Data4: -1404890400
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7275546357752078731}
+  - {fileID: 1333359782363650165}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 172000
+--- !u!114 &-3591316553140205427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/UI/UI Close
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/UI/UI Close
+  Guid:
+    Data1: -1361015928
+    Data2: 1198370577
+    Data3: 1271587462
+    Data4: 90482171
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3849
+--- !u!114 &-3591049193228169705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Custom Distance Atten Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Custom Distance Atten Room.bank
+  Name: Custom Distance Atten Room
+  StudioPath: bank:/Custom Distance Atten Room
+  lastModified: 638345289353847582
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3408248777419585782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Shooter Rail/Velocity
+  m_EditorClassIdentifier: 
+  Name: Velocity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2933499189
+    data2: 1928887756
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3303578308978425808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Running
+  m_EditorClassIdentifier: 
+  Name: Running
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 151879458
+    data2: 3867557632
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3277158346020545727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Programmer Sounds Room/Dialogue
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Programmer Sounds Room/Dialogue
+  Guid:
+    Data1: 1810821312
+    Data2: 1171629469
+    Data3: 1866448286
+    Data4: 1532218451
+  Banks:
+  - {fileID: 1302409715450279049}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
+--- !u!114 &-2767705475002857697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Three Robots/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 775554694
+    data2: 2597863708
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-2544802742313644357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Snapshot Room/Heartbeat
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Snapshot Room/Heartbeat
+  Guid:
+    Data1: -512984404
+    Data2: 1191306400
+    Data3: 157441967
+    Data4: -1324701157
+  Banks:
+  - {fileID: 4936031547754083827}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5778620466878020716}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1198
+--- !u!114 &-2438664684539872362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Snapshot Room/Water Ambience
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Snapshot Room/Water Ambience
+  Guid:
+    Data1: 215012984
+    Data2: 1255514956
+    Data3: 1290510734
+    Data4: 1324879323
+  Banks:
+  - {fileID: 4936031547754083827}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4076327273247053436}
+  MinDistance: 8.2
+  MaxDistance: 53.5
+  Length: 74250
+--- !u!114 &-2430277127864180360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Transceiver Room/Door Transceiver
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Transceiver Room/Door Transceiver
+  Guid:
+    Data1: -1904350321
+    Data2: 1216176928
+    Data3: -1379544678
+    Data4: -1465786251
+  Banks:
+  - {fileID: -686350264932460468}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4359399498095740957}
+  MinDistance: 1
+  MaxDistance: 2
+  Length: 40
+--- !u!114 &-2300687217815681154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Thunder Dome/Thunder
+  m_EditorClassIdentifier: 
+  Path: event:/Thunder Dome/Thunder
+  Guid:
+    Data1: 603004596
+    Data2: 1193219951
+    Data3: -282118740
+    Data4: 1345947493
+  Banks:
+  - {fileID: 1405416569607881221}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2192401968512220506}
+  MinDistance: 1
+  MaxDistance: 1600
+  Length: 303500
+--- !u!114 &-2293303602210121575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Sound Module Room/Piano
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Sound Module Room/Piano
+  Guid:
+    Data1: 343899216
+    Data2: 1327083870
+    Data3: -743186499
+    Data4: 52168765
+  Banks:
+  - {fileID: 2106816557537922297}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -8903704532515961970}
+  - {fileID: 2519292050838859821}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2070587200237379789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Panner Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Panner Room.bank
+  Name: Panner Room
+  StudioPath: bank:/Panner Room
+  lastModified: 638345289354217946
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-1980519126977031684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Panning Room/Bar Robot
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Panning Room/Bar Robot
+  Guid:
+    Data1: 1931571850
+    Data2: 1290007270
+    Data3: 1893871037
+    Data4: -2142686736
+  Banks:
+  - {fileID: -2070587200237379789}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1444669164049102094}
+  MinDistance: 1
+  MaxDistance: 3
+  Length: 8500
+--- !u!114 &-1848797548255258738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/8-bit Asteroid Explosion/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3240228179
+    data2: 1699465130
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-1444669164049102094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bar Robot/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 775554694
+    data2: 2597863708
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-686350264932460468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Transceiver Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Transceiver Room.bank
+  Name: Transceiver Room
+  StudioPath: bank:/Transceiver Room
+  lastModified: 638345289355220765
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-518839948443551305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/rail exit/Velocity
+  m_EditorClassIdentifier: 
+  Name: Velocity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2933499189
+    data2: 1928887756
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-338901312358796302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Panning Room/Single Robot
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Panning Room/Single Robot
+  Guid:
+    Data1: 632517331
+    Data2: 1145687913
+    Data3: 1480839605
+    Data4: 1919743563
+  Banks:
+  - {fileID: -2070587200237379789}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6402402308015520155}
+  MinDistance: 1
+  MaxDistance: 3
+  Length: 20000
+--- !u!114 &-146679329349047023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Car Engine/RPM
+  m_EditorClassIdentifier: 
+  Name: RPM
+  StudioPath: 
+  Min: 1000
+  Max: 10000
+  Default: 1000
+  ID:
+    data1: 595611557
+    data2: 2432558103
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5430175974941208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/On Dry Land
+  m_EditorClassIdentifier: 
+  Path: snapshot:/On Dry Land
+  Guid:
+    Data1: 294765735
+    Data2: 1144801019
+    Data3: -1439149918
+    Data4: 153436189
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +1634,1308 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: 6097423501006114919}
+  - {fileID: -3591049193228169705}
+  - {fileID: 1923816570695353326}
+  - {fileID: 3479774789110575082}
+  - {fileID: 6974399715767519570}
+  - {fileID: -2070587200237379789}
+  - {fileID: -4427112077784663868}
+  - {fileID: 1302409715450279049}
+  - {fileID: -6502248158293746486}
+  - {fileID: -5886262390736499529}
+  - {fileID: 4936031547754083827}
+  - {fileID: 2106816557537922297}
+  - {fileID: 6216700157854316383}
+  - {fileID: -8482409529252694236}
+  - {fileID: -7221210826263159225}
+  - {fileID: 1405416569607881221}
+  - {fileID: -686350264932460468}
+  - {fileID: 2859338087168626477}
+  EditorEvents:
+  - {fileID: -5892408565517252315}
+  - {fileID: 8054342039309873908}
+  - {fileID: 1420950460632820168}
+  - {fileID: -8360579465733427607}
+  - {fileID: -6306373536350341407}
+  - {fileID: 4820669778906089933}
+  - {fileID: -6403305640967972530}
+  - {fileID: 8484024836397348079}
+  - {fileID: -6469012084718219457}
+  - {fileID: -4062637302511141739}
+  - {fileID: 1731841360543070553}
+  - {fileID: -7285681439037904399}
+  - {fileID: 4313948760691913593}
+  - {fileID: -3591316553140205427}
+  - {fileID: 1486106686046119995}
+  - {fileID: -5430175974941208}
+  - {fileID: 5541896367648886541}
+  - {fileID: 8316450536055036219}
+  - {fileID: -6616295119486082147}
+  - {fileID: 1196284117822026019}
+  - {fileID: -9008850179243893594}
+  - {fileID: 4650887424080691945}
+  - {fileID: 4870355618720750084}
+  - {fileID: -8852836233434419439}
+  - {fileID: -1980519126977031684}
+  - {fileID: -338901312358796302}
+  - {fileID: -4538375287502926698}
+  - {fileID: -3277158346020545727}
+  - {fileID: -5613304276798951535}
+  - {fileID: 3655757005074447201}
+  - {fileID: 1863559217811682130}
+  - {fileID: 2172029178565104883}
+  - {fileID: -7048940336696532370}
+  - {fileID: -7664539462306276887}
+  - {fileID: -5776786752306338775}
+  - {fileID: -6195379122878465437}
+  - {fileID: -5725461489995255192}
+  - {fileID: -8284409711653713234}
+  - {fileID: 3559476977044084438}
+  - {fileID: 2054156265004047823}
+  - {fileID: -3759540099177091857}
+  - {fileID: -9138019822370150143}
+  - {fileID: -6352257336891258683}
+  - {fileID: 4263456601047127738}
+  - {fileID: -2438664684539872362}
+  - {fileID: -2544802742313644357}
+  - {fileID: -4909387808657164690}
+  - {fileID: -2293303602210121575}
+  - {fileID: -5204292032453237967}
+  - {fileID: 531143738567865167}
+  - {fileID: -4700982486488012266}
+  - {fileID: 6077280252112237369}
+  - {fileID: -2300687217815681154}
+  - {fileID: 6634990159492306635}
+  - {fileID: -2430277127864180360}
+  - {fileID: -9020406196415676835}
+  - {fileID: 1777026986853274666}
+  - {fileID: -7028429165163938166}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: 6974399715767519570}
+  StringsBanks:
+  - {fileID: 6097423501006114919}
+  cacheTime: 638345289355320852
   cacheVersion: 131608
+--- !u!114 &473456108795928732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Two Robots/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 775554694
+    data2: 2597863708
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &531143738567865167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound VFX/Sound VFX
+  m_EditorClassIdentifier: 
+  Path: event:/Sound VFX/Sound VFX
+  Guid:
+    Data1: 1841069160
+    Data2: 1146284534
+    Data3: 159188865
+    Data4: 1036196822
+  Banks:
+  - {fileID: -8482409529252694236}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 7
+  MaxDistance: 30
+  Length: 238680
+--- !u!114 &1090083134746942507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cannon Move/Stop Point
+  m_EditorClassIdentifier: 
+  Name: Stop Point
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1319484240
+    data2: 4290167192
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1196284117822026019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Underwater
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Underwater
+  Guid:
+    Data1: 1504798939
+    Data2: 1152880522
+    Data3: -1274984800
+    Data4: -424896996
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &1258176122700632949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Thunder Dome/Wind
+  m_EditorClassIdentifier: 
+  Name: Wind
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 380680396
+    data2: 4030159402
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1302409715450279049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Programmer Sounds Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Programmer Sounds Room.bank
+  Name: Programmer Sounds Room
+  StudioPath: bank:/Programmer Sounds Room
+  lastModified: 638345289354257978
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1333359782363650165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/S. Gallery Music/Result
+  m_EditorClassIdentifier: 
+  Name: Result
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3361475615
+    data2: 2159831187
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1405416569607881221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Thunder Dome.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Thunder Dome.bank
+  Name: Thunder Dome
+  StudioPath: bank:/Thunder Dome
+  lastModified: 638345289355203790
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1420950460632820168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Custom Distance Attenuation Room/Cannon Move
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Custom Distance Attenuation Room/Cannon Move
+  Guid:
+    Data1: -1889384320
+    Data2: 1273615983
+    Data3: -1021116752
+    Data4: 1753287885
+  Banks:
+  - {fileID: -3591049193228169705}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1090083134746942507}
+  - {fileID: -4442893269124689412}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4886
+--- !u!114 &1486106686046119995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/PauseMenu
+  m_EditorClassIdentifier: 
+  Path: snapshot:/PauseMenu
+  Guid:
+    Data1: -35067488
+    Data2: 1310647673
+    Data3: 884527260
+    Data4: -832636837
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &1731841360543070553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/UI/UI Open
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/UI/UI Open
+  Guid:
+    Data1: 21969954
+    Data2: 1195794644
+    Data3: -291596153
+    Data4: 1939823141
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3709
+--- !u!114 &1777026986853274666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Transceiver Room/Radio Transceiver
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Transceiver Room/Radio Transceiver
+  Guid:
+    Data1: -1984590091
+    Data2: 1262688163
+    Data3: -2027293049
+    Data4: -676278800
+  Banks:
+  - {fileID: -686350264932460468}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8758684032467361649}
+  MinDistance: 0
+  MaxDistance: 3
+  Length: 30
+--- !u!114 &1836021265490574039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Thunder Dome/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  StudioPath: 
+  Min: 0
+  Max: 360
+  Default: 180
+  ID:
+    data1: 3025417061
+    data2: 187543484
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1855270157322144694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Room Verb
+  m_EditorClassIdentifier: 
+  Name: Room Verb
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3346208784
+    data2: 328372183
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1863559217811682130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Laser Gun single
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Laser Gun single
+  Guid:
+    Data1: 1131749177
+    Data2: 1121220672
+    Data3: -1569555044
+    Data4: -417063501
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 77
+--- !u!114 &1923816570695353326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Event Cone Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Event Cone Room.bank
+  Name: Event Cone Room
+  StudioPath: bank:/Event Cone Room
+  lastModified: 638345289353868263
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2054156265004047823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 3
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 3
+  Guid:
+    Data1: 974873003
+    Data2: 1251523359
+    Data3: -1588386166
+    Data4: 569027191
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5187
+--- !u!114 &2106816557537922297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Sound Module Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Sound Module Room.bank
+  Name: Sound Module Room
+  StudioPath: bank:/Sound Module Room
+  lastModified: 638345289354643307
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2172029178565104883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 1
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 1
+  Guid:
+    Data1: 599245634
+    Data2: 1196485049
+    Data3: 1480725158
+    Data4: 1930384472
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 5.8
+  Length: 4500
+--- !u!114 &2192401968512220506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Thunder/Thunder
+  m_EditorClassIdentifier: 
+  Name: Thunder
+  StudioPath: 
+  Min: 0
+  Max: 6
+  Default: 0
+  ID:
+    data1: 1872091391
+    data2: 4128154
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2220003055671294724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Thunder Dome/Rain
+  m_EditorClassIdentifier: 
+  Name: Rain
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 18767762
+    data2: 1253333094
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2519292050838859821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Piano/Sound
+  m_EditorClassIdentifier: 
+  Name: Sound
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 425670777
+    data2: 4217869073
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2556689092245801438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Shooter Rail/Exit Vehicle
+  m_EditorClassIdentifier: 
+  Name: Exit Vehicle
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 357417996
+    data2: 116066708
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2744428917730822998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Three Robots/Voice
+  m_EditorClassIdentifier: 
+  Name: Voice
+  StudioPath: 
+  Min: 1
+  Max: 3
+  Default: 1
+  ID:
+    data1: 829759351
+    data2: 1576201620
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2859338087168626477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Volume Control Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Volume Control Room.bank
+  Name: Volume Control Room
+  StudioPath: bank:/Volume Control Room
+  lastModified: 638345289355320852
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3433531414377112801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TargetHit/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 759474202
+    data2: 579535360
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3479774789110575082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactive Music Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Interactive Music Room.bank
+  Name: Interactive Music Room
+  StudioPath: bank:/Interactive Music Room
+  lastModified: 638345289353912680
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3559476977044084438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Entrance Saw
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Entrance Saw
+  Guid:
+    Data1: -752471401
+    Data2: 1185009134
+    Data3: -949556091
+    Data4: 1615130919
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7296
+--- !u!114 &3655757005074447201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 5
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 5
+  Guid:
+    Data1: 462107911
+    Data2: 1250549595
+    Data3: -1845463131
+    Data4: -2053567673
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 16000
+--- !u!114 &4076327273247053436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Water Ambience/Dry/Wet
+  m_EditorClassIdentifier: 
+  Name: Dry/Wet
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 274512949
+    data2: 3510279323
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4263456601047127738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting Gallery/Planet 4
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting Gallery/Planet 4
+  Guid:
+    Data1: -877939713
+    Data2: 1243673071
+    Data3: 324835211
+    Data4: -388067714
+  Banks:
+  - {fileID: -5886262390736499529}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5953
+--- !u!114 &4313948760691913593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Closing Doors Snapshot
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Closing Doors Snapshot
+  Guid:
+    Data1: 61865828
+    Data2: 1302281909
+    Data3: -2119007095
+    Data4: -204045938
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7167237277415588969}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &4359399498095740957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Door Transceiver/Enabled
+  m_EditorClassIdentifier: 
+  Name: Enabled
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3831373655
+    data2: 1104457630
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4650887424080691945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/UI/Button Click 02
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/UI/Button Click 02
+  Guid:
+    Data1: -1555438339
+    Data2: 1104868478
+    Data3: -1305978493
+    Data4: -1009794833
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 125
+--- !u!114 &4820669778906089933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Port Depart
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Port Depart
+  Guid:
+    Data1: 1217645575
+    Data2: 1169337962
+    Data3: 482426790
+    Data4: 838295678
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1528
+--- !u!114 &4870355618720750084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Panning Room/Three Robots
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Panning Room/Three Robots
+  Guid:
+    Data1: 591439705
+    Data2: 1226605933
+    Data3: 55818408
+    Data4: 364511450
+  Banks:
+  - {fileID: -2070587200237379789}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2744428917730822998}
+  - {fileID: -2767705475002857697}
+  MinDistance: 1
+  MaxDistance: 2.5
+  Length: 20000
+--- !u!114 &4936031547754083827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Snapshot Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Snapshot Room.bank
+  Name: Snapshot Room
+  StudioPath: bank:/Snapshot Room
+  lastModified: 638345289354603280
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5541896367648886541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Elevator button internal
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Elevator button internal
+  Guid:
+    Data1: 220517294
+    Data2: 1320353543
+    Data3: -1206998878
+    Data4: -669815453
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1423
+--- !u!114 &5778620466878020716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Heartbeat/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3016302532
+    data2: 1526819249
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &5934749079764617991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Elevator/End
+  m_EditorClassIdentifier: 
+  Name: End
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3387093452
+    data2: 1444951929
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6077280252112237369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Thunder Dome/Thunder Dome
+  m_EditorClassIdentifier: 
+  Path: event:/Thunder Dome/Thunder Dome
+  Guid:
+    Data1: -568858307
+    Data2: 1151945855
+    Data3: 1104590235
+    Data4: -1103902560
+  Banks:
+  - {fileID: 1405416569607881221}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1836021265490574039}
+  - {fileID: 2220003055671294724}
+  - {fileID: -6842308218987917142}
+  - {fileID: 1258176122700632949}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7899
+--- !u!114 &6097423501006114919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Master Bank.strings.bank
+  Name: Master Bank.strings
+  StudioPath: bank:/Master Bank.strings
+  lastModified: 638345289354182918
+  FileSizes:
+  - Name: 
+    Value: 7958
+  Exists: 1
+--- !u!114 &6216700157854316383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Sound Spin Room.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Sound Spin Room.bank
+  Name: Sound Spin Room
+  StudioPath: bank:/Sound Spin Room
+  lastModified: 638345289354658324
+  FileSizes: []
+  Exists: 1
+--- !u!114 &6402402308015520155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Single Robot/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 775554694
+    data2: 2597863708
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6634990159492306635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Transceiver Room/Transmit Transceiver
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Transceiver Room/Transmit Transceiver
+  Guid:
+    Data1: 1518757711
+    Data2: 1102924510
+    Data3: 1821498548
+    Data4: -1583764349
+  Banks:
+  - {fileID: -686350264932460468}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5630262929301651106}
+  MinDistance: 0
+  MaxDistance: 5
+  Length: 20600
+--- !u!114 &6974399715767519570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Test Banks/Master Bank.bank
+  Name: Master Bank
+  StudioPath: bank:/Master Bank
+  lastModified: 638345289354172920
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7167237277415588969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Closing Doors Snapshot/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 2268758957
+    data2: 2163234661
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8054342039309873908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Basic Rooms/Custom Distance Attenuation Room/Single Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Basic Rooms/Custom Distance Attenuation Room/Single Explosion
+  Guid:
+    Data1: 754932341
+    Data2: 1083442493
+    Data3: 993706672
+    Data4: 1369060943
+  Banks:
+  - {fileID: -3591049193228169705}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2850
+--- !u!114 &8316450536055036219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/UI/Hover Cycle
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/UI/Hover Cycle
+  Guid:
+    Data1: -881369158
+    Data2: 1301849224
+    Data3: 334120324
+    Data4: -149765265
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4778
+--- !u!114 &8484024836397348079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Overworld/Doors
+  m_EditorClassIdentifier: 
+  Path: event:/Overworld/Doors
+  Guid:
+    Data1: -564163314
+    Data2: 1270382866
+    Data3: 1976224692
+    Data4: 129293214
+  Banks:
+  - {fileID: 6974399715767519570}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5060953937081472734}
+  MinDistance: 0
+  MaxDistance: 20
+  Length: 12800
