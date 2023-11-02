@@ -10,7 +10,7 @@ public class RequirementsChecker : MonoBehaviour
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();
 
         // Create a list to store any missing required components
-        List<string> missingComponents = new List<string>();
+        List<string> missingComponents = new();
 
         // Check each game object for missing required components
         foreach (GameObject go in gameObjects)

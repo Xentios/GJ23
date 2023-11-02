@@ -5,27 +5,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public InputAction move;
+    public InputAction Move;
 
-    private void Awake()
-    {
-        
-    }
     void Start()
     {
-        move.performed += movementTest;
+        Move.performed += MovementTest;
     }
 
     private void OnEnable()
     {
-        move.Enable();
+        Move.Enable();
     }
     void OnDisable()
     {
-        move.Disable();
+        Move.Disable();
     }
 
-    public void movementTest(InputAction.CallbackContext callback)
+    public void MovementTest(InputAction.CallbackContext callback)
     {
         var result=callback.ReadValue<Vector2>();
         var pos = transform.position;
