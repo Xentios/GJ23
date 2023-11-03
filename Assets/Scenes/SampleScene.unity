@@ -567,54 +567,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357018ba54c0e0b4c83c3797c4aeb2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move:
+  Move:
     m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: fd96a637-3277-43b7-b28c-2494d3d0fcde
+    m_Id: 6b0989a8-68a5-4619-af7b-6015fcfed393
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: ba191ab9-fd5a-47a1-bc52-23217a2914ef
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 36e92775-4f17-4b87-a41f-495d9e63c5f4
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 41a1c115-1268-4684-ac7d-aa7517c542b2
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: dc32017c-f26e-4df2-b88d-4862afd6df0a
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 9e7d0436-045b-474e-83a5-c6964ccab14b
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
+    m_SingletonActionBindings: []
     m_Flags: 0
 --- !u!4 &1744838332
 Transform:
