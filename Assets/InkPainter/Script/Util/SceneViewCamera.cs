@@ -21,7 +21,7 @@ namespace Es.Utility
 
 		private void Update()
 		{
-			MouseUpdate();
+			//MouseUpdate();
 			return;
 		}
 

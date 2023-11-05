@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Es.InkPainter.Sample
 {
@@ -27,9 +28,9 @@ namespace Es.InkPainter.Sample
 
 		private void Update()
 		{
-			if(Input.GetMouseButton(0))
+			if(Mouse.current.leftButton.isPressed)
 			{
-				var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				var ray = Camera.main.ScreenPointToRay(new Vector2(Mouse.current.position.x.value, Mouse.current.position.y.value));
 				bool success = true;
 				RaycastHit hitInfo;
 				if(Physics.Raycast(ray, out hitInfo))
