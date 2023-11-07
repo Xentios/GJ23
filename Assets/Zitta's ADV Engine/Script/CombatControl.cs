@@ -226,7 +226,7 @@ namespace ADV
         }
 
         public const float CombatRangeLeft = -40f;
-        public const float CombatRangeRight = 40f;
+        public const float CombatRangeRight = 40f + 170f;
         public const float CombatRangeDown = -20f;
         public const float CombatRangeUp = 20f;
     }

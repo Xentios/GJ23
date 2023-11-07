@@ -63,7 +63,7 @@ MonoBehaviour:
   Keys:
   - Positive[0
   - TargetEnemy[1
-  - Range[3
+  - Range[5
 --- !u!1 &3501621335692874077
 GameObject:
   m_ObjectHideFlags: 0

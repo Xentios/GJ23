@@ -13,6 +13,8 @@ namespace ADV
             Vector2 P = Position;
             if (GetKey("Reset") == 1)
                 Source.Movement.CurrentDirection = new Vector2();
+            else if (HasKey("FixedDirectionX") || HasKey("FixedDirectionY"))
+                Source.Movement.CurrentDirection = new Vector2(GetKey("FixedDirectionX"), GetKey("FixedDirectionY"));
             else if (GetKey("Reverse") == 1)
                 Source.Movement.CurrentDirection = (Source.GetPosition() - P).normalized;
             else
@@ -25,6 +27,8 @@ namespace ADV
             // "RequireTarget": Whether to only effect with a target
             // "Reverse": Whether to inverse the direction
             // "Reset": Whether to reset direction
+            // "FixedDirectionX": Fixed direction value X
+            // "FixedDirectionY": Fixed direction value Y
             base.CommonKeys();
         }
     }

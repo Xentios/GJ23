@@ -71,8 +71,8 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
             hitF.transform.GetComponent<QuickOutline.Outline>().enabled = true;
             sliceTarget = hitF.transform.gameObject;
         }
-        else
-        {
+        else if ((sliceTarget !=null))
+        {         
             sliceTarget.GetComponent<QuickOutline.Outline>().enabled = false;
             sliceTarget = null;
         }
@@ -108,13 +108,13 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         planeList.Clear();
         for (int i = 0; i < transform.childCount; i++)
         {
-            var x = sliceTarget.GetComponent<MeshFilter>();          
-            Debug.Log(x.transform.position);
+            var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();          
+            Debug.Log(sliceTargetMeshFilter.transform.position);
             //  planeList.Add(new EzySlice.Plane(x.transform.position, x.transform.up));
-            var bounds=x.mesh.bounds;
-            Debug.Log(x.transform.TransformPoint(bounds.center));
-            var distance = Vector3.Distance(transform.GetChild(0).transform.position, x.transform.TransformPoint(bounds.center));
-            distance = DistanceToPlane(x.transform.TransformPoint(bounds.center), transform.GetChild(0).transform.right, transform.GetChild(0).transform.position);
+            var bounds=sliceTargetMeshFilter.mesh.bounds;
+            Debug.Log(sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
+            var distance = Vector3.Distance(transform.GetChild(0).transform.position, sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
+            distance = DistanceToPlane(sliceTargetMeshFilter.transform.TransformPoint(bounds.center), transform.GetChild(0).transform.right, transform.GetChild(0).transform.position);
             planeList.Add(new EzySlice.Plane(transform.GetChild(0).transform.right,-distance));
         }
     }
