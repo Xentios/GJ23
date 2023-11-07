@@ -80,11 +80,14 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         planeList.Clear();
         for (int i = 0; i < transform.childCount; i++)
         {
-            var x = transform.GetChild(i).GetComponent<MeshFilter>();          
+            var x = theMeat.GetComponent<MeshFilter>();          
             Debug.Log(x.transform.position);
             //  planeList.Add(new EzySlice.Plane(x.transform.position, x.transform.up));
-            var distance = Vector3.Distance(x.transform.position, theMeat.transform.position);
-            planeList.Add(new EzySlice.Plane(x.transform.right,distance));
+            var bounds=x.mesh.bounds;
+            Debug.Log(x.transform.TransformPoint(bounds.center));
+            var distance = Vector3.Distance(transform.GetChild(0).transform.position, x.transform.TransformPoint(bounds.center));
+            distance = DistanceToPlane(x.transform.TransformPoint(bounds.center), transform.GetChild(0).transform.right, transform.GetChild(0).transform.position);
+            planeList.Add(new EzySlice.Plane(transform.GetChild(0).transform.right,-distance));
         }
     }
 
@@ -109,6 +112,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
             Destroy(lastUpperPart);
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
+            lastUpperPart.AddComponent<Rigidbody>();
         }
        
     }
@@ -157,5 +161,10 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         var result = callback.ReadValue<float>();
         Quaternion rotation = Quaternion.Euler(0, result, 0);
         transform.GetChild(0).transform.rotation *= rotation;
+    }
+
+    private float DistanceToPlane(Vector3 point, Vector3 planeNormal, Vector3 pointOnPlane)
+    {
+        return Vector3.Dot(point - pointOnPlane, planeNormal);
     }
 }
