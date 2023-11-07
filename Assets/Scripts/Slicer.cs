@@ -13,11 +13,13 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     private InputAction mouseScroll;
 
     [SerializeField]
-    private GameObject theMeat; 
+    private GameObject sliceTarget; 
     [SerializeField]
-    private Material theMaterial;
+    private Material slicedFaceMaterial;
     [SerializeField]
     private List<Transform> points;
+    [SerializeField]
+    private LayerMask  sliceableLayer;
 
     private List<EzySlice.Plane> planeList;
 
@@ -27,6 +29,8 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     private GameObject lastUpperPart;
     private GameObject lastLowerPart;
 
+
+    private Ray DebugRay;
     private void Awake()
     {
         planeList = new();
@@ -58,19 +62,43 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         var mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, distanceOfSlicer));
         mousePos.y = transform.position.y;
         transform.position = mousePos;
-       
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            transform.DOMoveY(-0.5f, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
-            transform.DOMoveY(0, 0.5f).SetEase(Ease.InFlash)
-            );
 
-            SetPlanes();
-            foreach (var plane in planeList)
-            {
+
+        Ray rayFirst = Camera.main.ScreenPointToRay(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, distanceOfSlicer));
+        DebugRay = rayFirst;
+        if (Physics.Raycast(rayFirst, out RaycastHit hitF,1000f,sliceableLayer))
+        {
+            hitF.transform.GetComponent<QuickOutline.Outline>().enabled = true;
+            sliceTarget = hitF.transform.gameObject;
+        }
+        else
+        {
+            sliceTarget.GetComponent<QuickOutline.Outline>().enabled = false;
+            sliceTarget = null;
+        }
+
+
+            if (Mouse.current.leftButton.wasPressedThisFrame && sliceTarget!=null)
+        {
+
+
+
+              sliceTarget.GetComponent<QuickOutline.Outline>().enabled=false;
+                transform.DOMoveY(-0.5f, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
+                transform.DOMoveY(0, 0.5f).SetEase(Ease.InFlash)
+                );
                 
-                Slice(plane);
-            }
+                SetPlanes();
+                foreach (var plane in planeList)
+                {
+
+                    Slice(plane);
+                }
+          
+
+
+
+            
             //theMeat.SetActive(false);
         }
     }
@@ -80,7 +108,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         planeList.Clear();
         for (int i = 0; i < transform.childCount; i++)
         {
-            var x = theMeat.GetComponent<MeshFilter>();          
+            var x = sliceTarget.GetComponent<MeshFilter>();          
             Debug.Log(x.transform.position);
             //  planeList.Add(new EzySlice.Plane(x.transform.position, x.transform.up));
             var bounds=x.mesh.bounds;
@@ -100,14 +128,14 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     public void Slice(EzySlice.Plane thePlane)
     {
         var tr = new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f);
-        var result = EzySlice.Slicer.Slice(theMeat, thePlane, tr, theMaterial);
+        var result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
         if (result != null)
         {
-            var lowerHull = result.CreateLowerHull(theMeat, theMaterial);
-            var upperHull= result.CreateUpperHull(theMeat, theMaterial);
+            var lowerHull = result.CreateLowerHull(sliceTarget, slicedFaceMaterial);
+            var upperHull= result.CreateUpperHull(sliceTarget, slicedFaceMaterial);
 
-            lowerHull.transform.position= theMeat.transform.position + Vector3.forward * 1;
-            upperHull.transform.position= theMeat.transform.position + Vector3.forward *-1;
+            lowerHull.transform.position= sliceTarget.transform.position + Vector3.forward * 1;
+            upperHull.transform.position= sliceTarget.transform.position + Vector3.forward *-1;
             Destroy(lastLowerPart);
             Destroy(lastUpperPart);
             lastLowerPart = lowerHull;
@@ -119,7 +147,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
 
     public void Slice(EzySlice.Plane thePlane, TextureRegion theTr)
     {
-        EzySlice.Slicer.Slice(theMeat, thePlane, theTr, theMaterial)?.CreateLowerHull(theMeat,theMaterial);
+        EzySlice.Slicer.Slice(sliceTarget, thePlane, theTr, slicedFaceMaterial)?.CreateLowerHull(sliceTarget,slicedFaceMaterial);
     }
 
     public EzySlice.Plane GetRandomPlane()
@@ -140,7 +168,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
             Slice();
 
         if (GUI.Button(new Rect(209, 790, 250, 230), "SlicePlane"))
-            Slice(new EzySlice.Plane(Vector3.left/2, theMeat.transform.right),new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f));
+            Slice(new EzySlice.Plane(Vector3.left/2, sliceTarget.transform.right),new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f));
         if (GUI.Button(new Rect(409, 790, 250, 230), "Slice Points"))
             Slice(debugPlane, new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f));
     }
@@ -153,6 +181,13 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     private void OnDrawGizmos()
     {
         debugPlane.OnDebugDraw(Color.red);
+
+       
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.GetChild(0).transform.position, transform.GetChild(0).transform.position+ transform.GetChild(0).transform.right);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(DebugRay.origin,DebugRay.direction*100f);
     }
 
 
@@ -167,4 +202,6 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     {
         return Vector3.Dot(point - pointOnPlane, planeNormal);
     }
+
+   
 }
