@@ -64,9 +64,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MouseClicks"",
+                    ""name"": ""MouseLeftClick"",
                     ""type"": ""Button"",
                     ""id"": ""1b1018f4-c268-46f5-8e92-ca32af4cfff9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseRightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""e70032b9-416f-43d9-b5d2-cdfccf933b29"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -235,7 +244,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MouseClicks"",
+                    ""action"": ""MouseLeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb330a26-5ea3-4ddd-a763-bc6deca53994"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseRightClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -250,7 +270,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
-        m_Player_MouseClicks = m_Player.FindAction("MouseClicks", throwIfNotFound: true);
+        m_Player_MouseLeftClick = m_Player.FindAction("MouseLeftClick", throwIfNotFound: true);
+        m_Player_MouseRightClick = m_Player.FindAction("MouseRightClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -316,7 +337,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Scroll;
     private readonly InputAction m_Player_MouseAim;
-    private readonly InputAction m_Player_MouseClicks;
+    private readonly InputAction m_Player_MouseLeftClick;
+    private readonly InputAction m_Player_MouseRightClick;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -325,7 +347,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputAction @MouseAim => m_Wrapper.m_Player_MouseAim;
-        public InputAction @MouseClicks => m_Wrapper.m_Player_MouseClicks;
+        public InputAction @MouseLeftClick => m_Wrapper.m_Player_MouseLeftClick;
+        public InputAction @MouseRightClick => m_Wrapper.m_Player_MouseRightClick;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -347,9 +370,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseAim.started += instance.OnMouseAim;
             @MouseAim.performed += instance.OnMouseAim;
             @MouseAim.canceled += instance.OnMouseAim;
-            @MouseClicks.started += instance.OnMouseClicks;
-            @MouseClicks.performed += instance.OnMouseClicks;
-            @MouseClicks.canceled += instance.OnMouseClicks;
+            @MouseLeftClick.started += instance.OnMouseLeftClick;
+            @MouseLeftClick.performed += instance.OnMouseLeftClick;
+            @MouseLeftClick.canceled += instance.OnMouseLeftClick;
+            @MouseRightClick.started += instance.OnMouseRightClick;
+            @MouseRightClick.performed += instance.OnMouseRightClick;
+            @MouseRightClick.canceled += instance.OnMouseRightClick;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -366,9 +392,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseAim.started -= instance.OnMouseAim;
             @MouseAim.performed -= instance.OnMouseAim;
             @MouseAim.canceled -= instance.OnMouseAim;
-            @MouseClicks.started -= instance.OnMouseClicks;
-            @MouseClicks.performed -= instance.OnMouseClicks;
-            @MouseClicks.canceled -= instance.OnMouseClicks;
+            @MouseLeftClick.started -= instance.OnMouseLeftClick;
+            @MouseLeftClick.performed -= instance.OnMouseLeftClick;
+            @MouseLeftClick.canceled -= instance.OnMouseLeftClick;
+            @MouseRightClick.started -= instance.OnMouseRightClick;
+            @MouseRightClick.performed -= instance.OnMouseRightClick;
+            @MouseRightClick.canceled -= instance.OnMouseRightClick;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -392,6 +421,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
         void OnMouseAim(InputAction.CallbackContext context);
-        void OnMouseClicks(InputAction.CallbackContext context);
+        void OnMouseLeftClick(InputAction.CallbackContext context);
+        void OnMouseRightClick(InputAction.CallbackContext context);
     }
 }

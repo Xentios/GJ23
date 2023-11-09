@@ -42,9 +42,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseClicks",
+                    "name": "MouseLeftClick",
                     "type": "Button",
                     "id": "1b1018f4-c268-46f5-8e92-ca32af4cfff9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseRightClick",
+                    "type": "Button",
+                    "id": "e70032b9-416f-43d9-b5d2-cdfccf933b29",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -213,7 +222,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseClicks",
+                    "action": "MouseLeftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb330a26-5ea3-4ddd-a763-bc6deca53994",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseRightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

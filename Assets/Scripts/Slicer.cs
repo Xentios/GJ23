@@ -14,6 +14,8 @@ public class Slicer : MonoBehaviour
     [SerializeField]
     private InputActionReference mouseLeftClick;
     [SerializeField]
+    private InputActionReference mouseRightClick;
+    [SerializeField]
     private InputAction mouseScroll;
 
     [SerializeField]
@@ -23,6 +25,11 @@ public class Slicer : MonoBehaviour
 
     [SerializeField]
     private Transform sliceHolder;
+
+    private int indexOfSliceHolder;
+
+    [SerializeField]
+    private List<GameObject> sliceHolderPrefabs;
 
     [SerializeField]
     private LayerMask sliceableLayer;
@@ -48,6 +55,7 @@ public class Slicer : MonoBehaviour
         mouseScroll.performed += MouseScrollEvents;
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.performed += MouseLeftClickEvent;
+        mouseRightClick.action.performed += MouseRightClickEvent;
     }
 
     private void OnEnable()
@@ -55,12 +63,14 @@ public class Slicer : MonoBehaviour
         mouseScroll.Enable();
         mouseMovement.action.Enable();
         mouseLeftClick.action.Enable();
+        mouseRightClick.action.Enable();
     }
     void OnDisable()
     {
         mouseScroll.Disable();
         mouseMovement.action.Disable();
         mouseLeftClick.action.Disable();
+        mouseRightClick.action.Disable();
     }
 
     private void SetPlanes()
@@ -176,6 +186,17 @@ public class Slicer : MonoBehaviour
 
 
     }
+
+    private void MouseRightClickEvent(InputAction.CallbackContext callback)
+    {
+        if (isSlicing == true) return;
+
+        indexOfSliceHolder++;
+        indexOfSliceHolder %= sliceHolderPrefabs.Count;
+        GameObject.Destroy(sliceHolder.gameObject);
+        sliceHolder=Instantiate(sliceHolderPrefabs[indexOfSliceHolder],transform).transform;        
+    }
+
     private void MouseMovementEvent(InputAction.CallbackContext callback)
     {
         if (isSlicing == true) return;

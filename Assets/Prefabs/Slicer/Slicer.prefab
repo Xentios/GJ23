@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2021978616327589914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7830574954962965596}
+  - component: {fileID: 1286447897531766573}
+  m_Layer: 0
+  m_Name: Slicer
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7830574954962965596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021978616327589914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 5959715071907153813}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1286447897531766573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021978616327589914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01437f6742c0f204a8f3e950faf3b474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseMovement: {fileID: -5472807542800554258, guid: bdede9fe2639ae3468c83a492aa97504,
+    type: 3}
+  mouseLeftClick: {fileID: -698399655105832930, guid: bdede9fe2639ae3468c83a492aa97504,
+    type: 3}
+  mouseRightClick: {fileID: -698399655105832930, guid: bdede9fe2639ae3468c83a492aa97504,
+    type: 3}
+  mouseScroll:
+    m_Name: Mouse Scroll
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0332b78c-bde6-4d86-9443-402e13b2ac3d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: e82acae7-2ad3-4740-96c9-10a1bae78e0a
+      m_Path: 1DAxis(minValue=-0.1,maxValue=0.1)
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Scroll
+      m_Flags: 4
+    - m_Name: positive
+      m_Id: 7cad2d61-d50d-4cee-94b8-2b60fc84bee1
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Scroll
+      m_Flags: 8
+    - m_Name: negative
+      m_Id: e80aff61-f211-4f8d-9504-264f10b18a79
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Scroll
+      m_Flags: 8
+    m_Flags: 0
+  sliceTarget: {fileID: 0}
+  slicedFaceMaterial: {fileID: 2100000, guid: a0bbf8e1857600b43aab4ae9f36a273c, type: 2}
+  sliceHolder: {fileID: 5959715071907153813}
+  sliceHolderPrefabs: []
+  sliceableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!1001 &87165544199099213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7830574954962965596}
+    m_Modifications:
+    - target: {fileID: 4250368557999174506, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_Name
+      value: Slicer Shaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9535429143543a1478894beabc9648b9, type: 3}
+--- !u!4 &5959715071907153813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6016956238841337048, guid: 9535429143543a1478894beabc9648b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 87165544199099213}
+  m_PrefabAsset: {fileID: 0}
