@@ -347,5 +347,20 @@ namespace QuickOutline
                 break;
             }
         }
+
+        public Outline CopyValuesToOut(Outline reference)
+        {
+            reference.outlineColor = outlineColor;
+            reference.outlineWidth = outlineWidth;
+            reference.needsUpdate = true;
+            return reference;
+        }
+
+        public void CopyValuesToInside(Outline reference)
+        {
+            outlineColor =reference.outlineColor ;
+            outlineWidth=reference.outlineWidth ;
+            reference.needsUpdate = true;            
+        }
     }
 }

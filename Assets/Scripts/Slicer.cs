@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System.Reflection;
 
 public class Slicer : MonoBehaviour, IPointerClickHandler
 {
@@ -131,6 +132,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         var result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
         if (result != null)
         {
+            var componentCopy = sliceTarget.GetComponent<QuickOutline.Outline>();
             var lowerHull = result.CreateLowerHull(sliceTarget, slicedFaceMaterial);
             var upperHull= result.CreateUpperHull(sliceTarget, slicedFaceMaterial);
 
@@ -140,6 +142,14 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
             Destroy(lastUpperPart);
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
+            //CopyComponent(sliceTarget.GetComponent<QuickOutline.Outline>(), lastLowerPart);
+            //var component=lastUpperPart.AddComponent<QuickOutline.Outline>();
+            //var copy = component.GetCopyOf(sliceTarget.GetComponent<QuickOutline.Outline>());
+            
+            var resul22t=lastLowerPart.AddComponent<QuickOutline.Outline>();
+            componentCopy.CopyValuesToOut(resul22t);
+            lastUpperPart.AddComponent<QuickOutline.Outline>();
+            
             lastUpperPart.AddComponent<Rigidbody>();
         }
        
@@ -203,5 +213,9 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         return Vector3.Dot(point - pointOnPlane, planeNormal);
     }
 
-   
+
+
+  
+    
+
 }
