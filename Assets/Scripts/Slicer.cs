@@ -16,7 +16,9 @@ public class Slicer : MonoBehaviour
     [SerializeField]
     private InputActionReference mouseRightClick;
     [SerializeField]
-    private InputAction mouseScroll;
+    private InputActionReference mouseScrollWithCTRL;
+    [SerializeField]
+    private InputActionReference mouseScroll;
 
     [SerializeField]
     private GameObject sliceTarget;
@@ -52,25 +54,28 @@ public class Slicer : MonoBehaviour
 
     private void Start()
     {
-        mouseScroll.performed += MouseScrollEvents;
+        mouseScroll.action.performed += MouseScrollEvent;
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.performed += MouseLeftClickEvent;
         mouseRightClick.action.performed += MouseRightClickEvent;
+        mouseScrollWithCTRL.action.performed += MouseScrollWithCTRLEvent;
     }
 
     private void OnEnable()
     {
-        mouseScroll.Enable();
+        mouseScroll.action.Enable();
         mouseMovement.action.Enable();
         mouseLeftClick.action.Enable();
         mouseRightClick.action.Enable();
+        mouseScrollWithCTRL.action.Enable();
     }
     void OnDisable()
     {
-        mouseScroll.Disable();
+        mouseScroll.action.Disable();
         mouseMovement.action.Disable();
         mouseLeftClick.action.Disable();
         mouseRightClick.action.Disable();
+        mouseScrollWithCTRL.action.Disable();
     }
 
     private void SetPlanes()
@@ -108,7 +113,11 @@ public class Slicer : MonoBehaviour
             //Destroy(lastUpperPart);
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
-            lastUpperPart.AddComponent<Rigidbody>().drag=1.5f;
+            var rb = lastUpperPart.AddComponent<Rigidbody>();
+            //rb.drag = 1.4f;
+            //rb.useGravity = false;
+            //rb.AddExplosionForce(100f, rb.centerOfMass+Vector3.up, 100f);
+            rb.AddForce(Random.insideUnitSphere * 100);
             lastUpperPart.AddComponent<MeshCollider>().convex=true;
             Destroy(sliceTarget);
             sliceTarget = lastLowerPart;
@@ -187,6 +196,9 @@ public class Slicer : MonoBehaviour
 
     }
 
+    
+
+
     private void MouseRightClickEvent(InputAction.CallbackContext callback)
     {
         if (isSlicing == true) return;
@@ -209,11 +221,27 @@ public class Slicer : MonoBehaviour
         transform.position = mousePos;
     }
 
-    private void MouseScrollEvents(InputAction.CallbackContext callback)
+    private void MouseScrollEvent(InputAction.CallbackContext callback)
     {
+        if (isSlicing == true) return;
+        if (Keyboard.current.ctrlKey.isPressed || Keyboard.current.shiftKey.isPressed || Keyboard.current.altKey.isPressed) return;
+
         var result = callback.ReadValue<float>();
-        Quaternion rotation = Quaternion.Euler(0, result, 0);
+        Debugger.Log("MouseScrollEvents result= " + result, Debugger.PriorityLevel.MustShown);
+        var speed = 10f;            
+        Quaternion rotation = Quaternion.Euler(0, Mathf.Sign(result)*speed, 0);
         sliceHolder.transform.rotation *= rotation;
+    }
+
+    private void MouseScrollWithCTRLEvent(InputAction.CallbackContext callback)
+    {
+        if (isSlicing == true) return;
+
+        var result = callback.ReadValue<float>();
+        Debugger.Log("MouseScrollwithCTRLEvent result= " + result, Debugger.PriorityLevel.MustShown);
+        var speed = 0.1f;
+        result =1+(Mathf.Sign(result) * speed);
+        sliceHolder.localScale = sliceHolder.localScale * result;
     }
 
     private float DistanceToPlane(Vector3 point, Vector3 planeNormal, Vector3 pointOnPlane)

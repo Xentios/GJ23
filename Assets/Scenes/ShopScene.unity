@@ -798,7 +798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521028419}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09733709, y: 0.70633924, z: -0.6941176, w: -0.09905096}
+  m_LocalRotation: {x: -0.09734315, y: 0.7063384, z: -0.69411683, w: -0.09905711}
   m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -1352,7 +1352,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 0
@@ -2677,37 +2677,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
         type: 3}
+      propertyPath: mouseScroll
+      value: 
+      objectReference: {fileID: -5156544476446834591, guid: bdede9fe2639ae3468c83a492aa97504,
+        type: 3}
+    - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
+        type: 3}
       propertyPath: sliceTarget
       value: 
       objectReference: {fileID: 1257445506}
     - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
         type: 3}
-      propertyPath: mouseRightClick
+      propertyPath: mouseScrollWithCTRL
       value: 
-      objectReference: {fileID: 27046116109915383, guid: bdede9fe2639ae3468c83a492aa97504,
-        type: 3}
-    - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
-        type: 3}
-      propertyPath: sliceHolderPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
-        type: 3}
-      propertyPath: sliceHolderPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 4250368557999174506, guid: 9535429143543a1478894beabc9648b9,
-        type: 3}
-    - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
-        type: 3}
-      propertyPath: sliceHolderPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 344588952905929635, guid: bb25ad4718106e34e8cdf55aa7014263,
-        type: 3}
-    - target: {fileID: 1286447897531766573, guid: ee1e7d7a6172348408c5c3cb2242d47f,
-        type: 3}
-      propertyPath: sliceHolderPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 9127224177561630557, guid: fda7d74650c14e24f96e2ca9a9a9d149,
+      objectReference: {fileID: 7385370986052438054, guid: bdede9fe2639ae3468c83a492aa97504,
         type: 3}
     - target: {fileID: 2021978616327589914, guid: ee1e7d7a6172348408c5c3cb2242d47f,
         type: 3}
