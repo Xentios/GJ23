@@ -10,6 +10,10 @@ using System.Reflection;
 public class Slicer : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
+
+    [SerializeField]
+    private float  testFloat;
+
     [SerializeField]
     private InputAction mouseScroll;
 
@@ -17,8 +21,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     private GameObject sliceTarget; 
     [SerializeField]
     private Material slicedFaceMaterial;
-    [SerializeField]
-    private List<Transform> points;
+
     [SerializeField]
     private LayerMask  sliceableLayer;
 
@@ -32,6 +35,8 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
 
 
     private Ray DebugRay;
+    private bool isSlicing;
+
     private void Awake()
     {
         planeList = new();
@@ -41,8 +46,7 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         mouseScroll.performed += MouseScrollEvents;
-        debugPlane = //new EzySlice.Plane();
-        new EzySlice.Plane(points[0].localPosition, points[1].localPosition, points[2].localPosition);
+        //debugPlane = //new EzySlice.Plane();       
         //debugPlane.Compute();
       //  debugPlane.Compute(planeList[0].dist, planeList[0].normal);
     }
@@ -65,44 +69,57 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         transform.position = mousePos;
 
 
-        Ray rayFirst = Camera.main.ScreenPointToRay(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, distanceOfSlicer));
-        DebugRay = rayFirst;
-        if (Physics.Raycast(rayFirst, out RaycastHit hitF,1000f,sliceableLayer))
+        if(isSlicing == false)
         {
-            hitF.transform.GetComponent<QuickOutline.Outline>().enabled = true;
-            sliceTarget = hitF.transform.gameObject;
+            //Ray rayFirst = Camera.main.ScreenPointToRay(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, distanceOfSlicer));
+            //DebugRay = rayFirst;
+            //if (Physics.Raycast(rayFirst, out RaycastHit hitF, 1000f, sliceableLayer))
+            //{
+            //    hitF.transform.GetComponent<QuickOutline.Outline>().enabled = true;
+            //    sliceTarget = hitF.transform.gameObject;
+            //}
+            //else if ((sliceTarget != null))
+            //{
+            //    sliceTarget.GetComponent<QuickOutline.Outline>().enabled = false;
+            //    sliceTarget = null;
+            //}
+
         }
-        else if ((sliceTarget !=null))
-        {         
-            sliceTarget.GetComponent<QuickOutline.Outline>().enabled = false;
-            sliceTarget = null;
-        }
+      
 
 
             if (Mouse.current.leftButton.wasPressedThisFrame && sliceTarget!=null)
         {
 
 
-
+            isSlicing = true;
               sliceTarget.GetComponent<QuickOutline.Outline>().enabled=false;
-                transform.DOMoveY(-0.5f, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
-                transform.DOMoveY(0, 0.5f).SetEase(Ease.InFlash)
-                );
-                
-                SetPlanes();
-                foreach (var plane in planeList)
-                {
+            //transform.DOMoveY(-0.5f, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
+            //transform.DOMoveY(0, 0.5f).SetEase(Ease.InFlash)
+            //);
 
-                    Slice(plane);
-                }
-          
+            SetPlanes();
+            foreach (var plane in planeList)
+            {
 
+                Slice(plane);
+            }
 
 
+           
             
-            //theMeat.SetActive(false);
+           
         }
     }
+
+    //private EzySlice.Plane SetCurrentPlane(int childIndex)
+    //{
+    //    var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();
+    //    var bounds = sliceTargetMeshFilter.sharedMesh.bounds;
+    //    var distance = DistanceToPlane(sliceTargetMeshFilter.transform.TransformPoint(bounds.center), transform.GetChild(0).transform.right, transform.GetChild(0).transform.position);
+
+
+    //}
 
     private void SetPlanes()
     {
@@ -110,13 +127,19 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < transform.childCount; i++)
         {
             var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();          
-            Debug.Log(sliceTargetMeshFilter.transform.position);
+          
             //  planeList.Add(new EzySlice.Plane(x.transform.position, x.transform.up));
-            var bounds=sliceTargetMeshFilter.mesh.bounds;
-            Debug.Log(sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
-            var distance = Vector3.Distance(transform.GetChild(0).transform.position, sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
-            distance = DistanceToPlane(sliceTargetMeshFilter.transform.TransformPoint(bounds.center), transform.GetChild(0).transform.right, transform.GetChild(0).transform.position);
-            planeList.Add(new EzySlice.Plane(transform.GetChild(0).transform.right,-distance));
+            var bounds=sliceTargetMeshFilter.sharedMesh.bounds;
+            //Debug.Log(sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
+            //var distance = DistanceIgnoreY(transform.GetChild(0).transform.position, sliceTargetMeshFilter.transform.TransformPoint(bounds.center));
+            var distance = DistanceToPlane(sliceTargetMeshFilter.transform.TransformPoint(bounds.center), transform.GetChild(i).transform.right, transform.GetChild(i).transform.position);
+            Debugger.Log("Distance is "+distance , Debugger.PriorityLevel.Medium);
+            //var meshDistance = Mathf.Sqrt((bounds.extents.x * bounds.extents.x) + bounds.extents.z * bounds.extents.z);
+            //Debugger.Log("Mesh Distance is " + meshDistance, Debugger.PriorityLevel.Medium);
+            //Debugger.Log("bounds.size is " + bounds.size, Debugger.PriorityLevel.Medium);
+            distance /= sliceTargetMeshFilter.transform.lossyScale.x;
+            //distance = MapF(0, meshDistance, 0, 1, Mathf.Abs(distance))*Mathf.Sign(distance);
+            planeList.Add(new EzySlice.Plane(transform.GetChild(i).transform.right, -distance));
         }
     }
 
@@ -128,16 +151,17 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
     }
     public void Slice(EzySlice.Plane thePlane)
     {
-        var tr = new TextureRegion(0.0f, 0.0f, 1.0f, 1.0f);
+        var tr = new TextureRegion(1f, 1f, 1.0f, 1.0f);
         var result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
         if (result != null)
         {
+            
             var componentCopy = sliceTarget.GetComponent<QuickOutline.Outline>();
             var lowerHull = result.CreateLowerHull(sliceTarget, slicedFaceMaterial);
             var upperHull= result.CreateUpperHull(sliceTarget, slicedFaceMaterial);
 
-            lowerHull.transform.position= sliceTarget.transform.position + Vector3.forward * 1;
-            upperHull.transform.position= sliceTarget.transform.position + Vector3.forward *-1;
+            lowerHull.transform.position = sliceTarget.transform.position;
+            upperHull.transform.position = sliceTarget.transform.position;
             Destroy(lastLowerPart);
             Destroy(lastUpperPart);
             lastLowerPart = lowerHull;
@@ -146,11 +170,14 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
             //var component=lastUpperPart.AddComponent<QuickOutline.Outline>();
             //var copy = component.GetCopyOf(sliceTarget.GetComponent<QuickOutline.Outline>());
             
-            var resul22t=lastLowerPart.AddComponent<QuickOutline.Outline>();
-            componentCopy.CopyValuesToOut(resul22t);
-            lastUpperPart.AddComponent<QuickOutline.Outline>();
+            //var resul22t=lastLowerPart.AddComponent<QuickOutline.Outline>();
+            //componentCopy.CopyValuesToOut(resul22t);
+            //lastUpperPart.AddComponent<QuickOutline.Outline>();
             
             lastUpperPart.AddComponent<Rigidbody>();
+
+            Destroy(sliceTarget);
+            sliceTarget = lastLowerPart;
         }
        
     }
@@ -210,12 +237,29 @@ public class Slicer : MonoBehaviour, IPointerClickHandler
 
     private float DistanceToPlane(Vector3 point, Vector3 planeNormal, Vector3 pointOnPlane)
     {
+        point.y = 0;
+        pointOnPlane.y = 0;
         return Vector3.Dot(point - pointOnPlane, planeNormal);
+    }
+    private float DistanceIgnoreY(Vector3 a, Vector3 b)
+    {
+        Vector2 a2D = new Vector2(a.x, a.z);
+        Vector2 b2D = new Vector2(b.x, b.z);
+        return Vector2.Distance(a2D, b2D);
+    }
+
+
+    private float MapF(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue)
+    {
+
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+
+        return (NewValue);
     }
 
 
 
-  
-    
 
 }
