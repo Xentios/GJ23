@@ -28,7 +28,7 @@ namespace Es.InkPainter
 			/// <summary>
 			/// Applying paint materials.
 			/// </summary>
-			[HideInInspector]
+			
 			[NonSerialized]
 			public Material material;
 
@@ -53,7 +53,7 @@ namespace Es.InkPainter
 			/// <summary>
 			/// In the first time set to the material's main texture.
 			/// </summary>
-			[HideInInspector]
+			
 			[NonSerialized]
 			public Texture mainTexture;
 
@@ -151,9 +151,9 @@ namespace Es.InkPainter
 			#endregion Constractor
 		}
 
-		private static Material paintMainMaterial = null;
-		private static Material paintNormalMaterial = null;
-		private static Material paintHeightMaterial = null;
+        public static Material paintMainMaterial = null;
+        public static Material paintNormalMaterial = null;
+        public static Material paintHeightMaterial = null;
 		private bool eraseFlag = false;
 		private RenderTexture debugEraserMainView;
 		private RenderTexture debugEraserNormalView;
@@ -441,7 +441,7 @@ namespace Es.InkPainter
 		/// <param name="brush">Brush data.</param>
 		/// <param name="uv">UV coordinates for the hit location.</param>
 		private void SetPaintMainData(Brush brush, Vector2 uv)
-		{
+		{           
 			paintMainMaterial.SetVector(paintUVPropertyID, uv);
 			paintMainMaterial.SetTexture(brushTexturePropertyID, brush.BrushTexture);
 			paintMainMaterial.SetFloat(brushScalePropertyID, brush.Scale);

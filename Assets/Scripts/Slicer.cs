@@ -141,12 +141,7 @@ public class Slicer : MonoBehaviour
     }
 
 
-    void OnGUI()
-    {
-               
-    }
-
-
+   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
