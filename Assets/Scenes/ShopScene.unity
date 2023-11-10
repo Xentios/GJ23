@@ -758,7 +758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521028419}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25293615, y: -0.00047057885, z: 0.0001230269, w: 0.96748286}
+  m_LocalRotation: {x: 0.25293615, y: -0.0004705955, z: 0.00012303123, w: 0.96748286}
   m_LocalPosition: {x: 0, y: 25, z: -45.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -860,7 +860,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 13.680645
+  field of view: 25.758244
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -886,8 +886,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823477961}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25293615, y: -0.00047057885, z: 0.0001230269, w: 0.96748286}
-  m_LocalPosition: {x: 0, y: 25, z: -45.59}
+  m_LocalRotation: {x: 0.56560147, y: -0.0018510957, z: 0.0012695689, w: 0.82467574}
+  m_LocalPosition: {x: 0, y: 25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e7b69764f57714ca5c9d90f50c4382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 0.8207547, g: 0.3445621, b: 0.3445621, a: 1}
   targetObject: {fileID: 1257445506}
 --- !u!4 &1599687687
 Transform:
@@ -2307,7 +2307,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0
-    brushColor: {r: 1, g: 1, b: 1, a: 1}
+    brushColor: {r: 0.81960785, g: 0.34509805, b: 0.34509805, a: 1}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0
