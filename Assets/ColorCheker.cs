@@ -9,7 +9,6 @@ public class ColorCheker : MonoBehaviour
     [SerializeField]
     private GameObject targetObject;
 
-
     [SerializeField]
     private bool saveTextureForDebugging;
     void CalculateColorArea()

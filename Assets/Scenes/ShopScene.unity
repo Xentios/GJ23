@@ -921,7 +921,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 25.758244
+  field of view: 13.680645
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -947,8 +947,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823477961}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56560147, y: -0.0018511541, z: 0.0012696087, w: 0.82467574}
-  m_LocalPosition: {x: 0, y: 25, z: -10}
+  m_LocalRotation: {x: 0.25293615, y: -0.00047057885, z: 0.0001230269, w: 0.96748286}
+  m_LocalPosition: {x: 0, y: 25, z: -45.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1075,6 +1075,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ae0e3794289f6040974a6483fed6d0d, type: 2}
+    - target: {fileID: 6252143764321989517, guid: 14d0da1e6bf3c2d45bffb32d98869f72,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].useNormalPaint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6848378629296959504, guid: 14d0da1e6bf3c2d45bffb32d98869f72,
         type: 3}
       propertyPath: m_Name
@@ -1155,8 +1160,7 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6252143764321989517, guid: 14d0da1e6bf3c2d45bffb32d98869f72, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2146,7 +2150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1599687686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,6 +2164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetColor: {r: 0.764151, g: 0.33521715, b: 0.33521715, a: 1}
+  Color:
+    serializedVersion: 2
+    rgba: 2554018752
+  Color2:
+    serializedVersion: 2
+    rgba: 2554018752
   targetObject: {fileID: 1535031992}
   saveTextureForDebugging: 0
 --- !u!4 &1599687687
@@ -2510,7 +2520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799531823}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56560147, y: -0.0018511541, z: 0.0012696087, w: 0.82467574}
+  m_LocalRotation: {x: 0.56560147, y: -0.0018510957, z: 0.0012695689, w: 0.82467574}
   m_LocalPosition: {x: 0, y: 25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -2587,7 +2597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1934512648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,7 +2802,7 @@ PrefabInstance:
     - target: {fileID: 2021978616327589914, guid: ee1e7d7a6172348408c5c3cb2242d47f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7830574954962965596, guid: ee1e7d7a6172348408c5c3cb2242d47f,
         type: 3}
