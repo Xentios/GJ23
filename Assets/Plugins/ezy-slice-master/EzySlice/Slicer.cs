@@ -469,6 +469,9 @@ namespace EzySlice {
                 newMesh.SetTriangles(triangles[i], i, false);
             }
 
+
+            //TODO DELETE
+            newMesh.name = "Newnewmesh";
             return newMesh;
         }
 

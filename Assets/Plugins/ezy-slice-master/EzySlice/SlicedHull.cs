@@ -87,7 +87,7 @@ namespace EzySlice {
                 // copy our material arrays across using native copy (should be faster than loop)
                 System.Array.Copy(shared, newShared, shared.Length);
                 newShared[shared.Length] = crossSectionMat;
-
+                
                 // the the material information
                 newObject.GetComponent<Renderer>().sharedMaterials = newShared;
             }

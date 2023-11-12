@@ -6,9 +6,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Reflection;
+using UnityEngine.Events;
 
 public class Slicer : MonoBehaviour
 {
+    [SerializeField]
+    private GameEvent jobFinished;
+
     [SerializeField]
     private InputActionReference mouseMovement;
     [SerializeField]
@@ -49,20 +53,18 @@ public class Slicer : MonoBehaviour
     private void Awake()
     {
         planeList = new();
-
     }
 
-    private void Start()
+ 
+
+    private void OnEnable()
     {
         mouseScroll.action.performed += MouseScrollEvent;
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.performed += MouseLeftClickEvent;
         mouseRightClick.action.performed += MouseRightClickEvent;
         mouseScrollWithCTRL.action.performed += MouseScrollWithCTRLEvent;
-    }
 
-    private void OnEnable()
-    {
         mouseScroll.action.Enable();
         mouseMovement.action.Enable();
         mouseLeftClick.action.Enable();
@@ -71,6 +73,12 @@ public class Slicer : MonoBehaviour
     }
     void OnDisable()
     {
+        mouseScroll.action.performed -= MouseScrollEvent;
+        mouseMovement.action.performed -= MouseMovementEvent;
+        mouseLeftClick.action.performed -= MouseLeftClickEvent;
+        mouseRightClick.action.performed -= MouseRightClickEvent;
+        mouseScrollWithCTRL.action.performed -= MouseScrollWithCTRLEvent;
+
         mouseScroll.action.Disable();
         mouseMovement.action.Disable();
         mouseLeftClick.action.Disable();
@@ -98,12 +106,13 @@ public class Slicer : MonoBehaviour
     }
     public void Slice(EzySlice.Plane thePlane)
     {
-        var tr = new TextureRegion(1f, 1f, 1.0f, 1.0f);
-        var result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
+        var tr = new TextureRegion(0f, 0f, 1.0f, 1.0f);        
+        EzySlice.SlicedHull result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
+        //SliceInstantiate(this GameObject obj, Plane pl, TextureRegion cuttingRegion, Material crossSectionMaterial = null)
+        //EzySlice.SlicerExtensions.SliceInstantiate(sliceTarget, thePlane,new TextureRegion());
         if (result != null)
         {
-
-            var componentCopy = sliceTarget.GetComponent<QuickOutline.Outline>();
+           
             var lowerHull = result.CreateLowerHull(sliceTarget, slicedFaceMaterial);
             var upperHull = result.CreateUpperHull(sliceTarget, slicedFaceMaterial);
 
@@ -114,13 +123,11 @@ public class Slicer : MonoBehaviour
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
             var rb = lastUpperPart.AddComponent<Rigidbody>();
-            //rb.drag = 1.4f;
-            //rb.useGravity = false;
-            //rb.AddExplosionForce(100f, rb.centerOfMass+Vector3.up, 100f);
             rb.AddForce(Random.insideUnitSphere * 100);
             lastUpperPart.AddComponent<MeshCollider>().convex=true;
             Destroy(sliceTarget);
             sliceTarget = lastLowerPart;
+          
         }
 
     }
@@ -185,7 +192,8 @@ public class Slicer : MonoBehaviour
         {
             Slice(plane);
         }
-
+      
+        jobFinished.TriggerEvent(sliceTarget);
 
 
 

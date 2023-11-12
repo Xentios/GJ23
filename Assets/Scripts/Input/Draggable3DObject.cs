@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+using DG.Tweening;
+
 public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler, IDropHandler,IEndDragHandler,IBeginDragHandler
 {
 
@@ -23,6 +25,7 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
         rigidbodyy = GetComponent<Rigidbody>();
         outline = GetComponent<QuickOutline.Outline>();
         objectHeight = GetComponent<MeshFilter>().mesh.bounds.extents;
+        objectHeight *= transform.lossyScale.x;
     }
     private void Start()
     {
@@ -48,17 +51,18 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
 
             Vector3 newUp = hit.normal;
             Vector3 left = Vector3.Cross(transform.forward, newUp); // The cross of this.transform.forward and newUp will give you the the direction that defines your left (its the left because unity uses a left-handed system)
-            Vector3 newForward = Vector3.Cross(newUp, left); // Take the cross of newUp and the newely found left and you will get your newForward for your character
-            Quaternion oldRotation = transform.rotation; // Get the current rotation  (im calling oldRotation here because that is what it will be in a second)
+            Vector3 newForward = Vector3.Cross(newUp, left); // Take the cross of newUp and the newely found left and you will get your newForward for your character           
             Quaternion newRotation = Quaternion.LookRotation(newForward, newUp);
-            transform.rotation = newRotation;
-            transform.position = hit.point+ objectHeight;
+            transform.SetPositionAndRotation(hit.point, newRotation);
+            //transform.Translate(transform.up * objectHeight.y);
             isPlaced = true;
+          
         }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+       
         if (isPlaced==true) return;
 
         transform.position = lastPosition;
@@ -66,6 +70,7 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.position+=transform.up * objectHeight.y;
         outline.enabled = false;
         if (isPlaced == true) return;
 

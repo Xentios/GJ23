@@ -5,9 +5,7 @@ namespace Es.InkPainter.Sample
 {
 	public class MousePainter : MonoBehaviour
 	{
-		/// <summary>
-		/// Types of methods used to paint.
-		/// </summary>
+		
 		[System.Serializable]
 		private enum UseMethodType
 		{
