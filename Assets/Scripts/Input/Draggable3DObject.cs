@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable3DObject : MonoBehaviour, IDragHandler, IDropHandler,IEndDragHandler,IBeginDragHandler
+public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler, IDropHandler,IEndDragHandler,IBeginDragHandler
 {
 
     [SerializeField]
@@ -13,15 +13,20 @@ public class Draggable3DObject : MonoBehaviour, IDragHandler, IDropHandler,IEndD
 
     private Vector3 lastPosition;
 
+    private bool isPlaced;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rigidbodyy;
+    private QuickOutline.Outline outline;
+    private Vector3 objectHeight;
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbodyy = GetComponent<Rigidbody>();
+        outline = GetComponent<QuickOutline.Outline>();
+        objectHeight = GetComponent<MeshFilter>().mesh.bounds.extents;
     }
     private void Start()
     {
-        UICamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        UICamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();       
     }
     // Start is called before the first frame update
     public void OnDrag(PointerEventData eventData)
@@ -34,31 +39,53 @@ public class Draggable3DObject : MonoBehaviour, IDragHandler, IDropHandler,IEndD
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         if (Physics.Raycast(ray, out RaycastHit hit, max_distance_raycast, layerMask, QueryTriggerInteraction.Collide))
         {
-            var lookAt = Vector3.Cross(hit.normal, transform.up);
-            var slot = hit.point;
+            //Why this was wrong Cross order?
+            //var lookAt = Vector3.Cross(hit.normal, transform.up);
+            //var slot = hit.point;
+            //lookAt = lookAt.y < 0 ? -lookAt : lookAt;
+            ////transform.rotation =Quaternion.Euler(Vector3.Cross(hit.normal, transform.right) );
+            //transform.rotation= Quaternion.LookRotation(hit.point+lookAt, hit.normal);
 
-            lookAt = lookAt.y < 0 ? -lookAt : lookAt;
-            
-           
-            //transform.rotation =Quaternion.Euler(Vector3.Cross(hit.normal, transform.right) );
-            transform.rotation= Quaternion.LookRotation(hit.point+lookAt, hit.normal);
-            transform.position = hit.point;
+            Vector3 newUp = hit.normal;
+            Vector3 left = Vector3.Cross(transform.forward, newUp); // The cross of this.transform.forward and newUp will give you the the direction that defines your left (its the left because unity uses a left-handed system)
+            Vector3 newForward = Vector3.Cross(newUp, left); // Take the cross of newUp and the newely found left and you will get your newForward for your character
+            Quaternion oldRotation = transform.rotation; // Get the current rotation  (im calling oldRotation here because that is what it will be in a second)
+            Quaternion newRotation = Quaternion.LookRotation(newForward, newUp);
+            transform.rotation = newRotation;
+            transform.position = hit.point+ objectHeight;
+            isPlaced = true;
         }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (isPlaced==true) return;
+
         transform.position = lastPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        outline.enabled = false;
+        if (isPlaced == true) return;
+
+        transform.position = lastPosition;
+      
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         lastPosition = transform.position;
-        rigidbody.isKinematic = true;
+        rigidbodyy.isKinematic = true;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        outline.enabled = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        outline.enabled = false;
     }
 }

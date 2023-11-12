@@ -5,6 +5,7 @@ using UnityEngine;
 namespace ADV
 {
     public class Mark_Status_DamageOutputMod : Mark_Status_Mod {
+        public List<string> AdditionalKeys;
 
         public override void OutputSignal(Signal S)
         {
@@ -21,6 +22,8 @@ namespace ADV
                     if (GetKey("TriggerCount") <= 0)
                         Source.RemoveStatus(this);
                 }
+                foreach (string s in AdditionalKeys)
+                    S.ChangeKey(KeyBase.Translate(s, out float Value), Value);
             }
             base.OutputSignal(S);
         }
