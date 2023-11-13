@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     enum GamePhases
     {
         Cut,
+        Press,
         Paint,
         Spike,
         End
@@ -46,12 +47,17 @@ public class GameManager : MonoBehaviour
     private GameObject slicer;
 
     [SerializeField]
+    private GameObject pressMachine;
+
+    [SerializeField]
     private GameObject painter;
     [SerializeField]
     private GameObject colorChecker;
 
     [SerializeField]
     private GameObject UICameraEventSystem;
+    [SerializeField]
+    private Cinemachine.CinemachineTargetGroup cinemachineTargetGroup;
 
 
     private GamePhases currentGamePhase;
@@ -73,10 +79,13 @@ public class GameManager : MonoBehaviour
     {
         switch (currentGamePhase)
         {
-            case GamePhases.Cut:
+            case GamePhases.Press:
+            slicer.SetActive(false);
+            pressMachine.SetActive(true);
+            targetObject.AddComponent<BoxCollider>().isTrigger = true;
             break;
             case GamePhases.Paint:
-            slicer.SetActive(false);
+            pressMachine.SetActive(false);
             painter.SetActive(true);
             colorChecker.SetActive(true);      
             InkCanvasAdder();
@@ -84,7 +93,10 @@ public class GameManager : MonoBehaviour
             case GamePhases.Spike:
             CalculateColor();
             painter.SetActive(false);
-            colorChecker.SetActive(false);
+            colorChecker.SetActive(false);           
+            cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
+            UICameraEventSystem.SetActive(true);
+
             break;
             case GamePhases.End:
             break;

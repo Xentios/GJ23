@@ -89,6 +89,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CTRL+R (Restart Game)"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc0c7b57-feed-4c43-bbe0-ea7b373dcc00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseMovementDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""56c24294-114b-4a93-8e17-e04434531c38"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -344,6 +362,72 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""MouseScroll With SHIFT"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""964a6d03-3a2b-4ae2-8675-36883259ef07"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CTRL+R (Restart Game)"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""065561c7-6222-4170-a3e1-9e7caddbf13d"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CTRL+R (Restart Game)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""f96756be-d70f-4929-9518-69aa11591f4e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CTRL+R (Restart Game)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""89f56046-607b-47ea-9fb7-4c9feccc4980"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovementDelta"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""b3134824-a521-4726-ba2d-5a47437577ca"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovementDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Binding"",
+                    ""id"": ""19e51452-33ef-44eb-a158-e38725a950e6"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseMovementDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -365,6 +449,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseRightClick = m_Player.FindAction("MouseRightClick", throwIfNotFound: true);
         m_Player_MouseScroll = m_Player.FindAction("MouseScroll", throwIfNotFound: true);
         m_Player_MouseScrollWithSHIFT = m_Player.FindAction("MouseScroll With SHIFT", throwIfNotFound: true);
+        m_Player_CTRLRRestartGame = m_Player.FindAction("CTRL+R (Restart Game)", throwIfNotFound: true);
+        m_Player_MouseMovementDelta = m_Player.FindAction("MouseMovementDelta", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -433,6 +519,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseRightClick;
     private readonly InputAction m_Player_MouseScroll;
     private readonly InputAction m_Player_MouseScrollWithSHIFT;
+    private readonly InputAction m_Player_CTRLRRestartGame;
+    private readonly InputAction m_Player_MouseMovementDelta;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -444,6 +532,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseRightClick => m_Wrapper.m_Player_MouseRightClick;
         public InputAction @MouseScroll => m_Wrapper.m_Player_MouseScroll;
         public InputAction @MouseScrollWithSHIFT => m_Wrapper.m_Player_MouseScrollWithSHIFT;
+        public InputAction @CTRLRRestartGame => m_Wrapper.m_Player_CTRLRRestartGame;
+        public InputAction @MouseMovementDelta => m_Wrapper.m_Player_MouseMovementDelta;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -474,6 +564,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseScrollWithSHIFT.started += instance.OnMouseScrollWithSHIFT;
             @MouseScrollWithSHIFT.performed += instance.OnMouseScrollWithSHIFT;
             @MouseScrollWithSHIFT.canceled += instance.OnMouseScrollWithSHIFT;
+            @CTRLRRestartGame.started += instance.OnCTRLRRestartGame;
+            @CTRLRRestartGame.performed += instance.OnCTRLRRestartGame;
+            @CTRLRRestartGame.canceled += instance.OnCTRLRRestartGame;
+            @MouseMovementDelta.started += instance.OnMouseMovementDelta;
+            @MouseMovementDelta.performed += instance.OnMouseMovementDelta;
+            @MouseMovementDelta.canceled += instance.OnMouseMovementDelta;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -499,6 +595,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseScrollWithSHIFT.started -= instance.OnMouseScrollWithSHIFT;
             @MouseScrollWithSHIFT.performed -= instance.OnMouseScrollWithSHIFT;
             @MouseScrollWithSHIFT.canceled -= instance.OnMouseScrollWithSHIFT;
+            @CTRLRRestartGame.started -= instance.OnCTRLRRestartGame;
+            @CTRLRRestartGame.performed -= instance.OnCTRLRRestartGame;
+            @CTRLRRestartGame.canceled -= instance.OnCTRLRRestartGame;
+            @MouseMovementDelta.started -= instance.OnMouseMovementDelta;
+            @MouseMovementDelta.performed -= instance.OnMouseMovementDelta;
+            @MouseMovementDelta.canceled -= instance.OnMouseMovementDelta;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -534,5 +636,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseRightClick(InputAction.CallbackContext context);
         void OnMouseScroll(InputAction.CallbackContext context);
         void OnMouseScrollWithSHIFT(InputAction.CallbackContext context);
+        void OnCTRLRRestartGame(InputAction.CallbackContext context);
+        void OnMouseMovementDelta(InputAction.CallbackContext context);
     }
 }
