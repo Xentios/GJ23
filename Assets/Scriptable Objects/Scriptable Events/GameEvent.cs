@@ -15,9 +15,9 @@ public class GameEvent : ScriptableObject
     public void TriggerEvent(GameObject gameObjectToSend)
     {
         for (int i = listeners.Count - 1; i >= 0; i--)
-        {
-            listeners[i].OnEventTriggered();
+        {            
             listeners[i].OnEventTriggered(gameObjectToSend);
+            listeners[i].OnEventTriggered();
         }
     }
     public void AddListener(GameEventListener listener)

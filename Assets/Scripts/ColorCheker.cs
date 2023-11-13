@@ -4,14 +4,37 @@ using UnityEngine;
 public class ColorCheker : MonoBehaviour
 {
     [SerializeField]
-    private Color targetColor;
+    public Color targetColor;
 
     [SerializeField]
-    private GameObject targetObject;
+    public GameObject targetObject;
 
     [SerializeField]
     private bool saveTextureForDebugging;
-    void CalculateColorArea()
+
+    public void CalculateColorArea(MeshRenderer meshRenderer, Color targetColor)
+    {
+        Texture2D targetTexture = ConvertRenderTextureWithTemporary(meshRenderer.material.mainTexture as RenderTexture, 128, 128);
+        int width = targetTexture.width;
+        int height = targetTexture.height;
+        int matchingPixels = 0;
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Color pixelColor = targetTexture.GetPixel(x, y);
+                if (AreColorsCloseRGBA(pixelColor, targetColor, 0.05f))
+                {
+                    matchingPixels++;
+                }
+            }
+        }
+        Debugger.Log("Area occupied by target color: " + matchingPixels, Debugger.PriorityLevel.High);
+        Debugger.Log("Total Area is : " + (width * height), Debugger.PriorityLevel.High);
+        Debugger.Log("Area occupied by target color as %: " + ((float) matchingPixels / (width * height)).ToString("F5"), Debugger.PriorityLevel.MustShown);
+    }
+    private void CalculateColorArea()
     {
         Texture2D targetTexture = ConvertRenderTextureWithTemporary(targetObject.GetComponent<MeshRenderer>().material.mainTexture as RenderTexture,128,128);
 
@@ -43,13 +66,13 @@ public class ColorCheker : MonoBehaviour
 
   
 
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(100, 100, 150, 300), "Check Color"))
-        {           
-            CalculateColorArea();
-        }
-    }
+    //private void OnGUI()
+    //{
+    //    if (GUI.Button(new Rect(100, 100, 150, 300), "Check Color"))
+    //    {           
+    //        CalculateColorArea();
+    //    }
+    //}
 
     private void SaveTextureToPNG(string textureName, Texture2D texture2D)
     {

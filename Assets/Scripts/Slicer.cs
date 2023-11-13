@@ -52,10 +52,8 @@ public class Slicer : MonoBehaviour
 
     private void Awake()
     {
-        planeList = new();
+        planeList = new();       
     }
-
- 
 
     private void OnEnable()
     {
@@ -169,7 +167,7 @@ public class Slicer : MonoBehaviour
 
         isSlicing = true;
         sliceHolder.GetComponent<Shaker>().StopShaking();
-        Cursor.visible = false;
+       // Cursor.visible = false;
         Vector2 cursorPosition = Mouse.current.position.ReadValue();
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -179,10 +177,11 @@ public class Slicer : MonoBehaviour
         transform.DOMoveY(1, 0.5f).SetEase(Ease.InFlash).OnComplete(() =>
         {
             isSlicing = false;
-            Cursor.visible = true;
+            //Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Mouse.current.WarpCursorPosition(cursorPosition);
             sliceHolder.GetComponent<Shaker>().StartShaking();
+            jobFinished.TriggerEvent(sliceTarget);
         }
 
         )); ;
@@ -193,7 +192,7 @@ public class Slicer : MonoBehaviour
             Slice(plane);
         }
       
-        jobFinished.TriggerEvent(sliceTarget);
+        
 
 
 

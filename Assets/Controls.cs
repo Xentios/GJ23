@@ -73,24 +73,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MouseScrollWithCTRL"",
-                    ""type"": ""Value"",
-                    ""id"": ""f16f8b85-2158-4a46-b7d1-31b2f6ec00d5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseScrollWithALT"",
-                    ""type"": ""Value"",
-                    ""id"": ""7dd26571-3d68-4ce2-96fd-07e5ed3d7253"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MouseScroll"",
                     ""type"": ""Value"",
                     ""id"": ""a3c5d377-b534-477d-9cae-98fd462019b9"",
@@ -103,7 +85,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""MouseScroll With SHIFT"",
                     ""type"": ""Value"",
                     ""id"": ""9f225901-2a45-41b0-8993-f7c40c41c0ac"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -265,127 +247,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Axis Modifier"",
-                    ""id"": ""9f9b748d-2f0a-4c4b-8af0-082486f5d59a"",
-                    ""path"": ""AxisModifier(minValue=0,maxValue=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithCTRL"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""c8ddaaa4-001f-4e87-9107-b45b6ca41d81"",
-                    ""path"": ""<Mouse>/scroll/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithCTRL"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""09df0e9d-a969-479d-9b4c-e5f7ddf8fd4e"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithCTRL"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Axis Modifier"",
-                    ""id"": ""acbd3108-64fd-4672-b668-5426cfe00f8f"",
-                    ""path"": ""AxisModifier(minValue=0,maxValue=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithCTRL"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""91104c13-1d2a-4cc1-81a9-ce33a50bbbe4"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithCTRL"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Axis Modifier"",
-                    ""id"": ""a59e2c52-1f5f-41ed-8569-1a2b2a833838"",
-                    ""path"": ""AxisModifier(minValue=0,maxValue=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""34988d25-e808-4364-9f63-b645c04edb05"",
-                    ""path"": ""<Mouse>/scroll/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""cbbd76cf-7fe4-4d30-b910-e1b92c544e1c"",
-                    ""path"": ""<Keyboard>/alt"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Axis Modifier"",
-                    ""id"": ""2cd0cbfa-a51b-4a7f-819c-610dc99cfa30"",
-                    ""path"": ""AxisModifier(minValue=0,maxValue=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""940c854f-7687-4294-9e90-2065b3060725"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""b06e70fa-665f-4729-a7d9-f2cd47a2194a"",
-                    ""path"": ""<Keyboard>/alt"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWithALT"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""435ac0f2-2240-4015-8427-293b688b1832"",
                     ""path"": ""1DAxis"",
@@ -419,9 +280,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Axis Modifier"",
-                    ""id"": ""13f0fe5a-e6a1-4d1c-bcac-2fa708ff7046"",
-                    ""path"": ""AxisModifier"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""255f4e6b-abf3-4cc1-820d-fc98ec1eb2b2"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -431,7 +292,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""modifier"",
-                    ""id"": ""46ccd3cc-aaf3-4a4b-98d4-0f9226aa10d3"",
+                    ""id"": ""8b96f894-dd54-4471-ade3-c9521fbff76a"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -441,8 +302,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""23ff2c39-e15b-421f-acd5-2b217ae93325"",
+                    ""name"": ""binding"",
+                    ""id"": ""b8dffb5c-4d68-4934-9667-1576c89e2a41"",
                     ""path"": ""<Mouse>/scroll/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -452,11 +313,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""ad68c018-8d8b-409f-a9a5-3a85c11bc2cc"",
-                    ""path"": ""<Mouse>/scroll/up"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""b579a90a-f982-47c4-9790-b12291f7aab1"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseScroll With SHIFT"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""dbf83dc1-d16f-4f20-96d8-efcf1042381d"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseScroll With SHIFT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""c7636f77-ab8d-4e7b-b7b4-f9d89eec208a"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=-1)"",
                     ""groups"": """",
                     ""action"": ""MouseScroll With SHIFT"",
                     ""isComposite"": false,
@@ -465,7 +348,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""New control scheme"",
+            ""bindingGroup"": ""New control scheme"",
+            ""devices"": []
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
@@ -474,8 +363,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
         m_Player_MouseLeftClick = m_Player.FindAction("MouseLeftClick", throwIfNotFound: true);
         m_Player_MouseRightClick = m_Player.FindAction("MouseRightClick", throwIfNotFound: true);
-        m_Player_MouseScrollWithCTRL = m_Player.FindAction("MouseScrollWithCTRL", throwIfNotFound: true);
-        m_Player_MouseScrollWithALT = m_Player.FindAction("MouseScrollWithALT", throwIfNotFound: true);
         m_Player_MouseScroll = m_Player.FindAction("MouseScroll", throwIfNotFound: true);
         m_Player_MouseScrollWithSHIFT = m_Player.FindAction("MouseScroll With SHIFT", throwIfNotFound: true);
     }
@@ -544,8 +431,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseAim;
     private readonly InputAction m_Player_MouseLeftClick;
     private readonly InputAction m_Player_MouseRightClick;
-    private readonly InputAction m_Player_MouseScrollWithCTRL;
-    private readonly InputAction m_Player_MouseScrollWithALT;
     private readonly InputAction m_Player_MouseScroll;
     private readonly InputAction m_Player_MouseScrollWithSHIFT;
     public struct PlayerActions
@@ -557,8 +442,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseAim => m_Wrapper.m_Player_MouseAim;
         public InputAction @MouseLeftClick => m_Wrapper.m_Player_MouseLeftClick;
         public InputAction @MouseRightClick => m_Wrapper.m_Player_MouseRightClick;
-        public InputAction @MouseScrollWithCTRL => m_Wrapper.m_Player_MouseScrollWithCTRL;
-        public InputAction @MouseScrollWithALT => m_Wrapper.m_Player_MouseScrollWithALT;
         public InputAction @MouseScroll => m_Wrapper.m_Player_MouseScroll;
         public InputAction @MouseScrollWithSHIFT => m_Wrapper.m_Player_MouseScrollWithSHIFT;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -585,12 +468,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseRightClick.started += instance.OnMouseRightClick;
             @MouseRightClick.performed += instance.OnMouseRightClick;
             @MouseRightClick.canceled += instance.OnMouseRightClick;
-            @MouseScrollWithCTRL.started += instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithCTRL.performed += instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithCTRL.canceled += instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithALT.started += instance.OnMouseScrollWithALT;
-            @MouseScrollWithALT.performed += instance.OnMouseScrollWithALT;
-            @MouseScrollWithALT.canceled += instance.OnMouseScrollWithALT;
             @MouseScroll.started += instance.OnMouseScroll;
             @MouseScroll.performed += instance.OnMouseScroll;
             @MouseScroll.canceled += instance.OnMouseScroll;
@@ -616,12 +493,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseRightClick.started -= instance.OnMouseRightClick;
             @MouseRightClick.performed -= instance.OnMouseRightClick;
             @MouseRightClick.canceled -= instance.OnMouseRightClick;
-            @MouseScrollWithCTRL.started -= instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithCTRL.performed -= instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithCTRL.canceled -= instance.OnMouseScrollWithCTRL;
-            @MouseScrollWithALT.started -= instance.OnMouseScrollWithALT;
-            @MouseScrollWithALT.performed -= instance.OnMouseScrollWithALT;
-            @MouseScrollWithALT.canceled -= instance.OnMouseScrollWithALT;
             @MouseScroll.started -= instance.OnMouseScroll;
             @MouseScroll.performed -= instance.OnMouseScroll;
             @MouseScroll.canceled -= instance.OnMouseScroll;
@@ -645,6 +516,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_NewcontrolschemeSchemeIndex = -1;
+    public InputControlScheme NewcontrolschemeScheme
+    {
+        get
+        {
+            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
+            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -652,8 +532,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseAim(InputAction.CallbackContext context);
         void OnMouseLeftClick(InputAction.CallbackContext context);
         void OnMouseRightClick(InputAction.CallbackContext context);
-        void OnMouseScrollWithCTRL(InputAction.CallbackContext context);
-        void OnMouseScrollWithALT(InputAction.CallbackContext context);
         void OnMouseScroll(InputAction.CallbackContext context);
         void OnMouseScrollWithSHIFT(InputAction.CallbackContext context);
     }

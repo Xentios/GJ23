@@ -1,7 +1,4 @@
 using Es.InkPainter;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,6 +24,8 @@ public class Painter : MonoBehaviour
 
 
     [SerializeField]
+    private ColorCheker colorCheker;
+    [SerializeField]
     private Brush brush;
 
     [SerializeField]
@@ -35,12 +34,17 @@ public class Painter : MonoBehaviour
     [SerializeField]
     bool erase = false;
 
+    [SerializeField]
+    private double timeLeftToPaint;
+    private double  timeStartedToPaint;
+
     private bool isPainting = false;
     private void OnEnable()
     {
         
         mouseMovement.action.performed += MouseMovementEvent;
-        mouseLeftClick.action.performed += MouseLeftClickEvent;
+        mouseLeftClick.action.started += MouseLeftDownEvent;
+        mouseLeftClick.action.canceled += MouseLeftUpEvent;
         mouseRightClick.action.started += MouseRightDownEvent;
         mouseRightClick.action.canceled += MouseRightUpEvent;
 
@@ -55,7 +59,8 @@ public class Painter : MonoBehaviour
     {
         
         mouseMovement.action.performed -= MouseMovementEvent;
-        mouseLeftClick.action.performed -= MouseLeftClickEvent;
+        mouseLeftClick.action.started -= MouseLeftDownEvent;
+        mouseLeftClick.action.canceled -= MouseLeftUpEvent;
         mouseRightClick.action.started -= MouseRightDownEvent;
         mouseRightClick.action.canceled -= MouseRightUpEvent;
 
@@ -69,24 +74,58 @@ public class Painter : MonoBehaviour
     private void MouseRightDownEvent(InputAction.CallbackContext obj)
     {
         erase = true;
-        isPainting = true;
+        StartPainting(obj.startTime);
     }
 
     private void MouseRightUpEvent(InputAction.CallbackContext obj)
     {
         erase = false;
-        isPainting = false;
+        StopPainting(obj.time);      
     }
 
-    private void MouseLeftClickEvent(InputAction.CallbackContext obj)
+    private void MouseLeftDownEvent(InputAction.CallbackContext obj)
+    {       
+        StartPainting(obj.startTime);
+    }
+
+    private void MouseLeftUpEvent(InputAction.CallbackContext obj)
+    {       
+        StopPainting(obj.time);
+    }
+
+    private void StartPainting(double time)
     {
         isPainting = true;
+        timeStartedToPaint = time;
+    }
+
+    private void StopPainting(double time)
+    {
+        isPainting = false;       
+        timeLeftToPaint -= time-timeStartedToPaint;
     }
 
     private void MouseMovementEvent(InputAction.CallbackContext callback)
     {
+        //Debug.Log("when NOT painting " +( callback.startTime-timeStartedToPaint));
+        var mousePosition = callback.ReadValue<Vector2>();
+        var distanceOfSlicer = Vector3.Distance(transform.position, Camera.main.transform.position);
+        Vector3 SprayCanPosition = new Vector3(mousePosition.x, mousePosition.y, distanceOfSlicer);
+        var mousePos = Camera.main.ScreenToWorldPoint(SprayCanPosition);
+        mousePos.y = transform.position.y;
+        transform.position = mousePos;
+
         if (isPainting == false) return;
-        var mousePosition=callback.ReadValue<Vector2>();
+
+
+        
+
+        var usedTime = callback.startTime - timeStartedToPaint;     
+        if (usedTime > timeLeftToPaint)
+        {
+            jobFinished.TriggerEvent();
+        }
+
 
         var ray = Camera.main.ScreenPointToRay(mousePosition);
         bool success = true;
@@ -120,5 +159,9 @@ public class Painter : MonoBehaviour
         }
     }
 
+    public void CheckColors(MeshRenderer meshRenderer)
+    {
+        colorCheker.CalculateColorArea(meshRenderer, brush.Color);
+    }
    
 }

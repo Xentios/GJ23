@@ -31,6 +31,14 @@ public class GameManager : MonoBehaviour
             
     }
 
+
+    private void Awake()
+    {
+#if UNITY_EDITOR==false
+        Cursor.visible = false;
+#endif
+    }
+
     [SerializeField]
     private GameObject targetObject;
 
@@ -70,24 +78,13 @@ public class GameManager : MonoBehaviour
             case GamePhases.Paint:
             slicer.SetActive(false);
             painter.SetActive(true);
-            colorChecker.SetActive(true);
-
-
-            targetObject.AddComponent<MeshCollider>();
-            Material[] mats = targetObject.GetComponent<Renderer>().materials;
-            
-            List<PaintSet> sets = new List<PaintSet>();
-
-            for (int i = 0; i < mats.Length; i++)
-            {
-                sets.Add(new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap", true, false, false, mats[i]));
-            }
-
-            //PaintSet set=new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap",true,false,false, mat);
-            targetObject.AddInkCanvas(sets);
-            //targetObject.AddComponent<Es.InkPainter.InkCanvas>();
+            colorChecker.SetActive(true);      
+            InkCanvasAdder();
             break;
             case GamePhases.Spike:
+            CalculateColor();
+            painter.SetActive(false);
+            colorChecker.SetActive(false);
             break;
             case GamePhases.End:
             break;
@@ -95,6 +92,33 @@ public class GameManager : MonoBehaviour
             break;
         }
 
+    }
+
+    [ContextMenu("Calculate Color")]
+
+    public void CalculateColor()
+    {
+        painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>());
+
+    }
+
+    [ContextMenu("AddInkCanvas")]
+    public void InkCanvasAdder()
+    {
+        targetObject.gameObject.SetActive(false);
+        targetObject.AddComponent<MeshCollider>();
+        Material[] mats = targetObject.GetComponent<MeshRenderer>().materials;
+
+        List<PaintSet> sets = new List<PaintSet>();
+
+        for (int i = 0; i < mats.Length; i++)
+        {
+            sets.Add(new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap", true, false, false, mats[i]));
+        }
+
+        //PaintSet set=new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap",true,false,false, mat);
+        targetObject.AddInkCanvas(sets);
+        targetObject.gameObject.SetActive(true);
     }
 
 }
