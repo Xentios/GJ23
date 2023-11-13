@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
         Press,
         Paint,
         Spike,
+        Hammer,
+        
         End
             
     }
@@ -53,6 +55,9 @@ public class GameManager : MonoBehaviour
     private GameObject painter;
     [SerializeField]
     private GameObject colorChecker;
+
+    [SerializeField]
+    private GameObject Hammer;
 
     [SerializeField]
     private GameObject UICameraEventSystem;
@@ -97,6 +102,10 @@ public class GameManager : MonoBehaviour
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
             UICameraEventSystem.SetActive(true);
 
+            break;
+            case GamePhases.Hammer:
+            UICameraEventSystem.SetActive(false);
+            Hammer.SetActive(true);
             break;
             case GamePhases.End:
             break;
