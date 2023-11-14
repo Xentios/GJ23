@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = new GameManager();
+                instance = FindObjectOfType<GameManager>();
             }
 
             return instance;
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject targetObject;
+    public GameObject targetObject;
 
     [SerializeField]
     private GameObject slicer;

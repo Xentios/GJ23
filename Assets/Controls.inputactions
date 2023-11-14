@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Pause Editor",
+                    "type": "Button",
+                    "id": "058989de-f22f-45c3-bd6e-8a524c590f90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -406,6 +415,17 @@
                     "action": "MouseMovementDelta",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1bb7a3f7-9333-44f8-8b35-ea50cb341ec7",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Editor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -11,13 +11,17 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField]
     private InputActionReference restartLevelAction;
+    [SerializeField]
+    private InputActionReference pauseEditor;
 
     private void Start()
     {
 
 
         restartLevelAction.action.performed += RestartLevel;
-        
+        pauseEditor.action.performed += PauseEditorFunction;
+
+
     }
 
     private void OnEnable()
@@ -29,7 +33,8 @@ public class InputHandler : MonoBehaviour
     {
 
         restartLevelAction.action.performed-=RestartLevel;
-     
+        pauseEditor.action.performed -= PauseEditorFunction;
+
         InputControl.Disable();
 
     }
@@ -38,6 +43,11 @@ public class InputHandler : MonoBehaviour
     private void RestartLevel(InputAction.CallbackContext callbackContext)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void PauseEditorFunction(InputAction.CallbackContext callbackContext)
+    {
+        Debug.Break();
     }
 
 }

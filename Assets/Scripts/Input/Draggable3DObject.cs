@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 using DG.Tweening;
 
-public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler, IDropHandler,IEndDragHandler,IBeginDragHandler
+public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler,IEndDragHandler,IBeginDragHandler
 {
 
     [SerializeField]
@@ -34,10 +34,15 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
     // Start is called before the first frame update
     public void OnDrag(PointerEventData eventData)
     {
-        Debugger.Log("UI element drag position: " + transform.position, Debugger.PriorityLevel.LeastImportant);
-        var mousePos = UICamera.ScreenToWorldPoint(eventData.position);
-        mousePos.z = transform.position.z;
-        transform.position = mousePos;
+        Debugger.Log("UI element drag position on Start: " + transform.position, Debugger.PriorityLevel.LeastImportant);
+
+        if (isPlaced == false)
+        {
+            var mousePos = UICamera.ScreenToWorldPoint(eventData.position);
+            mousePos.z = transform.position.z;
+            transform.position = mousePos;
+        }
+       
 
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         if (Physics.Raycast(ray, out RaycastHit hit, max_distance_raycast, layerMask, QueryTriggerInteraction.Collide))
@@ -56,22 +61,25 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
             transform.SetPositionAndRotation(hit.point, newRotation);
             //transform.Translate(transform.up * objectHeight.y);
             isPlaced = true;
-          
         }
+        else
+        {
+            isPlaced = false;
+        }
+
+        Debugger.Log("On Drag End position of object " + transform.position, Debugger.PriorityLevel.LeastImportant);
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-       
-        if (isPlaced==true) return;
-
-        transform.position = lastPosition;
-    }
+ 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.position+=transform.up * objectHeight.y;
+        Debugger.Log("On End Drag of " + transform.name, Debugger.PriorityLevel.High);
+        Debugger.Log("isPlaced is  " + isPlaced, Debugger.PriorityLevel.High);
+        transform.SetPositionAndRotation(transform.position + transform.up * objectHeight.y, transform.rotation);
+        //transform.position+transform.up * objectHeight.y;
         outline.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Hammerable");
         if (isPlaced == true) return;
 
         transform.position = lastPosition;

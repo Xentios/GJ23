@@ -107,6 +107,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause Editor"",
+                    ""type"": ""Button"",
+                    ""id"": ""058989de-f22f-45c3-bd6e-8a524c590f90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -428,6 +437,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""MouseMovementDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bb7a3f7-9333-44f8-8b35-ea50cb341ec7"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Editor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -451,6 +471,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseScrollWithSHIFT = m_Player.FindAction("MouseScroll With SHIFT", throwIfNotFound: true);
         m_Player_CTRLRRestartGame = m_Player.FindAction("CTRL+R (Restart Game)", throwIfNotFound: true);
         m_Player_MouseMovementDelta = m_Player.FindAction("MouseMovementDelta", throwIfNotFound: true);
+        m_Player_PauseEditor = m_Player.FindAction("Pause Editor", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -521,6 +542,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseScrollWithSHIFT;
     private readonly InputAction m_Player_CTRLRRestartGame;
     private readonly InputAction m_Player_MouseMovementDelta;
+    private readonly InputAction m_Player_PauseEditor;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -534,6 +556,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseScrollWithSHIFT => m_Wrapper.m_Player_MouseScrollWithSHIFT;
         public InputAction @CTRLRRestartGame => m_Wrapper.m_Player_CTRLRRestartGame;
         public InputAction @MouseMovementDelta => m_Wrapper.m_Player_MouseMovementDelta;
+        public InputAction @PauseEditor => m_Wrapper.m_Player_PauseEditor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +593,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseMovementDelta.started += instance.OnMouseMovementDelta;
             @MouseMovementDelta.performed += instance.OnMouseMovementDelta;
             @MouseMovementDelta.canceled += instance.OnMouseMovementDelta;
+            @PauseEditor.started += instance.OnPauseEditor;
+            @PauseEditor.performed += instance.OnPauseEditor;
+            @PauseEditor.canceled += instance.OnPauseEditor;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -601,6 +627,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseMovementDelta.started -= instance.OnMouseMovementDelta;
             @MouseMovementDelta.performed -= instance.OnMouseMovementDelta;
             @MouseMovementDelta.canceled -= instance.OnMouseMovementDelta;
+            @PauseEditor.started -= instance.OnPauseEditor;
+            @PauseEditor.performed -= instance.OnPauseEditor;
+            @PauseEditor.canceled -= instance.OnPauseEditor;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -638,5 +667,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseScrollWithSHIFT(InputAction.CallbackContext context);
         void OnCTRLRRestartGame(InputAction.CallbackContext context);
         void OnMouseMovementDelta(InputAction.CallbackContext context);
+        void OnPauseEditor(InputAction.CallbackContext context);
     }
 }
