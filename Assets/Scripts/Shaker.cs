@@ -32,6 +32,8 @@ public class Shaker : MonoBehaviour
     public bool fadeout = false;
 
 
+    public bool debugging = true;
+
     private Tween shakeTween;
     // Start is called before the first frame update
     void Start()
@@ -44,17 +46,19 @@ public class Shaker : MonoBehaviour
 
     private void ShakeForever()
     {
+        if (debugging == true) return;
+        
         shakeTween=transform.DOShakePosition(duration, strengthV3* strength, vibrato, randomness, snapping, fadeout).OnComplete(() => ShakeForever());
     }
 
     public void StopShaking()
-    {
-        shakeTween.Kill(false);
+    {        
+        shakeTween?.Kill(false);
     }
 
     public void StartShaking()
     {
-        if (shakeTween.active == false)
+        if (shakeTween?.active == false)
         {
             ShakeForever();
         }           

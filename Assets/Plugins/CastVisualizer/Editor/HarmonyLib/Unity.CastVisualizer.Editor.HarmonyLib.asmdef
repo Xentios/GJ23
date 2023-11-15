@@ -1,5 +1,5 @@
 {
-    "name": "Unity.CastVisualizer.Editor.HarmonyLib",
+    "name": "Unity.Plugins.CastVisualizer.Editor.HarmonyLib",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [
@@ -7,8 +7,11 @@
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "0Harmony_3.5.dll",
+        "0Harmony_4.5.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],

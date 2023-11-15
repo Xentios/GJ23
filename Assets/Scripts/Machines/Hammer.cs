@@ -28,6 +28,8 @@ public class Hammer : MonoBehaviour
 
     private GameObject spike;
     private Bounds colliderBounds;
+
+    private MeshRenderer hammerHeadMesh;
     private void OnEnable()
     {
         for (int i = 0; i < 90; i++)
@@ -36,12 +38,11 @@ public class Hammer : MonoBehaviour
             Debugger.Log(i + " ---Animated Angle Test---> " + resultAngle, Debugger.PriorityLevel.LeastImportant);
         }
 
+        hammerHeadMesh = hammerHead.GetComponent<MeshRenderer>();
         var targetObject = GameManager.Instance.targetObject.transform;
 
-        Vector3 topPosition = targetObject.position +
-                                      Vector3.Scale(Vector3.up, targetObject.lossyScale) *
-                                      targetObject.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
-        visualPlane = new Plane(Vector3.up, topPosition + Vector3.up);//TODO fix placement
+        Vector3 topPosition = targetObject.position+Vector3.Scale(Vector3.up, targetObject.lossyScale)*targetObject.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+        visualPlane = new Plane(Vector3.up, topPosition + Vector3.up);
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.started += MouseLeftClickEvent;     
 
@@ -73,8 +74,9 @@ public class Hammer : MonoBehaviour
         spike.transform.parent.transform.position += Vector3.down*(size);
         var resultAngle=animationCurve.Evaluate(Mathf.Abs(90 - angle));
         Debugger.Log("Animated Angle " + resultAngle, Debugger.PriorityLevel.MustShown);
-        spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));
-        spike = null;
+        spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
+        spike.layer = 0; 
+        DisableSpikeOutline();
 
     }
 
@@ -90,18 +92,41 @@ public class Hammer : MonoBehaviour
             modelPos = ray.GetPoint(distance);
         }
         transform.position = modelPos;
-        var extends= hammerHead.GetComponent<MeshRenderer>().bounds.extents;
-        var center= hammerHead.GetComponent<MeshRenderer>().bounds.center;
+        var extends= hammerHeadMesh.bounds.extents;
+        var center= hammerHeadMesh.bounds.center;
         if(Physics.BoxCast(center, extends, Vector3.down, out RaycastHit hitinfo, Quaternion.identity, 1000f, hammerableMask))
         {
+           
+            var hitObject = hitinfo.transform.gameObject;
             hammerVisual.transform.localRotation = new Quaternion(0, 0.142496109f, 1.49011594e-08f, 0.989795446f);
-            spike = hitinfo.transform.gameObject;
+
+            DisableSpikeOutline();
+            spike = hitObject;
+            EnableSpikeOutline();
             colliderBounds = hitinfo.collider.bounds;
         }
         else
         {
+            DisableSpikeOutline();
             hammerVisual.transform.localRotation = new Quaternion(0, 0, 0, 1);
         }
+    }
+
+    private void EnableSpikeOutline()
+    {
+        var outline = spike.GetComponent<QuickOutline.Outline>();
+
+        outline.enabled = true;
+        outline.OutlineMode = QuickOutline.Outline.Mode.OutlineVisible;
+        outline.OutlineWidth = 3f;
+    }
+
+    private void DisableSpikeOutline()
+    {
+        if (spike == null) return;
+
+        spike.GetComponent<QuickOutline.Outline>().enabled = false;
+        spike = null;
     }
 
     public float AngleBetweenPlaneAndPoint(Vector3 planeNormal, Vector3 pointOnPlane, Vector3 targetPoint)

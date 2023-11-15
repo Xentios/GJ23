@@ -122,10 +122,10 @@ public class Press : MonoBehaviour
        // animator.speed = value;
     }
   
-    private void OnTriggerStay(Collider other)
-    {
-        var currentScale = other.transform.localScale;
-        currentScale.y -= 0.1f;
-        other.transform.localScale = currentScale;
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    var currentScale = other.transform.localScale;
+    //    currentScale.y -= 0.1f;
+    //    other.transform.localScale = currentScale;
+    //}
 }

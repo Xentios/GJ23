@@ -87,7 +87,9 @@ public class GameManager : MonoBehaviour
             case GamePhases.Press:
             slicer.SetActive(false);
             pressMachine.SetActive(true);
-            targetObject.AddComponent<BoxCollider>().isTrigger = true;
+            CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale);
+            //CalculateArea(targetObject.GetComponent<MeshFilter>().sharedMesh);
+            //targetObject.AddComponent<BoxCollider>().isTrigger = true;
             break;
             case GamePhases.Paint:
             pressMachine.SetActive(false);
@@ -115,7 +117,38 @@ public class GameManager : MonoBehaviour
 
     }
 
-    [ContextMenu("Calculate Color")]
+    public void CalculateArea(Mesh mf,Vector3 scale)
+    {
+        scale.y = 1;
+        //var mf = targetObject.GetComponent<MeshFilter>().sharedMesh;
+        float area=0f;
+
+        for (int i = 0; i < mf.triangles.Length; i += 3)
+        {
+            int vertexIndex1 = mf.triangles[i];
+            int vertexIndex2 = mf.triangles[i + 1];
+            int vertexIndex3 = mf.triangles[i + 2];
+            Vector3 normal = mf.normals[i / 3];
+
+            Vector3 v1 = mf.vertices[vertexIndex1];
+            Vector3 v2 = mf.vertices[vertexIndex2];
+            Vector3 v3 = mf.vertices[vertexIndex3];
+
+            v1=Vector3.Scale(v1,scale);
+            v2=Vector3.Scale(v2,scale);
+            v3 = Vector3.Scale(v3, scale);
+
+            if (Vector3.up == normal)
+            {
+                Debug.Log("BINGO " + i);
+                area += Vector3.Cross(v2 - v1, v3 - v1).magnitude * 0.5f;
+            }
+        }
+
+        Debug.Log(area);
+    }
+
+        [ContextMenu("Calculate Color")]
 
     public void CalculateColor()
     {

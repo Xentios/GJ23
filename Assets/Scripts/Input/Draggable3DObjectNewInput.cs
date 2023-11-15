@@ -1,9 +1,10 @@
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 using DG.Tweening;
 
-public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler,IEndDragHandler,IBeginDragHandler
+public class Draggable3DObjectNewInput : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler, IDragHandler,IEndDragHandler,IBeginDragHandler
 {
 
     [SerializeField]
@@ -87,7 +88,7 @@ public class Draggable3DObject : MonoBehaviour,IPointerExitHandler,IPointerEnter
         Debugger.Log("isPlaced is  " + isPlaced, Debugger.PriorityLevel.High);
         // transform.SetPositionAndRotation(transform.position + transform.up * objectHeight.y, transform.rotation);
         //transform.position+transform.up * objectHeight.y;
-        //MoveTransform(transform.position + );
+       // MoveTransform(transform.position);
         isReallyPlaced = true;
         outline.enabled = false;
         gameObject.layer = LayerMask.NameToLayer("Hammerable");

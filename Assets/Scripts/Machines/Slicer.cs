@@ -47,12 +47,23 @@ public class Slicer : MonoBehaviour
     private GameObject lastLowerPart;
 
 
-    private Ray DebugRay;
+    private Ray debugRay;
     private bool isSlicing;
+    private UnityEngine.Plane visualPlane;
+    private float bottomPositionYValue;
 
     private void Awake()
     {
-        planeList = new();       
+        planeList = new();
+    }
+
+    private void Start()
+    {
+        var height = Vector3.Scale(Vector3.up, sliceTarget.transform.lossyScale) * sliceTarget.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+        Vector3 topPosition = sliceTarget.transform.position + height;
+        bottomPositionYValue = (sliceTarget.transform.position - height).y;
+        visualPlane = new UnityEngine.Plane(Vector3.up, topPosition + Vector3.up);
+
     }
 
     private void OnEnable()
@@ -89,11 +100,11 @@ public class Slicer : MonoBehaviour
         planeList.Clear();
         for (int i = 0; i < sliceHolder.childCount; i++)
         {
-            var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();          
+            var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();
             var bounds = sliceTargetMeshFilter.sharedMesh.bounds;
             var distance = DistanceToPlane(sliceTargetMeshFilter.transform.TransformPoint(bounds.center), sliceHolder.GetChild(i).transform.right, sliceHolder.GetChild(i).transform.position);
             Debugger.Log("Distance is " + distance, Debugger.PriorityLevel.Medium);
-            distance /= sliceTargetMeshFilter.transform.lossyScale.x;            
+            distance /= sliceTargetMeshFilter.transform.lossyScale.x;
             planeList.Add(new EzySlice.Plane(sliceHolder.GetChild(i).transform.right, -distance));
         }
     }
@@ -102,15 +113,14 @@ public class Slicer : MonoBehaviour
     {
         Slice(GetRandomPlane());
     }
+
     public void Slice(EzySlice.Plane thePlane)
     {
-        var tr = new TextureRegion(0f, 0f, 1.0f, 1.0f);        
-        EzySlice.SlicedHull result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
-        //SliceInstantiate(this GameObject obj, Plane pl, TextureRegion cuttingRegion, Material crossSectionMaterial = null)
-        //EzySlice.SlicerExtensions.SliceInstantiate(sliceTarget, thePlane,new TextureRegion());
+        var tr = new TextureRegion(0f, 0f, 1.0f, 1.0f);
+        EzySlice.SlicedHull result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial); 
+
         if (result != null)
         {
-           
             var lowerHull = result.CreateLowerHull(sliceTarget, slicedFaceMaterial);
             var upperHull = result.CreateUpperHull(sliceTarget, slicedFaceMaterial);
 
@@ -122,12 +132,11 @@ public class Slicer : MonoBehaviour
             lastUpperPart = upperHull;
             var rb = lastUpperPart.AddComponent<Rigidbody>();
             rb.AddForce(Random.insideUnitSphere * 100);
-            lastUpperPart.AddComponent<MeshCollider>().convex=true;
+            lastUpperPart.AddComponent<MeshCollider>().convex = true;
             Destroy(sliceTarget);
             sliceTarget = lastLowerPart;
-          
-        }
 
+        }
     }
 
     public void Slice(EzySlice.Plane thePlane, TextureRegion theTr)
@@ -145,8 +154,6 @@ public class Slicer : MonoBehaviour
         return new EzySlice.Plane(randomPosition, randomDirection);
     }
 
-
-   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -154,12 +161,9 @@ public class Slicer : MonoBehaviour
         {
             Gizmos.DrawLine(sliceHolder.GetChild(i).transform.position, sliceHolder.GetChild(i).transform.position + sliceHolder.GetChild(i).transform.right);
         }
-        
-
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(DebugRay.origin, DebugRay.direction * 100f);
+        Gizmos.DrawRay(debugRay.origin, debugRay.direction * 100f);
     }
-
 
     private void MouseLeftClickEvent(InputAction.CallbackContext callback)
     {
@@ -167,23 +171,18 @@ public class Slicer : MonoBehaviour
 
         isSlicing = true;
         sliceHolder.GetComponent<Shaker>().StopShaking();
-       // Cursor.visible = false;
         Vector2 cursorPosition = Mouse.current.position.ReadValue();
         Cursor.lockState = CursorLockMode.Locked;
-
-        //sliceTarget.GetComponent<QuickOutline.Outline>().enabled=false;
+       
         SetPlanes();
-        transform.DOMoveY(0f, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
-        transform.DOMoveY(1, 0.5f).SetEase(Ease.InFlash).OnComplete(() =>
+        transform.DOMoveY(bottomPositionYValue, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
+        transform.DOMoveY(visualPlane.GetDistanceToPoint(Vector3.zero), 1f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             isSlicing = false;
-            //Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Mouse.current.WarpCursorPosition(cursorPosition);
-            sliceHolder.GetComponent<Shaker>().StartShaking();
             jobFinished.TriggerEvent(sliceTarget);
         }
-
         )); ;
 
 
@@ -191,15 +190,7 @@ public class Slicer : MonoBehaviour
         {
             Slice(plane);
         }
-      
-        
-
-
-
     }
-
-    
-
 
     private void MouseRightClickEvent(InputAction.CallbackContext callback)
     {
@@ -208,20 +199,22 @@ public class Slicer : MonoBehaviour
         indexOfSliceHolder++;
         indexOfSliceHolder %= sliceHolderPrefabs.Count;
         GameObject.Destroy(sliceHolder.gameObject);
-        sliceHolder=Instantiate(sliceHolderPrefabs[indexOfSliceHolder],transform).transform;        
+        sliceHolder = Instantiate(sliceHolderPrefabs[indexOfSliceHolder], transform).transform;
     }
 
     private void MouseMovementEvent(InputAction.CallbackContext callback)
     {
         if (isSlicing == true) return;
 
-        var value = callback.ReadValue<Vector2>();
-        var distanceOfSlicer = Vector3.Distance(transform.position, Camera.main.transform.position);
-        distanceOfSlicer = Mathf.Min(distanceOfSlicer, 10f);//distance calculation needs a refining. 
-        Vector3 mousePosition = new Vector3(value.x, value.y, distanceOfSlicer);
-        var mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
-        mousePos.y = transform.position.y;
-        transform.position = mousePos;
+        var mousePosition = callback.ReadValue<Vector2>();
+        var ray = Camera.main.ScreenPointToRay(mousePosition);
+        var modelPos = Vector3.zero;
+
+        if (visualPlane.Raycast(ray, out float distance))
+        {
+            modelPos = ray.GetPoint(distance);
+        }
+        transform.position = modelPos;      
     }
 
     private void MouseScrollEvent(InputAction.CallbackContext callback)
@@ -231,8 +224,8 @@ public class Slicer : MonoBehaviour
 
         var result = callback.ReadValue<float>();
         Debugger.Log("MouseScrollEvents result= " + result, Debugger.PriorityLevel.MustShown);
-        var speed = 10f;            
-        Quaternion rotation = Quaternion.Euler(0, Mathf.Sign(result)*speed, 0);
+        var speed = 10f;
+        Quaternion rotation = Quaternion.Euler(0, Mathf.Sign(result) * speed, 0);
         sliceHolder.transform.rotation *= rotation;
     }
 
@@ -243,7 +236,7 @@ public class Slicer : MonoBehaviour
         var result = callback.ReadValue<float>();
         Debugger.Log("MouseScrollwithCTRLEvent result= " + result, Debugger.PriorityLevel.MustShown);
         var speed = 0.1f;
-        result =1+(Mathf.Sign(result) * speed);
+        result = 1 + (Mathf.Sign(result) * speed);
         sliceHolder.localScale = sliceHolder.localScale * result;
     }
 
@@ -260,7 +253,6 @@ public class Slicer : MonoBehaviour
         return Vector2.Distance(a2D, b2D);
     }
 
-
     private float MapF(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue)
     {
 
@@ -270,8 +262,4 @@ public class Slicer : MonoBehaviour
 
         return (NewValue);
     }
-
-
-
-
 }
