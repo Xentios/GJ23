@@ -51,6 +51,7 @@ public class Slicer : MonoBehaviour
     private bool isSlicing;
     private UnityEngine.Plane visualPlane;
     private float bottomPositionYValue;
+    private float topPositionYValue;
 
     private void Awake()
     {
@@ -61,7 +62,8 @@ public class Slicer : MonoBehaviour
     {
         var height = Vector3.Scale(Vector3.up, sliceTarget.transform.lossyScale) * sliceTarget.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
         Vector3 topPosition = sliceTarget.transform.position + height;
-        bottomPositionYValue = (sliceTarget.transform.position - height).y;
+        bottomPositionYValue = (sliceTarget.transform.position.y - height.y);
+        topPositionYValue= (topPosition + Vector3.up).y;
         visualPlane = new UnityEngine.Plane(Vector3.up, topPosition + Vector3.up);
 
     }
@@ -176,7 +178,7 @@ public class Slicer : MonoBehaviour
        
         SetPlanes();
         transform.DOMoveY(bottomPositionYValue, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
-        transform.DOMoveY(visualPlane.GetDistanceToPoint(Vector3.zero), 1f).SetEase(Ease.OutSine).OnComplete(() =>
+        transform.DOMoveY(topPositionYValue, 1f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             isSlicing = false;
             Cursor.lockState = CursorLockMode.None;

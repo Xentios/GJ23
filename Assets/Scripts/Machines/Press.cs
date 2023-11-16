@@ -34,6 +34,13 @@ public class Press : MonoBehaviour
     private float pressTimer;
     private void OnEnable()
     {
+        var targetObject=GameManager.Instance.targetObject;
+        targetObject.transform.parent = new GameObject("targetPivot").transform;
+        var tPos=targetObject.transform.position;
+        tPos.y = 2;
+        targetObject.transform.position = tPos;
+        targetObject.transform.parent.position = new Vector3(0, -4, 0);
+
         animator = GetComponent<Animator>();
         SetAnimatorSpeed();
 
@@ -133,15 +140,15 @@ public class Press : MonoBehaviour
 
     private void ScaleDown(float state)
     {
-        var max = animator.GetCurrentAnimatorStateInfo(0).length;
-        var resultY = MapF(state, 0, 1f, 0, 2);
-        resultY = Mathf.Max(2.0f - resultY,0.1f);
-        var currenY = GameManager.Instance.targetObject.transform.localScale.y;
+        //var max = animator.GetCurrentAnimatorStateInfo(0).length;
+        var resultY = MapF(state, 0, 1f, 0, 1);
+        resultY = Mathf.Max(1.0f - resultY,0.001f);
+        var currenY = GameManager.Instance.targetObject.transform.parent.localScale.y;
         if (currenY > resultY)
         {
-            var scale = GameManager.Instance.targetObject.transform.localScale;
+            var scale = GameManager.Instance.targetObject.transform.parent.localScale;
             scale.y = resultY;
-            GameManager.Instance.targetObject.transform.localScale = scale;
+            GameManager.Instance.targetObject.transform.parent.localScale = scale;
         }
     }
 

@@ -30,8 +30,12 @@ public class Hammer : MonoBehaviour
     private Bounds colliderBounds;
 
     private MeshRenderer hammerHeadMesh;
+
+    private List<GameObject> hammeredSpikes;
     private void OnEnable()
     {
+        hammeredSpikes = new List<GameObject>();
+
         for (int i = 0; i < 90; i++)
         {
             var resultAngle = animationCurve.Evaluate(i);
@@ -75,7 +79,9 @@ public class Hammer : MonoBehaviour
         var resultAngle=animationCurve.Evaluate(Mathf.Abs(90 - angle));
         Debugger.Log("Animated Angle " + resultAngle, Debugger.PriorityLevel.MustShown);
         spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
-        spike.layer = 0; 
+        spike.layer = 0;
+        hammeredSpikes.Add(spike);
+        CalculateSpikeScore();
         DisableSpikeOutline();
 
     }
@@ -152,6 +158,21 @@ public class Hammer : MonoBehaviour
         Vector3 direction = targetPoint - startPoint;
         Quaternion rotation = Quaternion.LookRotation(direction.normalized) * Quaternion.Euler(0, rotationAngle, 0);
         objectToRotate.localRotation = rotation;
+    }
+
+    //Returns a score between 0 and 1, 1 is perfect score
+    public float  CalculateSpikeScore()
+    {
+        float average=0;
+        foreach (var spike in hammeredSpikes)
+        {
+            var current= Vector3.Dot(spike.transform.up, Vector3.up);
+            Debugger.Log(current, Debugger.PriorityLevel.High);
+            average += current;
+        }
+        average /= hammeredSpikes.Count;
+
+        return average;
     }
 
 }
