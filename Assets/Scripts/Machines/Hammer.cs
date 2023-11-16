@@ -160,7 +160,7 @@ public class Hammer : MonoBehaviour
         objectToRotate.localRotation = rotation;
     }
 
-    //Returns a score between 0 and 1, 1 is perfect score
+    //Returns a score between 0 and 1, 1 is  as perfect score
     public float  CalculateSpikeScore()
     {
         float average=0;
