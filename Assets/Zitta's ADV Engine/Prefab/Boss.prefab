@@ -1058,7 +1058,19 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4847891364098632105}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6318274445085746399, guid: 9babcb2d5c7e6ee46a3429125754782f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134755713972476219}
+    - targetCorrespondingSourceObject: {fileID: 6318274445085746399, guid: 9babcb2d5c7e6ee46a3429125754782f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4563031930340453939}
+    - targetCorrespondingSourceObject: {fileID: 6318274445085746399, guid: 9babcb2d5c7e6ee46a3429125754782f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4980420899592401199}
   m_SourcePrefab: {fileID: 100100000, guid: 9babcb2d5c7e6ee46a3429125754782f, type: 3}
 --- !u!4 &251984733495537371 stripped
 Transform:
@@ -1084,12 +1096,84 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3317105475286173005}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8766182986798080402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f782ea1b57c93df46a6973469d4a054b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8766182986798080402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6318274445085746399, guid: 9babcb2d5c7e6ee46a3429125754782f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3317105475286173005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134755713972476219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766182986798080402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c0dc9e12e1ade44bb2931383842212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: {fileID: 0}
+  DropPoint: 120
+  DropCount: {x: 1, y: 3}
+  Drops:
+  - {fileID: 3775178255322861185, guid: 11a851bc2d75a5343ba7d3b960df8b51, type: 3}
+  - {fileID: 3647471197527110160, guid: c62335ae45e179e4f930e928a9793903, type: 3}
+  - {fileID: 5864564916019158783, guid: 89b542ab11cd59d48a295dd94e252984, type: 3}
+  - {fileID: 506854681802351202, guid: ebbc9b85025aabc4c9d36251be445663, type: 3}
+  - {fileID: 2125400561877318053, guid: 818e59198e27c454dad24a4f6dfce7e4, type: 3}
+  AlreadyTriggered: 0
+--- !u!114 &4563031930340453939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766182986798080402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c0dc9e12e1ade44bb2931383842212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: {fileID: 0}
+  DropPoint: 60
+  DropCount: {x: 1, y: 3}
+  Drops:
+  - {fileID: 3775178255322861185, guid: 11a851bc2d75a5343ba7d3b960df8b51, type: 3}
+  - {fileID: 3647471197527110160, guid: c62335ae45e179e4f930e928a9793903, type: 3}
+  - {fileID: 5864564916019158783, guid: 89b542ab11cd59d48a295dd94e252984, type: 3}
+  - {fileID: 506854681802351202, guid: ebbc9b85025aabc4c9d36251be445663, type: 3}
+  - {fileID: 2125400561877318053, guid: 818e59198e27c454dad24a4f6dfce7e4, type: 3}
+  AlreadyTriggered: 0
+--- !u!114 &4980420899592401199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766182986798080402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c0dc9e12e1ade44bb2931383842212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: {fileID: 0}
+  DropPoint: 0
+  DropCount: {x: 1, y: 3}
+  Drops:
+  - {fileID: 3775178255322861185, guid: 11a851bc2d75a5343ba7d3b960df8b51, type: 3}
+  - {fileID: 3647471197527110160, guid: c62335ae45e179e4f930e928a9793903, type: 3}
+  - {fileID: 5864564916019158783, guid: 89b542ab11cd59d48a295dd94e252984, type: 3}
+  - {fileID: 506854681802351202, guid: ebbc9b85025aabc4c9d36251be445663, type: 3}
+  - {fileID: 2125400561877318053, guid: 818e59198e27c454dad24a4f6dfce7e4, type: 3}
+  AlreadyTriggered: 0
 --- !u!1001 &4406432321353436302
 PrefabInstance:
   m_ObjectHideFlags: 0
