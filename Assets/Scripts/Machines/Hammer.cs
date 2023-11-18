@@ -60,8 +60,8 @@ public class Hammer : MonoBehaviour
         mouseMovement.action.performed -= MouseMovementEvent;
         mouseLeftClick.action.started -= MouseLeftClickEvent;
       
-        mouseMovement.action.Disable();
-        mouseLeftClick.action.Disable();       
+        //mouseMovement.action.Disable();
+        //mouseLeftClick.action.Disable();       
     }
 
     private void MouseLeftClickEvent(InputAction.CallbackContext obj)

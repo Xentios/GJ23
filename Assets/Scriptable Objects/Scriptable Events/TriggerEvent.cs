@@ -10,6 +10,10 @@ public class TriggerEvent : MonoBehaviour
     [SerializeField]
     private List<GameEvent> gameEvents;
 
+
+    [SerializeField]
+    private float timeToTrigger;
+
     [SerializeField]
     private bool TriggerOnAwake;
     [SerializeField]
@@ -72,14 +76,34 @@ public class TriggerEvent : MonoBehaviour
     }
 
 
-    private void TriggerInvokeAll()
+    [ContextMenu("TriggerEvents")]
+    public void TriggerInvokeAll()
+    {
+        if (timeToTrigger <= 0)
+        {
+            TIALL();
+        }
+        else
+        {
+            StartCoroutine(TriggerAllWithTime());
+        }
+        
+    }
+
+
+    IEnumerator TriggerAllWithTime()
+    {
+        yield return new WaitForSeconds(timeToTrigger);
+        TIALL();
+    }
+
+
+    private void TIALL()
     {
         unityEvents.Invoke();
         foreach (var gameEvent in gameEvents)
         {
             gameEvent.TriggerEvent();
         }
-
-        
     }
 }

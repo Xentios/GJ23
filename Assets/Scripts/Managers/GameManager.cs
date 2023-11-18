@@ -34,13 +34,8 @@ public class GameManager : MonoBehaviour
             
     }
 
-
-    private void Awake()
-    {
-#if UNITY_EDITOR==false
-        Cursor.visible = false;
-#endif
-    }
+    [SerializeField]
+    public ShopRequest ShopRequest;
 
     [SerializeField]
     public GameObject targetObject;
@@ -60,7 +55,7 @@ public class GameManager : MonoBehaviour
     private GameObject Hammer;
 
     [SerializeField]
-    private GameObject UICameraEventSystem;
+    private GameObject spikeEvents;
     [SerializeField]
     private Cinemachine.CinemachineTargetGroup cinemachineTargetGroup;
 
@@ -94,7 +89,8 @@ public class GameManager : MonoBehaviour
             case GamePhases.Paint:
             pressMachine.SetActive(false);
             painter.SetActive(true);
-            colorChecker.SetActive(true);      
+            colorChecker.SetActive(true);
+            colorChecker.GetComponent<ColorCheker>().targetColor = ShopRequest.Color;
             InkCanvasAdder();
             break;
             case GamePhases.Spike:
@@ -102,11 +98,11 @@ public class GameManager : MonoBehaviour
             painter.SetActive(false);
             colorChecker.SetActive(false);           
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
-            UICameraEventSystem.SetActive(true);
+            spikeEvents.SetActive(true);
 
             break;
             case GamePhases.Hammer:
-            UICameraEventSystem.SetActive(false);
+            spikeEvents.SetActive(false);
             Hammer.SetActive(true);
             break;
             case GamePhases.End:

@@ -1,9 +1,13 @@
 using Es.InkPainter;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Painter : MonoBehaviour
 {
+
+    
+
     private enum UseMethodType
     {
         RaycastHitInfo,
@@ -73,8 +77,8 @@ public class Painter : MonoBehaviour
 
 
 
-        mouseMovement.action.Disable();
-        mouseLeftClick.action.Disable();
+        //mouseMovement.action.Disable();
+        //mouseLeftClick.action.Disable();
         mouseRightClick.action.Disable();        
     }
 
@@ -173,5 +177,11 @@ public class Painter : MonoBehaviour
     {
         colorCheker.CalculateColorArea(meshRenderer, brush.Color);
     }
+
+    public void ChangeColorOfBrush(Image color)
+    {
+        brush.Color = color.color;
+    }
+
    
 }

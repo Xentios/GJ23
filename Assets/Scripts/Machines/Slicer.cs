@@ -91,8 +91,8 @@ public class Slicer : MonoBehaviour
         mouseScrollWithCTRL.action.performed -= MouseScrollWithCTRLEvent;
 
         mouseScroll.action.Disable();
-        mouseMovement.action.Disable();
-        mouseLeftClick.action.Disable();
+        //mouseMovement.action.Disable();
+        //mouseLeftClick.action.Disable();
         mouseRightClick.action.Disable();
         mouseScrollWithCTRL.action.Disable();
     }

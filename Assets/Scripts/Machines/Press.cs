@@ -61,7 +61,7 @@ public class Press : MonoBehaviour
         mouseLeftUp.action.canceled -= MouseLeftUpEvent;
 
 
-        mouseMovement.action.Disable();
+        //mouseMovement.action.Disable();
         mouseLeftDown.action.Disable();
         mouseLeftUp.action.Disable();
     }
