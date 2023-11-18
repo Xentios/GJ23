@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1923418568170369026
 Transform:
   m_ObjectHideFlags: 0
@@ -307,6 +307,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   hammerHead: {fileID: 446842133800270984}
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &10340116566401512
 PrefabInstance:
   m_ObjectHideFlags: 0
