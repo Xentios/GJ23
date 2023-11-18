@@ -223,4 +223,11 @@ public class GameManager : MonoBehaviour
             GoToNextGameEvent();
         }
     }
+
+    public float GetOverallResults()
+    {
+        var final = SliderHammerScore.FinalValue + SliderSpikeCount.FinalValue + SliderPaintArea.FinalValue + SliderPressValue.FinalValue + SliderShapeArea.FinalValue;
+        final /= 5;
+        return final;
+    }
 }

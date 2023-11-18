@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Press : MonoBehaviour
@@ -15,10 +16,10 @@ public class Press : MonoBehaviour
     [SerializeField]
     private InputActionReference mouseLeftUp;
 
+    [SerializeField]
+    private UnityEvent<float> changeSlider;
 
-
-
-
+ 
     [SerializeField]
     private GameObject spindle;
 
@@ -150,6 +151,7 @@ public class Press : MonoBehaviour
             var scale = GameManager.Instance.targetObject.transform.parent.localScale;
             scale.y = resultY;
             GameManager.Instance.targetObject.transform.parent.localScale = scale;
+            changeSlider.Invoke(resultY);
         }
     }
 
