@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
+using DG.Tweening;
 using static Es.InkPainter.InkCanvas;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,8 +58,25 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject spikeEvents;
+
+    private int PlacedSpikes;
+
     [SerializeField]
     private Cinemachine.CinemachineTargetGroup cinemachineTargetGroup;
+
+
+    [SerializeField]
+    private GameObject ScorePanel;
+    [SerializeField]
+    private SliderValueChanger SliderShapeArea;
+    [SerializeField]           
+    private SliderValueChanger SliderPressValue;
+    [SerializeField]           
+    private SliderValueChanger SliderPaintArea;
+    [SerializeField]           
+    private SliderValueChanger SliderSpikeCount;
+    [SerializeField]           
+    private SliderValueChanger SliderHammerScore;
 
 
     private GamePhases currentGamePhase;
@@ -82,11 +101,12 @@ public class GameManager : MonoBehaviour
             case GamePhases.Press:
             slicer.SetActive(false);
             pressMachine.SetActive(true);
-            CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale);
+            SliderShapeArea.FinalValue =CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale)/25;//TODO HARDCODED
             //CalculateArea(targetObject.GetComponent<MeshFilter>().sharedMesh);
             //targetObject.AddComponent<BoxCollider>().isTrigger = true;
             break;
             case GamePhases.Paint:
+            SliderPressValue.FinalValue =1-targetObject.transform.lossyScale.y;
             pressMachine.SetActive(false);
             painter.SetActive(true);
             colorChecker.SetActive(true);
@@ -94,7 +114,7 @@ public class GameManager : MonoBehaviour
             InkCanvasAdder();
             break;
             case GamePhases.Spike:
-            CalculateColor();
+            SliderPaintArea.FinalValue = CalculateColor()/0.028f;//TODO HARD CODED
             painter.SetActive(false);
             colorChecker.SetActive(false);           
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
@@ -106,6 +126,13 @@ public class GameManager : MonoBehaviour
             Hammer.SetActive(true);
             break;
             case GamePhases.End:
+           
+          
+           
+           
+            SliderSpikeCount.FinalValue = 1f;
+            ScorePanel.SetActive(true);
+
             break;
             default:
             break;
@@ -113,10 +140,15 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CalculateArea(Mesh mf,Vector3 scale)
+    [ContextMenu("Calculate Area")]
+    public void CalculateAreaForEditor()
     {
-        scale.y = 1;
-        //var mf = targetObject.GetComponent<MeshFilter>().sharedMesh;
+        CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale);
+    }
+    
+    public float CalculateArea(Mesh mf,Vector3 scale)
+    {
+        scale.y = 1;        
         float area=0f;
 
         for (int i = 0; i < mf.triangles.Length; i += 3)
@@ -141,14 +173,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log(area);
+        Debugger.Log("Area value is "+area,Debugger.PriorityLevel.MustShown);
+        return area;
     }
 
         [ContextMenu("Calculate Color")]
 
-    public void CalculateColor()
+    public float CalculateColor()
     {
-        painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>());
+       return  painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>());
 
     }
 
@@ -171,4 +204,23 @@ public class GameManager : MonoBehaviour
         targetObject.gameObject.SetActive(true);
     }
 
+
+    public void ASpikePlaced()
+    {
+        PlacedSpikes++;
+        if (PlacedSpikes >= ShopRequest.SpikeCount)
+        {
+            GoToNextGameEvent();
+        }
+    }
+
+    public void ASpikeHammered(float result)
+    {
+        PlacedSpikes--;
+        if (PlacedSpikes <= 0)
+        {
+            SliderHammerScore.FinalValue = result;
+            GoToNextGameEvent();
+        }
+    }
 }

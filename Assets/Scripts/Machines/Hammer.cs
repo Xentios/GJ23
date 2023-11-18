@@ -81,8 +81,9 @@ public class Hammer : MonoBehaviour
         spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
         spike.layer = 0;
         hammeredSpikes.Add(spike);
-        CalculateSpikeScore();
+        GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
         DisableSpikeOutline();
+    
 
     }
 

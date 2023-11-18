@@ -173,9 +173,9 @@ public class Painter : MonoBehaviour
         }
     }
 
-    public void CheckColors(MeshRenderer meshRenderer)
+    public float CheckColors(MeshRenderer meshRenderer)
     {
-        colorCheker.CalculateColorArea(meshRenderer, brush.Color);
+        return colorCheker.CalculateColorArea(meshRenderer, brush.Color);
     }
 
     public void ChangeColorOfBrush(Image color)

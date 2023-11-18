@@ -73,6 +73,7 @@ public class Draggable3DObject : MonoBehaviour, IPointerExitHandler, IPointerEnt
         Debugger.Log("isPlaced is  " + isPlaced, Debugger.PriorityLevel.High);
         outline.enabled = false;
         gameObject.layer = LayerMask.NameToLayer("Hammerable");
+        GameManager.Instance.ASpikePlaced();
         if (isPlaced == true) return;
 
         transform.position = lastPosition;

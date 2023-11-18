@@ -91,22 +91,23 @@ public class Press : MonoBehaviour
         float rotX = delta.x;
         float rotY = delta.y;
 
+        var displacement = rotY;
         //This is normal spin
         //Vector3 right = Vector3.Cross(Camera.main.transform.up, spindle.transform.position - Camera.main.transform.position);
         //Vector3 up = Vector3.Cross(spindle.transform.position - Camera.main.transform.position, right);
         ////spindle.transform.rotation *= Quaternion.AngleAxis(-rotX, up);
         ////spindle.transform.rotation *= Quaternion.AngleAxis(rotY, right);
-        if (rotX + rotY < 0)
+        if (displacement < 0)
         {
-            spindle.transform.localRotation *= Quaternion.AngleAxis(rotX + rotY, transform.right);
-            var anispeed = -1 * ((rotX + rotY) / animationSpeed);
+            spindle.transform.localRotation *= Quaternion.AngleAxis(displacement, transform.right);
+            var anispeed = -1 * ((displacement) / animationSpeed);
             animationState += anispeed;
             // SetAnimatorSpeed(anispeed);
         }
         else
         {
-            spindle.transform.localRotation *= Quaternion.AngleAxis((rotX + rotY) / 3, transform.right);
-            var anispeed = -1 * ((rotX + rotY) / animationSpeed);
+            spindle.transform.localRotation *= Quaternion.AngleAxis((displacement) / 3, transform.right);
+            var anispeed = -1 * ((displacement) / animationSpeed);
             animationState += anispeed / 2;
         }
     }

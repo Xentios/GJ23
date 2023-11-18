@@ -12,7 +12,7 @@ public class ColorCheker : MonoBehaviour
     [SerializeField]
     private bool saveTextureForDebugging;
 
-    public void CalculateColorArea(MeshRenderer meshRenderer, Color targetColor)
+    public float CalculateColorArea(MeshRenderer meshRenderer, Color targetColor)
     {
         Texture2D targetTexture = ConvertRenderTextureWithTemporary(meshRenderer.material.mainTexture as RenderTexture, 128, 128);
         int width = targetTexture.width;
@@ -24,15 +24,21 @@ public class ColorCheker : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 Color pixelColor = targetTexture.GetPixel(x, y);
-                if (AreColorsCloseRGBA(pixelColor, targetColor, 0.05f))
+                if (AreColorsCloseRGBA(pixelColor, targetColor, 0.15f))
                 {
                     matchingPixels++;
                 }
             }
         }
+        var result = (float) matchingPixels / (width * height);
         Debugger.Log("Area occupied by target color: " + matchingPixels, Debugger.PriorityLevel.High);
         Debugger.Log("Total Area is : " + (width * height), Debugger.PriorityLevel.High);
-        Debugger.Log("Area occupied by target color as %: " + ((float) matchingPixels / (width * height)).ToString("F5"), Debugger.PriorityLevel.MustShown);
+        Debugger.Log("Area occupied by target color as %: " + (result).ToString("F5"), Debugger.PriorityLevel.MustShown);
+        if (saveTextureForDebugging == true)
+        {
+            SaveTextureToPNG("Texture2D", targetTexture);
+        }
+        return result;
     }
     private void CalculateColorArea()
     {

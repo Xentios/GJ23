@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Shop Request
   m_EditorClassIdentifier: 
   ShapeID: 0
-  Color: {r: 0.9056604, g: 0.15806337, b: 0.15806337, a: 1}
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  PressScale: 0.908
   SpikeTypeID: 0
   SpikeCount: 4
