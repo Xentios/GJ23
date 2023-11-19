@@ -8,6 +8,7 @@ public class ChangeUIText : MonoBehaviour
     {
 
         value *= 100;
-        GetComponent<TMPro.TextMeshProUGUI>().text = value + "%";
+        string formattedString = string.Format("{0:0.##}", value);
+        GetComponent<TMPro.TextMeshProUGUI>().text = formattedString + " %";
     }
 }

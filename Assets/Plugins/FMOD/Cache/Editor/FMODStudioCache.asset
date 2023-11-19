@@ -198,7 +198,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/SoundVFX.bank
   Name: SoundVFX
   StudioPath: bank:/SoundVFX
-  lastModified: 638358294803010703
+  lastModified: 638345289354813456
   FileSizes: []
   Exists: 1
 --- !u!114 &-8360579465733427607
@@ -373,7 +373,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Surfaces Room.bank
   Name: Surfaces Room
   StudioPath: bank:/Surfaces Room
-  lastModified: 638358294803020703
+  lastModified: 638345289354828467
   FileSizes: []
   Exists: 1
 --- !u!114 &-7048940336696532370
@@ -496,7 +496,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Scatter Room.bank
   Name: Scatter Room
   StudioPath: bank:/Scatter Room
-  lastModified: 638358294802550600
+  lastModified: 638345289354358063
   FileSizes: []
   Exists: 1
 --- !u!114 &-6469012084718219457
@@ -680,7 +680,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Shooting Gallery.bank
   Name: Shooting Gallery
   StudioPath: bank:/Shooting Gallery
-  lastModified: 638358294802700632
+  lastModified: 638345289354513199
   FileSizes: []
   Exists: 1
 --- !u!114 &-5776786752306338775
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Player Parameter Room.bank
   Name: Player Parameter Room
   StudioPath: bank:/Player Parameter Room
-  lastModified: 638358294802470578
+  lastModified: 638345289354242979
   FileSizes: []
   Exists: 1
 --- !u!114 &-4411663168828912602
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Custom Distance Atten Room.bank
   Name: Custom Distance Atten Room
   StudioPath: bank:/Custom Distance Atten Room
-  lastModified: 638358294801980464
+  lastModified: 638345289353847582
   FileSizes: []
   Exists: 1
 --- !u!114 &-3408248777419585782
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Panner Room.bank
   Name: Panner Room
   StudioPath: bank:/Panner Room
-  lastModified: 638358294802450579
+  lastModified: 638345289354217946
   FileSizes: []
   Exists: 1
 --- !u!114 &-1980519126977031684
@@ -1516,7 +1516,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Transceiver Room.bank
   Name: Transceiver Room
   StudioPath: bank:/Transceiver Room
-  lastModified: 638358294803450803
+  lastModified: 638345289355220765
   FileSizes: []
   Exists: 1
 --- !u!114 &-518839948443551305
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   - {fileID: 6974399715767519570}
   StringsBanks:
   - {fileID: 6097423501006114919}
-  cacheTime: 638358294803550822
+  cacheTime: 638345289355320852
   cacheVersion: 131608
 --- !u!114 &473456108795928732
 MonoBehaviour:
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Programmer Sounds Room.bank
   Name: Programmer Sounds Room
   StudioPath: bank:/Programmer Sounds Room
-  lastModified: 638358294802480585
+  lastModified: 638345289354257978
   FileSizes: []
   Exists: 1
 --- !u!114 &1333359782363650165
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Thunder Dome.bank
   Name: Thunder Dome
   StudioPath: bank:/Thunder Dome
-  lastModified: 638358294803430795
+  lastModified: 638345289355203790
   FileSizes: []
   Exists: 1
 --- !u!114 &1420950460632820168
@@ -2106,7 +2106,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Event Cone Room.bank
   Name: Event Cone Room
   StudioPath: bank:/Event Cone Room
-  lastModified: 638358294802000469
+  lastModified: 638345289353868263
   FileSizes: []
   Exists: 1
 --- !u!114 &2054156265004047823
@@ -2151,7 +2151,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Sound Module Room.bank
   Name: Sound Module Room
   StudioPath: bank:/Sound Module Room
-  lastModified: 638358294802830661
+  lastModified: 638345289354643307
   FileSizes: []
   Exists: 1
 --- !u!114 &2172029178565104883
@@ -2316,7 +2316,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Volume Control Room.bank
   Name: Volume Control Room
   StudioPath: bank:/Volume Control Room
-  lastModified: 638358294803550822
+  lastModified: 638345289355320852
   FileSizes: []
   Exists: 1
 --- !u!114 &3433531414377112801
@@ -2358,7 +2358,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Interactive Music Room.bank
   Name: Interactive Music Room
   StudioPath: bank:/Interactive Music Room
-  lastModified: 638358294802050485
+  lastModified: 638345289353912680
   FileSizes: []
   Exists: 1
 --- !u!114 &3559476977044084438
@@ -2616,7 +2616,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Snapshot Room.bank
   Name: Snapshot Room
   StudioPath: bank:/Snapshot Room
-  lastModified: 638358294802790651
+  lastModified: 638345289354603280
   FileSizes: []
   Exists: 1
 --- !u!114 &5541896367648886541
@@ -2740,7 +2740,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Master Bank.strings.bank
   Name: Master Bank.strings
   StudioPath: bank:/Master Bank.strings
-  lastModified: 638358294802420570
+  lastModified: 638345289354182918
   FileSizes:
   - Name: 
     Value: 7958
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Sound Spin Room.bank
   Name: Sound Spin Room
   StudioPath: bank:/Sound Spin Room
-  lastModified: 638358294802850665
+  lastModified: 638345289354658324
   FileSizes: []
   Exists: 1
 --- !u!114 &6402402308015520155
@@ -2830,7 +2830,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Test Banks/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638358294802410566
+  lastModified: 638345289354172920
   FileSizes: []
   Exists: 1
 --- !u!114 &7167237277415588969
