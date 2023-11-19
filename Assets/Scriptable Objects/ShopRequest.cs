@@ -9,12 +9,17 @@ public class ShopRequest : ScriptableObject
     [SerializeField]
     public int ShapeID;
     [SerializeField]
+    public string ShapeName;
+    [SerializeField]
     public Color Color;
-    [Range(0.001f,1)]
+    [SerializeField]
+    public string ColorName;
+    [Range(0.001f, 1)]
     [SerializeField]
     public float PressScale;
     [SerializeField]
     public int SpikeTypeID;
     [SerializeField]
     public int SpikeCount;
+
 }

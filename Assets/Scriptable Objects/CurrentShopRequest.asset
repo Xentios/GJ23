@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81cce31753fa0be48a5cd805216e7a2b, type: 3}
-  m_Name: Test Shop Request
+  m_Name: CurrentShopRequest
   m_EditorClassIdentifier: 
   ShapeID: 0
+  ShapeName: Circle
   Color: {r: 1, g: 0, b: 0, a: 1}
-  PressScale: 0.908
+  ColorName: RED
+  PressScale: 0.224
   SpikeTypeID: 0
-  SpikeCount: 4
+  SpikeCount: 3
