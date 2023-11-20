@@ -26,8 +26,8 @@ public class ShopItemInstantiate : MonoBehaviour
         for (int i = 0; i < SpawnCount; i++)
         {            
             Instantiate(itemPrefab, spawnPoint, Random.rotation).name="Spike "+i+1;
-            
-            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+
+            GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(3f/SpawnCount);
         }
     }
