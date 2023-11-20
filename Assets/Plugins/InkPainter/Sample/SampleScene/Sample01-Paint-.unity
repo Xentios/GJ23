@@ -194,6 +194,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2330664, guid: 68e6cd702d40b5e42b27fa9751ff0722, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6e12bbc8921e0e49b2a2378c1d04876, type: 2}
+    - target: {fileID: 2330664, guid: 68e6cd702d40b5e42b27fa9751ff0722, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
@@ -224,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412712, guid: fe5cc53253fec434db54ddc88c90fc11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.37
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 412712, guid: fe5cc53253fec434db54ddc88c90fc11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -376,7 +380,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0
-    brushColor: {r: 0.421064, g: 0.42414397, b: 0.86764705, a: 1}
+    brushColor: {r: 0.9528302, g: 0.11155631, b: 0, a: 1}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0
@@ -524,7 +528,7 @@ Transform:
   m_GameObject: {fileID: 1561663836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.11, z: -3.388}
+  m_LocalPosition: {x: 0, y: 3.29, z: -3.388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -640,13 +644,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643212148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.62046367, y: 0, z: 0, w: 0.78423524}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1420899393}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.7, y: 0, z: 0}
 --- !u!114 &1643212151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +761,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652702341658755101, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652702341660685517, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652702341660685517, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 870d1ed8595a1314aa7493e20fadbe63, type: 2}
+    - target: {fileID: 7086654063629807154, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].useHeightPaint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086654063629807154, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].useNormalPaint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086654063629807154, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].mainTextureName
+      value: _BaseMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086654063629807154, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].heightTextureName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086654063629807154, guid: 68dea250245637d4ba0ea479d7cbb3a9,
+        type: 3}
+      propertyPath: paintSet.Array.data[0].normalTextureName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

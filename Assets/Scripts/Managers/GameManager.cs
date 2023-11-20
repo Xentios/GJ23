@@ -126,10 +126,12 @@ public class GameManager : MonoBehaviour
             Hammer.SetActive(true);
             break;
             case GamePhases.End:
-           
-          
-           
-           
+            Hammer.SetActive(false);
+            var realScale=targetObject.transform.lossyScale;
+            targetObject.transform.parent = null;
+            targetObject.transform.localScale = realScale;
+
+
             SliderSpikeCount.FinalValue = 1f;
             ScorePanel.SetActive(true);
 
@@ -181,7 +183,7 @@ public class GameManager : MonoBehaviour
 
     public float CalculateColor()
     {
-       return  painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>());
+       return  painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>(),ShopRequest.Color);
 
     }
 
@@ -196,7 +198,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < mats.Length; i++)
         {
-            sets.Add(new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap", true, false, false, mats[i]));
+            sets.Add(new PaintSet("_BaseMap", "_BumpMap", "_ParallaxMap", true, false, false, mats[i]));
         }
 
         //PaintSet set=new PaintSet("_MainTex", "_BumpMap", "_ParallaxMap",true,false,false, mat);
@@ -229,5 +231,13 @@ public class GameManager : MonoBehaviour
         var final = SliderHammerScore.FinalValue + SliderSpikeCount.FinalValue + SliderPaintArea.FinalValue + SliderPressValue.FinalValue + SliderShapeArea.FinalValue;
         final /= 5;
         return final;
+    }
+
+    public Vector3 GetTopPlaneOfTarget()
+    {
+        var targetObjectTransform = targetObject.transform;
+
+        Vector3 topPosition = targetObjectTransform.position + Vector3.Scale(Vector3.up, targetObjectTransform.lossyScale) * targetObjectTransform.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+        return topPosition;
     }
 }

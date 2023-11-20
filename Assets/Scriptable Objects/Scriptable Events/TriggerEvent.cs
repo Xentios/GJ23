@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class TriggerEvent : MonoBehaviour
 {
+    [SerializeField]
+    private InputActionReference ESC;
+
     [SerializeField]
     private  UnityEvent unityEvents;
     [SerializeField]
@@ -24,6 +28,9 @@ public class TriggerEvent : MonoBehaviour
     private bool TriggerOnDisable;
     [SerializeField]
     private bool TriggerOnDestroy;
+
+    private bool skipFlag;
+
     //[SerializeField]
     //private bool OnAwake;
     //[SerializeField]
@@ -53,6 +60,8 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnEnable()
     {
+        EnableInput();
+
         if (TriggerOnEnable == true)
         {
             TriggerInvokeAll();
@@ -61,6 +70,8 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnDisable()
     {
+        DisableInput();
+
         if (TriggerOnDisable == true)
         {
             TriggerInvokeAll();
@@ -93,7 +104,17 @@ public class TriggerEvent : MonoBehaviour
 
     IEnumerator TriggerAllWithTime()
     {
-        yield return new WaitForSeconds(timeToTrigger);
+        //yield return new WaitForSeconds(timeToTrigger);
+
+        float elapsedTime = 0f;
+        
+
+        while (elapsedTime < timeToTrigger && skipFlag==false)
+        {   
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
         TIALL();
     }
 
@@ -105,5 +126,26 @@ public class TriggerEvent : MonoBehaviour
         {
             gameEvent.TriggerEvent();
         }
+    }
+
+    private void RemoveTimer(InputAction.CallbackContext callbackContext)
+    {
+        skipFlag = true;
+
+    }
+
+
+    private void EnableInput()
+    {
+        if (ESC == null) return;
+
+        ESC.action.performed += RemoveTimer;
+    }
+
+    private void DisableInput()
+    {
+        if (ESC == null) return;
+
+        ESC.action.performed -= RemoveTimer;
     }
 }

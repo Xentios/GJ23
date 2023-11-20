@@ -116,6 +116,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5583518-37cd-43c9-a4cb-6d924fe717c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -448,6 +457,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause Editor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3b89319-3639-4c05-a0d4-a79b02a4388f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -472,6 +492,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_CTRLRRestartGame = m_Player.FindAction("CTRL+R (Restart Game)", throwIfNotFound: true);
         m_Player_MouseMovementDelta = m_Player.FindAction("MouseMovementDelta", throwIfNotFound: true);
         m_Player_PauseEditor = m_Player.FindAction("Pause Editor", throwIfNotFound: true);
+        m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -543,6 +564,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CTRLRRestartGame;
     private readonly InputAction m_Player_MouseMovementDelta;
     private readonly InputAction m_Player_PauseEditor;
+    private readonly InputAction m_Player_ESC;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -557,6 +579,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @CTRLRRestartGame => m_Wrapper.m_Player_CTRLRRestartGame;
         public InputAction @MouseMovementDelta => m_Wrapper.m_Player_MouseMovementDelta;
         public InputAction @PauseEditor => m_Wrapper.m_Player_PauseEditor;
+        public InputAction @ESC => m_Wrapper.m_Player_ESC;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -596,6 +619,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PauseEditor.started += instance.OnPauseEditor;
             @PauseEditor.performed += instance.OnPauseEditor;
             @PauseEditor.canceled += instance.OnPauseEditor;
+            @ESC.started += instance.OnESC;
+            @ESC.performed += instance.OnESC;
+            @ESC.canceled += instance.OnESC;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -630,6 +656,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PauseEditor.started -= instance.OnPauseEditor;
             @PauseEditor.performed -= instance.OnPauseEditor;
             @PauseEditor.canceled -= instance.OnPauseEditor;
+            @ESC.started -= instance.OnESC;
+            @ESC.performed -= instance.OnESC;
+            @ESC.canceled -= instance.OnESC;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -668,5 +697,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnCTRLRRestartGame(InputAction.CallbackContext context);
         void OnMouseMovementDelta(InputAction.CallbackContext context);
         void OnPauseEditor(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
     }
 }

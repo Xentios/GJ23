@@ -24,7 +24,7 @@ public class ColorCheker : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 Color pixelColor = targetTexture.GetPixel(x, y);
-                if (AreColorsCloseRGBA(pixelColor, targetColor, 0.15f))
+                if (AreColorsCloseRGBA(pixelColor, targetColor, 0.05f))
                 {
                     matchingPixels++;
                 }

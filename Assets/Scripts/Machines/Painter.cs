@@ -50,9 +50,13 @@ public class Painter : MonoBehaviour
     {
         visualPlane  = new Plane(Vector3.up, Vector3.zero);
     }
+
+  
     private void OnEnable()
     {
-        
+        var topPosition=GameManager.Instance.GetTopPlaneOfTarget();
+        visualPlane= new Plane(Vector3.up, topPosition+Vector3.up);
+
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.started += MouseLeftDownEvent;
         mouseLeftClick.action.canceled += MouseLeftUpEvent;
@@ -173,9 +177,9 @@ public class Painter : MonoBehaviour
         }
     }
 
-    public float CheckColors(MeshRenderer meshRenderer)
+    public float CheckColors(MeshRenderer meshRenderer,Color requestedColor)
     {
-        return colorCheker.CalculateColorArea(meshRenderer, brush.Color);
+        return colorCheker.CalculateColorArea(meshRenderer, requestedColor);
     }
 
     public void ChangeColorOfBrush(Image color)

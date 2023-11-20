@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebugLogsAllowed: 1
   AllowedPriorityLimit: 100
-  AllowedSystemType: {fileID: 0}
+  AllowedSystemType: {fileID: 11500000, guid: 15e7b69764f57714ca5c9d90f50c4382, type: 3}
   IEnumeratorCallName: 

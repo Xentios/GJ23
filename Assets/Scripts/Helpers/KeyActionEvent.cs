@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class KeyActionEvent : MonoBehaviour
 {
-    [SerializeField] KeyCode KeyCode;
+    [SerializeField] InputActionReference keyPress;
     [SerializeField] UnityEvent UnityEvent;
 
-    void Update()
+
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode)){
-            UnityEvent?.Invoke();
-        }
-        
+        keyPress.action.performed+=TriggerEvent;
+    }
+
+    private void OnDisable()
+    {
+        keyPress.action.performed -= TriggerEvent;
+    }
+
+
+
+    private void TriggerEvent(InputAction.CallbackContext callbackContext)
+    {
+        UnityEvent?.Invoke();
     }
 }
