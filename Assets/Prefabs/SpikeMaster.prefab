@@ -102,7 +102,7 @@ MonoBehaviour:
   max_distance_raycast: 1000
   layerMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 64
 --- !u!54 &3976314044518577051
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -27,7 +27,14 @@ public class SliderMidleFill : MonoBehaviour
     public void OnEnable()
     {
         center = shopRequest.PressScale;
+        slider.value = 1f;
+        
         //middle=
+    }
+
+    public void Start()
+    {
+        onValueChanged();
     }
 
     public void onValueChanged()

@@ -72,12 +72,18 @@ public class Draggable3DObject : MonoBehaviour, IPointerExitHandler, IPointerEnt
         Debugger.Log("On End Drag of " + transform.name, Debugger.PriorityLevel.High);
         Debugger.Log("isPlaced is  " + isPlaced, Debugger.PriorityLevel.High);
         outline.enabled = false;
-        gameObject.layer = LayerMask.NameToLayer("Hammerable");
-        GameManager.Instance.ASpikePlaced();
-        if (isPlaced == true) return;
 
-        transform.position = lastPosition;
-        rigidbodyy.isKinematic = false;
+        if (isPlaced == true)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Hammerable");
+            GameManager.Instance.ASpikePlaced();
+        }
+        else
+        {
+            transform.position = lastPosition;
+            rigidbodyy.isKinematic = false;
+        }
+       
     }
 
     public void OnBeginDrag(PointerEventData eventData)

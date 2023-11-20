@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             //targetObject.AddComponent<BoxCollider>().isTrigger = true;
             break;
             case GamePhases.Paint:
-            SliderPressValue.FinalValue =1-targetObject.transform.lossyScale.y;
+            SliderPressValue.FinalValue =(1-(Mathf.Abs(ShopRequest.PressScale-targetObject.transform.lossyScale.y)));
             pressMachine.SetActive(false);
             painter.SetActive(true);
             colorChecker.SetActive(true);
@@ -116,7 +116,8 @@ public class GameManager : MonoBehaviour
             case GamePhases.Spike:
             SliderPaintArea.FinalValue = CalculateColor()/0.028f;//TODO HARD CODED
             painter.SetActive(false);
-            colorChecker.SetActive(false);           
+            colorChecker.SetActive(false);
+            targetObject.layer = LayerMask.NameToLayer("Sliceable");
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
             spikeEvents.SetActive(true);
 
