@@ -21,5 +21,4 @@ public class ShopRequest : ScriptableObject
     public int SpikeTypeID;
     [SerializeField]
     public int SpikeCount;
-
 }
