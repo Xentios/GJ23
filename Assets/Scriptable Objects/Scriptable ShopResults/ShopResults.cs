@@ -5,29 +5,44 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ShopRequests/ShopResult")]
 public class ShopResult : ScriptableObject
 {
-    //Dmg Modifier
+    [Header("Main Part")]
+
+    [Tooltip("Damage Modifier")]
+    [Range(0,100)]
     [SerializeField]
     public float CutPercentage;
-    //HP Modifier
+    [Tooltip("HP Modifier")]
+    [Range(0, 100)]
     [SerializeField]
     public float PressPercentage;
+
     //?? What should it modify?
+    [Range(0, 100)]
     [SerializeField]
     public float PaintPercentage;
-    //Thorns Dmg Modifier
+
+    [Tooltip("Thorns Dmg Modifier")]
+    [Range(0, 100)]
     [SerializeField]
     public float SpikePercentage;
+
     //Armor Modifier maybe?
+    [Range(0, 100)]
     [SerializeField]
     public float HammerPercentage;
 
+    [Header("Elemental Damages")]
     //Fire Dmg
+    [Tooltip("Fire Dmg")]
+    [Range(0, 100)]
     [SerializeField]
     public float RedColorPercentage;
-    //Ice Dmg
+    [Tooltip("Ice Dmg")]
+    [Range(0, 100)]
     [SerializeField]
     public float BlueColorPercentage;
-    //Poision Dmg 
+    [Tooltip("Poison Dmg")]
+    [Range(0, 100)]
     [SerializeField]
     public float GreenColorPercentage;
 
