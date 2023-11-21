@@ -8,6 +8,7 @@ namespace ADV
         public string TargetID;
         public Card TargetCharacter;
         public bool HasTarget;
+        public ShopResult Result;
         [Space]
         public WeaponType Weapon;
         public float DamageOutputMod;
@@ -18,11 +19,14 @@ namespace ADV
         public float ChillChance;
         public bool LightningDamageActive;
         public float ShockChance;
+        public bool PoisonDamageActive;
+        public float PoisonChance;
         public float FireDamageTakenMod;
         public float ColdDamageTakenMod;
         public float LightningDamageTakenMod;
         public float RegenerationRate;
         public float DamageAuraChance;
+        public float ThronDamageMod;
         [Space]
         public List<GameObject> BossWeaponSet;
         public List<GameObject> SwordWeaponSet;
@@ -37,12 +41,16 @@ namespace ADV
         public GameObject Chill;
         public GameObject LightningDamage;
         public GameObject Shock;
+        public GameObject PoisonDamage;
+        public GameObject Poison;
         public GameObject FireResistance;
         public GameObject ColdResistance;
         public GameObject LightningResistance;
         public GameObject Regeneration;
         public GameObject AuraActivate;
         public GameObject AuraEffect;
+        public GameObject Thron;
+        public GameObject ThronMod;
 
         public void Awake()
         {
@@ -68,11 +76,28 @@ namespace ADV
                     {
                         HasTarget = true;
                         TargetCharacter = C;
+                        if (Result)
+                            PreInitialization();
                         Initialization(C);
                         break;
                     }
                 }
             }
+        }
+
+        public void PreInitialization()
+        {
+            DamageOutputMod = Result.CutPercentage / 100f;
+            DamageTakenMod = 1 + ((100f - Result.PressPercentage) / 100f);
+            ThronDamageMod = Result.SpikePercentage / 100f;
+            float AllElement = Result.PaintPercentage / 200f;
+            FireDamageActive = Result.RedColorPercentage > 0;
+            IgniteChance = AllElement * Result.RedColorPercentage / 100f;
+            ColdDamageActive = Result.BlueColorPercentage > 0;
+            ChillChance = AllElement * Result.BlueColorPercentage / 100f;
+            PoisonDamageActive = Result.GreenColorPercentage > 0;
+            PoisonChance = AllElement * Result.GreenColorPercentage / 100f;
+            RegenerationRate = Result.HammerPercentage / 300f;
         }
 
         public void Initialization(Card C)
@@ -119,18 +144,27 @@ namespace ADV
                 AddMark(C, LightningDamage, new List<string>());
             if (ShockChance > 0)
                 AddMark(C, Shock, new List<string>() { "Chance[" + ShockChance });
-            if (FireDamageTakenMod != 1)
+            if (PoisonDamageActive)
+                AddMark(C, PoisonDamage, new List<string>());
+            if (PoisonChance > 0)
+                AddMark(C, Poison, new List<string>() { "Chance[" + PoisonChance });
+            /*if (FireDamageTakenMod != 1)
                 AddMark(C, FireResistance, new List<string>() { "DamageMod[" + FireDamageTakenMod });
             if (ColdDamageTakenMod != 1)
                 AddMark(C, ColdResistance, new List<string>() { "DamageMod[" + ColdDamageTakenMod });
             if (LightningDamageTakenMod != 1)
-                AddMark(C, LightningResistance, new List<string>() { "DamageMod[" + LightningDamageTakenMod });
+                AddMark(C, LightningResistance, new List<string>() { "DamageMod[" + LightningDamageTakenMod });*/
             if (RegenerationRate > 0)
                 AddMark(C, Regeneration, new List<string>() { "Heal[" + RegenerationRate });
             if (DamageAuraChance > 0)
             {
                 AddMark(C, AuraActivate, new List<string>() { "Chance[" + DamageAuraChance });
                 AddMark(C, AuraEffect, new List<string>());
+            }
+            if (ThronDamageMod > 0)
+            {
+                AddMark(C, Thron, new List<string>());
+                AddMark(C, ThronMod, new List<string>() { "DamageMod[" + ThronDamageMod });
             }
         }
 
@@ -140,13 +174,13 @@ namespace ADV
             {
                 Mark_Status Status = C.AddStatus(Mark.GetComponent<Mark_Status>(), C);
                 foreach (string s in AddKeys)
-                    Status.ChangeKey(KeyBase.Translate(s, out float Value), Value);
+                    Status.SetKey(KeyBase.Translate(s, out float Value), Value);
             }
             else if (Mark.GetComponent<Mark_Skill>())
             {
                 Mark_Skill Skill = C.AddSkill(Mark.GetComponent<Mark_Skill>());
                 foreach (string s in AddKeys)
-                    Skill.ChangeKey(KeyBase.Translate(s, out float Value), Value);
+                    Skill.SetKey(KeyBase.Translate(s, out float Value), Value);
             }
         }
     }

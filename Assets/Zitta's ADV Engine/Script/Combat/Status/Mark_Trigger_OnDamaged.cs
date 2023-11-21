@@ -30,7 +30,7 @@ namespace ADV
             float a = Random.Range(0.001f, 0.999f);
             if (a <= Chance)
             {
-                OnTrigger(Source);
+                OnTrigger(Target);
             }
         }
 

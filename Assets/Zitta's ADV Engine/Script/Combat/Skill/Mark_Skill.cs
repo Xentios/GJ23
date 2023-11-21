@@ -50,7 +50,7 @@ namespace ADV
                 if (HasKey("RCD"))
                     SetKey("CCD", GetKey("CoolDown") + Random.Range(-GetKey("RCD"), GetKey("RCD")));
                 else
-                    SetKey("CCD", GetKey("CoolDown"));
+                    SetKey("CCD", GetKey("CoolDown") / Source.PassValue("CDMod", 1));
             }
             if (HasKey("AnimLock") && Source.AnimLock < GetKey("AnimLock"))
                 Source.AnimLock = GetKey("AnimLock");
@@ -166,9 +166,9 @@ namespace ADV
             if (HasKey("CoolDown") || HasKey("CCD"))
             {
                 if (GetKey("ASCD") != 0)
-                    ChangeKey("CCD", -Value);
+                    ChangeKey("CCD", -Value/* * Source.PassValue("CDMod", 1)*/);
                 else
-                    ChangeKey("CCD", -Value);
+                    ChangeKey("CCD", -Value/* * Source.PassValue("CDMod", 1)*/);
                 if (GetKey("CCD") < 0)
                     SetKey("CCD", 0);
             }
