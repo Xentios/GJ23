@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cce31753fa0be48a5cd805216e7a2b, type: 3}
   m_Name: CurrentShopRequest
   m_EditorClassIdentifier: 
-  ShapeID: 0
-  ShapeName: Circle
-  Color: {r: 1, g: 0, b: 0, a: 1}
-  ColorName: RED
-  PressScale: 0.224
+  ShapeID: 1
+  ShapeName: Hexagon
+  Color: {r: 0, g: 0, b: 1, a: 1}
+  ColorPercentage: 0.8440075
+  ColorName: BLUE
+  PressScale: 0.7911591
   SpikeTypeID: 0
-  SpikeCount: 3
+  SpikeCount: 4

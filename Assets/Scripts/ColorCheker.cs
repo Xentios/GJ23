@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class ColorCheker : MonoBehaviour
 {
+
     [SerializeField]
-    public Color targetColor;
+    public ShopRequest shopRequest;
+
+   
 
     [SerializeField]
     public GameObject targetObject;
@@ -44,6 +47,7 @@ public class ColorCheker : MonoBehaviour
     {
         Texture2D targetTexture = ConvertRenderTextureWithTemporary(targetObject.GetComponent<MeshRenderer>().material.mainTexture as RenderTexture,128,128);
 
+        var targetColor = shopRequest.Color;
         int width = targetTexture.width;
         int height = targetTexture.height;
         int matchingPixels = 0;

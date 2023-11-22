@@ -5,6 +5,7 @@ using Es.InkPainter;
 using DG.Tweening;
 using static Es.InkPainter.InkCanvas;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public ShopRequest ShopRequest;
+
+    [SerializeField]
+    public List<ShopResult> ShopResults;
+    private ShopResult currentShopResult;
+    private int customerIndex;
 
     [SerializeField]
     public GameObject targetObject;
@@ -81,7 +87,11 @@ public class GameManager : MonoBehaviour
 
     private GamePhases currentGamePhase;
 
-    
+
+    private void Start()
+    {
+        currentShopResult = ShopResults[customerIndex];
+    }
     public void GoToNextGameEvent()
     {
         currentGamePhase++;
@@ -98,23 +108,33 @@ public class GameManager : MonoBehaviour
     {
         switch (currentGamePhase)
         {
+            case GamePhases.Cut:
+            slicer.SetActive(true);
+
+            break;
             case GamePhases.Press:
             slicer.SetActive(false);
             pressMachine.SetActive(true);
             SliderShapeArea.FinalValue =CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale)/25;//TODO HARDCODED
-            //CalculateArea(targetObject.GetComponent<MeshFilter>().sharedMesh);
-            //targetObject.AddComponent<BoxCollider>().isTrigger = true;
+            currentShopResult.CutPercentage = SliderShapeArea.FinalValue;
+            
             break;
             case GamePhases.Paint:
             SliderPressValue.FinalValue =(1-(Mathf.Abs(ShopRequest.PressScale-targetObject.transform.lossyScale.y)));
+            currentShopResult.PressPercentage = SliderPressValue.FinalValue;
+
             pressMachine.SetActive(false);
             painter.SetActive(true);
             colorChecker.SetActive(true);
-            colorChecker.GetComponent<ColorCheker>().targetColor = ShopRequest.Color;
+            
             InkCanvasAdder();
             break;
             case GamePhases.Spike:
             SliderPaintArea.FinalValue = CalculateColor()/0.028f;//TODO HARD CODED
+            currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;
+
+            //TODO CALCULATE OTHER COLORS
+
             painter.SetActive(false);
             colorChecker.SetActive(false);
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
@@ -134,8 +154,12 @@ public class GameManager : MonoBehaviour
 
 
             SliderSpikeCount.FinalValue = 1f;
-            ScorePanel.SetActive(true);
+            currentShopResult.SpikePercentage = 1f;
 
+            ScorePanel.SetActive(true);
+           
+
+           
             break;
             default:
             break;
@@ -223,6 +247,7 @@ public class GameManager : MonoBehaviour
         if (PlacedSpikes <= 0)
         {
             SliderHammerScore.FinalValue = result;
+            currentShopResult.HammerPercentage = result;
             GoToNextGameEvent();
         }
     }
@@ -240,5 +265,16 @@ public class GameManager : MonoBehaviour
 
         Vector3 topPosition = targetObjectTransform.position + Vector3.Scale(Vector3.up, targetObjectTransform.lossyScale) * targetObjectTransform.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
         return topPosition;
+    }
+
+    public void StartNextPhase()
+    {
+        customerIndex++;
+        if (customerIndex > ShopResults.Count)
+        {
+            SceneManager.LoadScene("BattleScene");
+        }
+
+        ShopRequest.Randomize();
     }
 }

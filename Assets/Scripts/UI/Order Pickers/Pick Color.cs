@@ -6,5 +6,6 @@ public class PickColor : Pickers
     {
         image.color = shopRequest.Color;
         textField.text = shopRequest.ColorName;
+        image.fillAmount = shopRequest.ColorPercentage;
     }
 }
