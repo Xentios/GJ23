@@ -35,6 +35,7 @@ public class Hammer : MonoBehaviour
     private void OnEnable()
     {
         hammeredSpikes = new List<GameObject>();
+        hammeredSpikes.Clear();
 
         for (int i = 0; i < 90; i++)
         {

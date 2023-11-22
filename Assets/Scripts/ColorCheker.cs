@@ -3,15 +3,7 @@ using UnityEngine;
 
 public class ColorCheker : MonoBehaviour
 {
-
-    [SerializeField]
-    public ShopRequest shopRequest;
-
-   
-
-    [SerializeField]
-    public GameObject targetObject;
-
+     
     [SerializeField]
     private bool saveTextureForDebugging;
 
@@ -45,33 +37,33 @@ public class ColorCheker : MonoBehaviour
     }
     private void CalculateColorArea()
     {
-        Texture2D targetTexture = ConvertRenderTextureWithTemporary(targetObject.GetComponent<MeshRenderer>().material.mainTexture as RenderTexture,128,128);
+        //Texture2D targetTexture = ConvertRenderTextureWithTemporary(targetObject.GetComponent<MeshRenderer>().material.mainTexture as RenderTexture,128,128);
 
-        var targetColor = shopRequest.Color;
-        int width = targetTexture.width;
-        int height = targetTexture.height;
-        int matchingPixels = 0;
+        //var targetColor = shopRequest.Color;
+        //int width = targetTexture.width;
+        //int height = targetTexture.height;
+        //int matchingPixels = 0;
 
-        for (int y = 0; y < height; y++)
-        {
-            for (int x = 0; x < width; x++)
-            {
-                Color pixelColor = targetTexture.GetPixel(x, y);              
-              if(AreColorsCloseRGBA(pixelColor,targetColor,0.05f))
-                {
-                    matchingPixels++;
-                }
-            }
-        }
-        Debugger.Log("Area occupied by target color: " + matchingPixels,Debugger.PriorityLevel.High);
-        Debugger.Log("Total Area is : " + (width * height), Debugger.PriorityLevel.High);
-        Debugger.Log("Area occupied by target color as %: " + ((float) matchingPixels/(width*height)).ToString("F5"), Debugger.PriorityLevel.MustShown);
+        //for (int y = 0; y < height; y++)
+        //{
+        //    for (int x = 0; x < width; x++)
+        //    {
+        //        Color pixelColor = targetTexture.GetPixel(x, y);              
+        //      if(AreColorsCloseRGBA(pixelColor,targetColor,0.05f))
+        //        {
+        //            matchingPixels++;
+        //        }
+        //    }
+        //}
+        //Debugger.Log("Area occupied by target color: " + matchingPixels,Debugger.PriorityLevel.High);
+        //Debugger.Log("Total Area is : " + (width * height), Debugger.PriorityLevel.High);
+        //Debugger.Log("Area occupied by target color as %: " + ((float) matchingPixels/(width*height)).ToString("F5"), Debugger.PriorityLevel.MustShown);
 
 
-        if (saveTextureForDebugging == true)
-        {
-            SaveTextureToPNG("Texture2D", targetTexture);
-        }
+        //if (saveTextureForDebugging == true)
+        //{
+        //    SaveTextureToPNG("Texture2D", targetTexture);
+        //}
     }
 
   

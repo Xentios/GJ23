@@ -5,6 +5,11 @@ using DG.Tweening;
 
 public class PerfectScoreAnimation : MonoBehaviour
 {
+
+    public void OnDisable()
+    {
+        transform.localScale = new Vector3(0, 1, 1);
+    }
     public void GetScore(float score)
     {
         if (score > 0.97f)

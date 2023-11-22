@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public List<GameEvent> GameEvents;
 
     [SerializeField]
+    public GameObject targetObjectPrefab;
+    [HideInInspector]
     public GameObject targetObject;
 
     [SerializeField]
@@ -114,6 +116,8 @@ public class GameManager : MonoBehaviour
             case GamePhases.Start:
             ShopRequest.Randomize();
             currentShopResult = ShopResults[customerIndex];
+            targetObject = Instantiate(targetObjectPrefab).transform.GetChild(0).gameObject;
+            PlacedSpikes = 0;
             break;
             case GamePhases.Cut:
             //slicer.SetActive(true);

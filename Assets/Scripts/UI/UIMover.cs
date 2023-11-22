@@ -22,6 +22,7 @@ public class UIMover : MonoBehaviour
 
   
 
+    [ContextMenu("Hide")]
     public void HideY()
     {
         if (Hidden == true) return;
@@ -30,6 +31,7 @@ public class UIMover : MonoBehaviour
         Debugger.Log("HideY of " + gameObject.name, Debugger.PriorityLevel.Medium);
         rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - MoveDelta, Duration);      
     }
+    [ContextMenu("Show")]
     public void ShowY()
     {
         if (Hidden == false) return;

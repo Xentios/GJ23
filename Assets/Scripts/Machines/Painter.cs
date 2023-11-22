@@ -39,10 +39,12 @@ public class Painter : MonoBehaviour
     bool erase = false;
 
     [SerializeField]
+    private double setTimeLeftToPaint;
+    
     private double timeLeftToPaint;
     private double  timeStartedToPaint;
 
-    private bool isPainting = false;
+    private bool isPainting;
 
     private Plane visualPlane;
 
@@ -54,6 +56,10 @@ public class Painter : MonoBehaviour
   
     private void OnEnable()
     {
+        timeLeftToPaint = setTimeLeftToPaint;
+        timeStartedToPaint = 0;
+        isPainting = false;
+
         var topPosition=GameManager.Instance.GetTopPlaneOfTarget();
         visualPlane= new Plane(Vector3.up, topPosition+Vector3.up);
 

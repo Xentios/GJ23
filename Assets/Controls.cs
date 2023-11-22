@@ -125,6 +125,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SPACE"",
+                    ""type"": ""Button"",
+                    ""id"": ""bba86d21-97ea-41ce-9bdf-c544a3221d52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -468,6 +477,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a860f98-e16d-425a-a0e0-9ab34532690b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SPACE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -493,6 +513,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseMovementDelta = m_Player.FindAction("MouseMovementDelta", throwIfNotFound: true);
         m_Player_PauseEditor = m_Player.FindAction("Pause Editor", throwIfNotFound: true);
         m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
+        m_Player_SPACE = m_Player.FindAction("SPACE", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -565,6 +586,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseMovementDelta;
     private readonly InputAction m_Player_PauseEditor;
     private readonly InputAction m_Player_ESC;
+    private readonly InputAction m_Player_SPACE;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -580,6 +602,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseMovementDelta => m_Wrapper.m_Player_MouseMovementDelta;
         public InputAction @PauseEditor => m_Wrapper.m_Player_PauseEditor;
         public InputAction @ESC => m_Wrapper.m_Player_ESC;
+        public InputAction @SPACE => m_Wrapper.m_Player_SPACE;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -622,6 +645,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ESC.started += instance.OnESC;
             @ESC.performed += instance.OnESC;
             @ESC.canceled += instance.OnESC;
+            @SPACE.started += instance.OnSPACE;
+            @SPACE.performed += instance.OnSPACE;
+            @SPACE.canceled += instance.OnSPACE;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -659,6 +685,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ESC.started -= instance.OnESC;
             @ESC.performed -= instance.OnESC;
             @ESC.canceled -= instance.OnESC;
+            @SPACE.started -= instance.OnSPACE;
+            @SPACE.performed -= instance.OnSPACE;
+            @SPACE.canceled -= instance.OnSPACE;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -698,5 +727,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseMovementDelta(InputAction.CallbackContext context);
         void OnPauseEditor(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
+        void OnSPACE(InputAction.CallbackContext context);
     }
 }

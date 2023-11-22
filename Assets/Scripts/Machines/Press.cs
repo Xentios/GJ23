@@ -32,9 +32,13 @@ public class Press : MonoBehaviour
     private float animationState;
 
     [SerializeField]
+    private float setPressTimer;
+
+  
     private float pressTimer;
     private void OnEnable()
     {
+        pressTimer = setPressTimer;
         var targetObject=GameManager.Instance.targetObject;
         targetObject.transform.parent = new GameObject("targetPivot").transform;
         var tPos=targetObject.transform.position;

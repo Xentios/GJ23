@@ -24,7 +24,7 @@ public class Slicer : MonoBehaviour
     [SerializeField]
     private InputActionReference mouseScroll;
 
-    [SerializeField]
+    
     private GameObject sliceTarget;
     [SerializeField]
     private Material slicedFaceMaterial;
@@ -58,8 +58,9 @@ public class Slicer : MonoBehaviour
         planeList = new();
     }
 
-    private void Start()
+    private void ONStart()
     {
+        sliceTarget = GameManager.Instance.targetObject;
         var height = Vector3.Scale(Vector3.up, sliceTarget.transform.lossyScale) * sliceTarget.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
         Vector3 topPosition = sliceTarget.transform.position + height;
         bottomPositionYValue = (sliceTarget.transform.position.y - height.y);
@@ -70,6 +71,7 @@ public class Slicer : MonoBehaviour
 
     private void OnEnable()
     {
+        ONStart();
         mouseScroll.action.performed += MouseScrollEvent;
         mouseMovement.action.performed += MouseMovementEvent;
         mouseLeftClick.action.performed += MouseLeftClickEvent;

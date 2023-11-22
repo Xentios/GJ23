@@ -7,23 +7,36 @@ using UnityEngine.InputSystem;
 public class KeyActionEvent : MonoBehaviour
 {
     [SerializeField] InputActionReference keyPress;
-    [SerializeField] UnityEvent UnityEvent;
+    [SerializeField] UnityEvent pressEvent;
 
+
+
+    [SerializeField] UnityEvent canvelEvent;
 
     private void OnEnable()
     {
-        keyPress.action.performed+=TriggerEvent;
+        keyPress.action.Enable();
+        keyPress.action.performed+=TriggerPerformedEvent;
+        keyPress.action.canceled += TriggerCancelEvent;
     }
 
     private void OnDisable()
     {
-        keyPress.action.performed -= TriggerEvent;
+       
+        keyPress.action.performed -= TriggerPerformedEvent;
+        keyPress.action.canceled -= TriggerCancelEvent;
+        keyPress.action.Disable();
     }
 
 
 
-    private void TriggerEvent(InputAction.CallbackContext callbackContext)
+    private void TriggerPerformedEvent(InputAction.CallbackContext callbackContext)
     {
-        UnityEvent?.Invoke();
+        pressEvent?.Invoke();
+    }
+
+    private void TriggerCancelEvent(InputAction.CallbackContext callbackContext)
+    {
+        canvelEvent?.Invoke();
     }
 }

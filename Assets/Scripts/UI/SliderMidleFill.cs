@@ -28,13 +28,13 @@ public class SliderMidleFill : MonoBehaviour
     {
         center = shopRequest.PressScale;
         slider.value = 1f;
-        
+        onValueChanged();
         //middle=
     }
 
     public void Start()
     {
-        onValueChanged();
+       // onValueChanged();
     }
 
     public void onValueChanged()
