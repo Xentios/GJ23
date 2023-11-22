@@ -11,7 +11,7 @@ public class ShopRequest : ScriptableObject
         Circle,
         Hexagon,
         Triangle,
-        ArtificalScale
+        Pangon,
     }
 
 

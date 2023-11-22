@@ -15,8 +15,10 @@ public class TriggerEvent : MonoBehaviour
     private List<GameEvent> gameEvents;
 
 
-    [SerializeField]
+   
     private float timeToTrigger;
+    [SerializeField]
+    private float setTimerToTrigger;
 
     [SerializeField]
     private bool TriggerOnAwake;
@@ -60,8 +62,8 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnEnable()
     {
-        EnableInput();
-
+        timeToTrigger = setTimerToTrigger;
+        EnableInput();        
         if (TriggerOnEnable == true)
         {
             TriggerInvokeAll();
@@ -105,7 +107,8 @@ public class TriggerEvent : MonoBehaviour
     IEnumerator TriggerAllWithTime()
     {
         //yield return new WaitForSeconds(timeToTrigger);
-
+        timeToTrigger = setTimerToTrigger;
+        skipFlag = false;
         float elapsedTime = 0f;
         
 
@@ -114,7 +117,7 @@ public class TriggerEvent : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        timeToTrigger = setTimerToTrigger;
         TIALL();
     }
 

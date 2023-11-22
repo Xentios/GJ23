@@ -27,14 +27,13 @@ public class GameManager : MonoBehaviour
 
     enum GamePhases
     {
+        Start,
         Cut,
         Press,
         Paint,
         Spike,
-        Hammer,
-        
-        End
-            
+        Hammer,        
+        End            
     }
 
     [SerializeField]
@@ -44,6 +43,9 @@ public class GameManager : MonoBehaviour
     public List<ShopResult> ShopResults;
     private ShopResult currentShopResult;
     private int customerIndex;
+
+    [SerializeField]
+    public List<GameEvent> GameEvents;
 
     [SerializeField]
     public GameObject targetObject;
@@ -90,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        currentShopResult = ShopResults[customerIndex];
+        ChangePhases();
     }
     public void GoToNextGameEvent()
     {
@@ -106,15 +108,20 @@ public class GameManager : MonoBehaviour
 
     private void ChangePhases()
     {
+        GameEvents[(int) currentGamePhase].TriggerEvent();
         switch (currentGamePhase)
         {
+            case GamePhases.Start:
+            ShopRequest.Randomize();
+            currentShopResult = ShopResults[customerIndex];
+            break;
             case GamePhases.Cut:
-            slicer.SetActive(true);
+            //slicer.SetActive(true);
 
             break;
             case GamePhases.Press:
-            slicer.SetActive(false);
-            pressMachine.SetActive(true);
+            //slicer.SetActive(false);
+            //pressMachine.SetActive(true);
             SliderShapeArea.FinalValue =CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale)/25;//TODO HARDCODED
             currentShopResult.CutPercentage = SliderShapeArea.FinalValue;
             
@@ -123,9 +130,9 @@ public class GameManager : MonoBehaviour
             SliderPressValue.FinalValue =(1-(Mathf.Abs(ShopRequest.PressScale-targetObject.transform.lossyScale.y)));
             currentShopResult.PressPercentage = SliderPressValue.FinalValue;
 
-            pressMachine.SetActive(false);
-            painter.SetActive(true);
-            colorChecker.SetActive(true);
+            //pressMachine.SetActive(false);
+            //painter.SetActive(true);
+            //colorChecker.SetActive(true);
             
             InkCanvasAdder();
             break;
@@ -135,30 +142,33 @@ public class GameManager : MonoBehaviour
 
             //TODO CALCULATE OTHER COLORS
 
-            painter.SetActive(false);
-            colorChecker.SetActive(false);
+            //painter.SetActive(false);
+            //colorChecker.SetActive(false);
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
-            spikeEvents.SetActive(true);
+           // spikeEvents.SetActive(true);
 
             break;
             case GamePhases.Hammer:
-            spikeEvents.SetActive(false);
-            Hammer.SetActive(true);
+            //spikeEvents.SetActive(false);
+            //Hammer.SetActive(true);
             break;
             case GamePhases.End:
-            Hammer.SetActive(false);
+           // Hammer.SetActive(false);
             var realScale=targetObject.transform.lossyScale;
             targetObject.transform.parent = null;
             targetObject.transform.localScale = realScale;
 
+            targetObject.transform.parent = new GameObject("Final Result").transform;
+            foreach (var spikes in Hammer.GetComponent<Hammer>().hammeredSpikes)
+            {
+                spikes.transform.parent = targetObject.transform.parent;
+            }
+            targetObject = targetObject.transform.parent.gameObject;
 
             SliderSpikeCount.FinalValue = 1f;
-            currentShopResult.SpikePercentage = 1f;
-
-            ScorePanel.SetActive(true);
-           
-
+            currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue;
+                        
            
             break;
             default:
@@ -273,8 +283,8 @@ public class GameManager : MonoBehaviour
         if (customerIndex > ShopResults.Count)
         {
             SceneManager.LoadScene("BattleScene");
-        }
-
-        ShopRequest.Randomize();
+        }       
+        currentGamePhase = 0;
+        ChangePhases();
     }
 }

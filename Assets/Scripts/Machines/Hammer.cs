@@ -31,7 +31,7 @@ public class Hammer : MonoBehaviour
 
     private MeshRenderer hammerHeadMesh;
 
-    private List<GameObject> hammeredSpikes;
+    public List<GameObject> hammeredSpikes;
     private void OnEnable()
     {
         hammeredSpikes = new List<GameObject>();
@@ -81,6 +81,9 @@ public class Hammer : MonoBehaviour
         spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
         spike.layer = 0;
         hammeredSpikes.Add(spike);
+        //spike.transform.parent = GameManager.Instance.targetObject.transform;
+        var rb=spike.GetComponent<Rigidbody>();
+        GameObject.Destroy(rb);        
         GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
         DisableSpikeOutline();
     
