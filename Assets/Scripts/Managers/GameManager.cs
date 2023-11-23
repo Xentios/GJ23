@@ -284,7 +284,7 @@ public class GameManager : MonoBehaviour
     public void StartNextPhase()
     {
         customerIndex++;
-        if (customerIndex > ShopResults.Count)
+        if (customerIndex >= ShopResults.Count)
         {
             SceneManager.LoadScene("BattleScene");
         }       
