@@ -134,6 +134,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5c89be0c-a242-47c6-9225-e78e06bf5442"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -488,6 +497,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""SPACE"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aeb30a63-9a6b-4e9f-a0b6-a19ba8b0a080"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9671bc2-cf4f-4863-b0d9-d5aebba1814b"",
+                    ""path"": ""<Pen>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f77f4440-4639-4891-9e29-15b9e54de211"",
+                    ""path"": ""<Touchscreen>/touch*/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -514,6 +556,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_PauseEditor = m_Player.FindAction("Pause Editor", throwIfNotFound: true);
         m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
         m_Player_SPACE = m_Player.FindAction("SPACE", throwIfNotFound: true);
+        m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -587,6 +630,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PauseEditor;
     private readonly InputAction m_Player_ESC;
     private readonly InputAction m_Player_SPACE;
+    private readonly InputAction m_Player_Point;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -603,6 +647,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @PauseEditor => m_Wrapper.m_Player_PauseEditor;
         public InputAction @ESC => m_Wrapper.m_Player_ESC;
         public InputAction @SPACE => m_Wrapper.m_Player_SPACE;
+        public InputAction @Point => m_Wrapper.m_Player_Point;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -648,6 +693,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @SPACE.started += instance.OnSPACE;
             @SPACE.performed += instance.OnSPACE;
             @SPACE.canceled += instance.OnSPACE;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -688,6 +736,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @SPACE.started -= instance.OnSPACE;
             @SPACE.performed -= instance.OnSPACE;
             @SPACE.canceled -= instance.OnSPACE;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -728,5 +779,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnPauseEditor(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
         void OnSPACE(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
 }

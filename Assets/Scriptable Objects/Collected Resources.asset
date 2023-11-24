@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b324c35f59e7b418c344a1cb9933f1, type: 3}
-  m_Name: DebuggerSettings
+  m_Script: {fileID: 11500000, guid: ae376d1c31b0ebe4090d7ceb97c12167, type: 3}
+  m_Name: Collected Resources
   m_EditorClassIdentifier: 
-  isDebugLogsAllowed: 1
-  AllowedPriorityLimit: 100
-  AllowedSystemType: {fileID: 0}
-  IEnumeratorCallName: 
+  ResourceList: 0100000001000000010000000100000001000000
