@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
         Press,
         Paint,
         Spike,
-        Hammer,        
-        End            
+        Hammer,
+        End
     }
 
     [SerializeField]
@@ -79,13 +79,13 @@ public class GameManager : MonoBehaviour
     private GameObject ScorePanel;
     [SerializeField]
     private SliderValueChanger SliderShapeArea;
-    [SerializeField]           
+    [SerializeField]
     private SliderValueChanger SliderPressValue;
-    [SerializeField]           
+    [SerializeField]
     private SliderValueChanger SliderPaintArea;
-    [SerializeField]           
+    [SerializeField]
     private SliderValueChanger SliderSpikeCount;
-    [SerializeField]           
+    [SerializeField]
     private SliderValueChanger SliderHammerScore;
 
 
@@ -120,40 +120,46 @@ public class GameManager : MonoBehaviour
             PlacedSpikes = 0;
             break;
             case GamePhases.Cut:
-           
+
             break;
             case GamePhases.Press:
-         
-            SliderShapeArea.FinalValue =CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale)/25;//TODO HARDCODED
-            currentShopResult.CutPercentage = SliderShapeArea.FinalValue;
-         
+
+            SliderShapeArea.FinalValue = CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale) / 25;//TODO HARDCODED
+            currentShopResult.CutPercentage = SliderShapeArea.FinalValue * 100f;
+
             break;
             case GamePhases.Paint:
-            SliderPressValue.FinalValue =(1-(Mathf.Abs(ShopRequest.PressScale-targetObject.transform.lossyScale.y)));
-            currentShopResult.PressPercentage = SliderPressValue.FinalValue;
+            SliderPressValue.FinalValue = (1 - (Mathf.Abs(ShopRequest.PressScale - targetObject.transform.lossyScale.y)));
+            currentShopResult.PressPercentage = SliderPressValue.FinalValue * 100f;
 
             InkCanvasAdder();
             break;
             case GamePhases.Spike:
-            SliderPaintArea.FinalValue = CalculateColor()/0.028f;//TODO HARD CODED
-            currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;
+            var lenght = cinemachineTargetGroup.m_Targets.Length;
+            for (int i = lenght - 1; i >= 0; i--)
+            {
+                cinemachineTargetGroup.RemoveMember(cinemachineTargetGroup.m_Targets[i].target.transform);
+            }
+
+            SliderPaintArea.FinalValue = CalculateColor() / 0.028f;//TODO HARD CODED
+            currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;//TODO FIX HERE
 
             //TODO CALCULATE OTHER COLORS
 
-    
+
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
-    
+
 
             break;
             case GamePhases.Hammer:
-            SliderSpikeCount.FinalValue =  (float) PlacedSpikes / (float) ShopRequest.SpikeCount;
-            currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue;
+            SliderSpikeCount.FinalValue = (float) PlacedSpikes / (float) ShopRequest.SpikeCount;
+            currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue * 100f;
 
             break;
             case GamePhases.End:
-          
-            var realScale=targetObject.transform.lossyScale;
+
+            var realScale = targetObject.transform.lossyScale;
             targetObject.transform.parent = null;
             targetObject.transform.localScale = realScale;
 
@@ -161,7 +167,7 @@ public class GameManager : MonoBehaviour
             foreach (var spikes in Hammer.GetComponent<Hammer>().hammeredSpikes)
             {
                 spikes.transform.parent = targetObject.transform.parent;
-            }            
+            }
             targetObject = targetObject.transform.parent.gameObject;
             targetObject.AddComponent<Rotate>();
 
@@ -177,11 +183,11 @@ public class GameManager : MonoBehaviour
     {
         CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale);
     }
-    
-    public float CalculateArea(Mesh mf,Vector3 scale)
+
+    public float CalculateArea(Mesh mf, Vector3 scale)
     {
-        scale.y = 1;        
-        float area=0f;
+        scale.y = 1;
+        float area = 0f;
 
         for (int i = 0; i < mf.triangles.Length; i += 3)
         {
@@ -194,26 +200,25 @@ public class GameManager : MonoBehaviour
             Vector3 v2 = mf.vertices[vertexIndex2];
             Vector3 v3 = mf.vertices[vertexIndex3];
 
-            v1=Vector3.Scale(v1,scale);
-            v2=Vector3.Scale(v2,scale);
+            v1 = Vector3.Scale(v1, scale);
+            v2 = Vector3.Scale(v2, scale);
             v3 = Vector3.Scale(v3, scale);
 
             if (Vector3.up == normal)
-            {
-                Debug.Log("BINGO " + i);
+            {              
                 area += Vector3.Cross(v2 - v1, v3 - v1).magnitude * 0.5f;
             }
         }
 
-        Debugger.Log("Area value is "+area,Debugger.PriorityLevel.MustShown);
+        Debugger.Log("Area value is " + area, Debugger.PriorityLevel.MustShown);
         return area;
     }
 
-        [ContextMenu("Calculate Color")]
+    [ContextMenu("Calculate Color")]
 
     public float CalculateColor()
     {
-       return  painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>(),ShopRequest.Color);
+        return painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>(), ShopRequest.Color);
 
     }
 
@@ -252,7 +257,7 @@ public class GameManager : MonoBehaviour
         if (PlacedSpikes <= 0)
         {
             SliderHammerScore.FinalValue = result;
-            currentShopResult.HammerPercentage = result;
+            currentShopResult.HammerPercentage = result*100;
             GoToNextGameEvent();
         }
     }
@@ -272,19 +277,34 @@ public class GameManager : MonoBehaviour
         return topPosition;
     }
 
+    public Vector3 GetBottomOffPositionOfAnObject(GameObject TO)
+    {
+        var targetObjectTransform = TO.transform;
+
+        Vector3 bottomPosition = targetObjectTransform.position - Vector3.Scale(Vector3.up, targetObjectTransform.localScale) * targetObjectTransform.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+        return bottomPosition;
+    }
+
     public void StartNextPhase()
     {
-       
+
         targetObject.transform.parent = ShowCaseLocation[customerIndex];
         targetObject.transform.localPosition = Vector3.zero;
-        targetObject.GetComponent<Rotate>().enabled = false;
+        var bottomPosition = GetBottomOffPositionOfAnObject(targetObject.transform.GetChild(0).gameObject);
+        var distance=Vector3.Distance(targetObject.transform.position, bottomPosition);
+        Debug.Log(distance);
+        distance *= targetObject.transform.localScale.y;       
+        var currentPosition = targetObject.transform.localPosition;
+        currentPosition.y -= distance;
+        targetObject.transform.localPosition = currentPosition;       
+        targetObject.GetComponent<Rotate>().StopRotating();
         customerIndex++;
-       
+
         if (customerIndex >= ShopResults.Count)
         {
             SceneManager.LoadScene("BattleScene");
             return;
-        }       
+        }
         currentGamePhase = 0;
         ChangePhases();
     }

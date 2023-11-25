@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44af04effea13d846b33378c7f61e365, type: 3}
   m_Name: Customer 3
   m_EditorClassIdentifier: 
-  CutPercentage: 57.2
-  PressPercentage: 55
+  CutPercentage: 100
+  PressPercentage: 99.3801
   PaintPercentage: 0
-  SpikePercentage: 56.6
-  HammerPercentage: 57.2
+  SpikePercentage: 100
+  HammerPercentage: 96.79564
   RedColorPercentage: 0
   BlueColorPercentage: 0
   GreenColorPercentage: 0
