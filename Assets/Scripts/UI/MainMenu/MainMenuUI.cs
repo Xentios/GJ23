@@ -1,20 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-#region Editor
-
-#if UNITY_EDITOR
-
-using UnityEditor;
-
-#endif
-
-#endregion
+using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Animator screenWipe;
     [SerializeField] private AudioMixer mainMixer;
+    private AsyncOperation asyncLoad;
 
     public void SetMusicVolume(float sliderValue)
     {
@@ -35,8 +28,8 @@ public class MainMenuUI : MonoBehaviour
     {
         screenWipe.SetTrigger("WipeIn");
 
-        yield return new WaitForSeconds(2f);
-
+       // yield return new WaitForSeconds(2f);
+        yield return LoadAsyncScene();
         screenWipe.SetTrigger("WipeOut");
     }
 
@@ -44,10 +37,29 @@ public class MainMenuUI : MonoBehaviour
     {
 #if UNITY_EDITOR
 
-        EditorApplication.ExitPlaymode();
+        UnityEditor.EditorApplication.ExitPlaymode();
 
 #endif
 
         Application.Quit();
+    }
+
+    IEnumerator LoadAsyncScene()
+    {
+        asyncLoad = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+        asyncLoad.allowSceneActivation = false;
+        
+        //wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            //scene has loaded as much as possible,
+            // the last 10% can't be multi-threaded
+            if (asyncLoad.progress >= 0.9f)
+            {
+                asyncLoad.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+        
     }
 }

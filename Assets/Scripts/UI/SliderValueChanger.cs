@@ -23,7 +23,7 @@ public class SliderValueChanger : MonoBehaviour
     {
         slider = GetComponent<Slider>();
     }
-    void Start()
+    void OnEnable()
     {
         DOVirtual.Float(0, FinalValue, timer, result => slider.value = result).OnComplete(() =>
          nextPanel.Invoke()

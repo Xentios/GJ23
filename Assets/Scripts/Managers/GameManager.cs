@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public ShopRequest ShopRequest;
-
+    [SerializeField]
+    public List<Transform> ShowCaseLocation;
     [SerializeField]
     public List<ShopResult> ShopResults;
     private ShopResult currentShopResult;
@@ -73,7 +74,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Cinemachine.CinemachineTargetGroup cinemachineTargetGroup;
-
 
     [SerializeField]
     private GameObject ScorePanel;
@@ -120,24 +120,18 @@ public class GameManager : MonoBehaviour
             PlacedSpikes = 0;
             break;
             case GamePhases.Cut:
-            //slicer.SetActive(true);
-
+           
             break;
             case GamePhases.Press:
-            //slicer.SetActive(false);
-            //pressMachine.SetActive(true);
+         
             SliderShapeArea.FinalValue =CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale)/25;//TODO HARDCODED
             currentShopResult.CutPercentage = SliderShapeArea.FinalValue;
-            
+         
             break;
             case GamePhases.Paint:
             SliderPressValue.FinalValue =(1-(Mathf.Abs(ShopRequest.PressScale-targetObject.transform.lossyScale.y)));
             currentShopResult.PressPercentage = SliderPressValue.FinalValue;
 
-            //pressMachine.SetActive(false);
-            //painter.SetActive(true);
-            //colorChecker.SetActive(true);
-            
             InkCanvasAdder();
             break;
             case GamePhases.Spike:
@@ -146,19 +140,19 @@ public class GameManager : MonoBehaviour
 
             //TODO CALCULATE OTHER COLORS
 
-            //painter.SetActive(false);
-            //colorChecker.SetActive(false);
+    
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
             cinemachineTargetGroup.AddMember(targetObject.transform, 1, 1);
-           // spikeEvents.SetActive(true);
+    
 
             break;
             case GamePhases.Hammer:
-            //spikeEvents.SetActive(false);
-            //Hammer.SetActive(true);
+            SliderSpikeCount.FinalValue =  (float) PlacedSpikes / (float) ShopRequest.SpikeCount;
+            currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue;
+
             break;
             case GamePhases.End:
-           // Hammer.SetActive(false);
+          
             var realScale=targetObject.transform.lossyScale;
             targetObject.transform.parent = null;
             targetObject.transform.localScale = realScale;
@@ -167,13 +161,10 @@ public class GameManager : MonoBehaviour
             foreach (var spikes in Hammer.GetComponent<Hammer>().hammeredSpikes)
             {
                 spikes.transform.parent = targetObject.transform.parent;
-            }
+            }            
             targetObject = targetObject.transform.parent.gameObject;
+            targetObject.AddComponent<Rotate>();
 
-            SliderSpikeCount.FinalValue = 1f;
-            currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue;
-                        
-           
             break;
             default:
             break;
@@ -283,10 +274,16 @@ public class GameManager : MonoBehaviour
 
     public void StartNextPhase()
     {
+       
+        targetObject.transform.parent = ShowCaseLocation[customerIndex];
+        targetObject.transform.localPosition = Vector3.zero;
+        targetObject.GetComponent<Rotate>().enabled = false;
         customerIndex++;
+       
         if (customerIndex >= ShopResults.Count)
         {
             SceneManager.LoadScene("BattleScene");
+            return;
         }       
         currentGamePhase = 0;
         ChangePhases();

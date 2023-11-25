@@ -13,11 +13,12 @@ public class UIMover : MonoBehaviour
     [SerializeField]
     public bool Hidden = false;
 
+    [SerializeField]
     private RectTransform rectTransform;
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();       
+       // rectTransform = GetComponent<RectTransform>();       
     }
 
   

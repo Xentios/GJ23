@@ -60,6 +60,8 @@ public class Slicer : MonoBehaviour
 
     private void ONStart()
     {
+        lastLowerPart = null;
+        lastUpperPart = null;
         sliceTarget = GameManager.Instance.targetObject;
         var height = Vector3.Scale(Vector3.up, sliceTarget.transform.lossyScale) * sliceTarget.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
         Vector3 topPosition = sliceTarget.transform.position + height;
@@ -130,8 +132,7 @@ public class Slicer : MonoBehaviour
 
             lowerHull.transform.position = sliceTarget.transform.position;
             upperHull.transform.position = sliceTarget.transform.position;
-            Destroy(lastLowerPart);
-            //Destroy(lastUpperPart);
+            Destroy(lastLowerPart);           
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
             var rb = lastUpperPart.AddComponent<Rigidbody>();

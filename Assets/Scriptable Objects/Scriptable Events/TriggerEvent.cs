@@ -106,12 +106,10 @@ public class TriggerEvent : MonoBehaviour
 
     IEnumerator TriggerAllWithTime()
     {
-        //yield return new WaitForSeconds(timeToTrigger);
         timeToTrigger = setTimerToTrigger;
         skipFlag = false;
         float elapsedTime = 0f;
         
-
         while (elapsedTime < timeToTrigger && skipFlag==false)
         {   
             elapsedTime += Time.deltaTime;
@@ -134,7 +132,6 @@ public class TriggerEvent : MonoBehaviour
     private void RemoveTimer(InputAction.CallbackContext callbackContext)
     {
         skipFlag = true;
-
     }
 
 
