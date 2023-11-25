@@ -127,7 +127,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SPACE"",
+                    ""name"": ""HOLD SPACE"",
                     ""type"": ""Button"",
                     ""id"": ""bba86d21-97ea-41ce-9bdf-c544a3221d52"",
                     ""expectedControlType"": ""Button"",
@@ -143,6 +143,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Press Space"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae368203-e4cc-4129-929f-df6231c93316"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -494,7 +503,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SPACE"",
+                    ""action"": ""HOLD SPACE"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -530,6 +539,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""976f0f5c-1966-4083-aa65-fd8697194050"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -555,8 +575,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseMovementDelta = m_Player.FindAction("MouseMovementDelta", throwIfNotFound: true);
         m_Player_PauseEditor = m_Player.FindAction("Pause Editor", throwIfNotFound: true);
         m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
-        m_Player_SPACE = m_Player.FindAction("SPACE", throwIfNotFound: true);
+        m_Player_HOLDSPACE = m_Player.FindAction("HOLD SPACE", throwIfNotFound: true);
         m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
+        m_Player_PressSpace = m_Player.FindAction("Press Space", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -629,8 +650,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseMovementDelta;
     private readonly InputAction m_Player_PauseEditor;
     private readonly InputAction m_Player_ESC;
-    private readonly InputAction m_Player_SPACE;
+    private readonly InputAction m_Player_HOLDSPACE;
     private readonly InputAction m_Player_Point;
+    private readonly InputAction m_Player_PressSpace;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -646,8 +668,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseMovementDelta => m_Wrapper.m_Player_MouseMovementDelta;
         public InputAction @PauseEditor => m_Wrapper.m_Player_PauseEditor;
         public InputAction @ESC => m_Wrapper.m_Player_ESC;
-        public InputAction @SPACE => m_Wrapper.m_Player_SPACE;
+        public InputAction @HOLDSPACE => m_Wrapper.m_Player_HOLDSPACE;
         public InputAction @Point => m_Wrapper.m_Player_Point;
+        public InputAction @PressSpace => m_Wrapper.m_Player_PressSpace;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -690,12 +713,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ESC.started += instance.OnESC;
             @ESC.performed += instance.OnESC;
             @ESC.canceled += instance.OnESC;
-            @SPACE.started += instance.OnSPACE;
-            @SPACE.performed += instance.OnSPACE;
-            @SPACE.canceled += instance.OnSPACE;
+            @HOLDSPACE.started += instance.OnHOLDSPACE;
+            @HOLDSPACE.performed += instance.OnHOLDSPACE;
+            @HOLDSPACE.canceled += instance.OnHOLDSPACE;
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
+            @PressSpace.started += instance.OnPressSpace;
+            @PressSpace.performed += instance.OnPressSpace;
+            @PressSpace.canceled += instance.OnPressSpace;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -733,12 +759,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ESC.started -= instance.OnESC;
             @ESC.performed -= instance.OnESC;
             @ESC.canceled -= instance.OnESC;
-            @SPACE.started -= instance.OnSPACE;
-            @SPACE.performed -= instance.OnSPACE;
-            @SPACE.canceled -= instance.OnSPACE;
+            @HOLDSPACE.started -= instance.OnHOLDSPACE;
+            @HOLDSPACE.performed -= instance.OnHOLDSPACE;
+            @HOLDSPACE.canceled -= instance.OnHOLDSPACE;
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
+            @PressSpace.started -= instance.OnPressSpace;
+            @PressSpace.performed -= instance.OnPressSpace;
+            @PressSpace.canceled -= instance.OnPressSpace;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -778,7 +807,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseMovementDelta(InputAction.CallbackContext context);
         void OnPauseEditor(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
-        void OnSPACE(InputAction.CallbackContext context);
+        void OnHOLDSPACE(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnPressSpace(InputAction.CallbackContext context);
     }
 }

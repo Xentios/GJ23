@@ -2,7 +2,7 @@
 public class PickColor : Pickers
 {
   
-    private void Start()
+    private void OnEnable()
     {
         image.color = shopRequest.Color;
         textField.text = shopRequest.ColorName;

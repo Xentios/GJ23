@@ -105,7 +105,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SPACE",
+                    "name": "HOLD SPACE",
                     "type": "Button",
                     "id": "bba86d21-97ea-41ce-9bdf-c544a3221d52",
                     "expectedControlType": "Button",
@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Press Space",
+                    "type": "Button",
+                    "id": "ae368203-e4cc-4129-929f-df6231c93316",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -472,7 +481,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SPACE",
+                    "action": "HOLD SPACE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -506,6 +515,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "976f0f5c-1966-4083-aa65-fd8697194050",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press Space",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

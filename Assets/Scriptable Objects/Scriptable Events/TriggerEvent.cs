@@ -92,11 +92,11 @@ public class TriggerEvent : MonoBehaviour
     [ContextMenu("TriggerEvents")]
     public void TriggerInvokeAll()
     {
-        if (timeToTrigger <= 0)
+        if (timeToTrigger == 0)
         {
             TIALL();
         }
-        else
+        else if(timeToTrigger>0)
         {
             StartCoroutine(TriggerAllWithTime());
         }
@@ -132,6 +132,10 @@ public class TriggerEvent : MonoBehaviour
     private void RemoveTimer(InputAction.CallbackContext callbackContext)
     {
         skipFlag = true;
+        if (setTimerToTrigger < 0)
+        {
+            TIALL();
+        }
     }
 
 

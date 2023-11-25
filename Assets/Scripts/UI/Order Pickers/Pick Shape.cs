@@ -7,7 +7,7 @@ using TMPro;
 public class PickShape : Pickers
 {
    
-    private void Start()
+    private void OnEnable()
     {       
         textField.text = shopRequest.ShapeName;
     }

@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+   
+    [SerializeField] private GameObject loadingFinished;
     [SerializeField] private Animator screenWipe;
     [SerializeField] private AudioMixer mainMixer;
     private AsyncOperation asyncLoad;
+    private bool fakeFlag;
 
     public void SetMusicVolume(float sliderValue)
     {
@@ -46,9 +49,10 @@ public class MainMenuUI : MonoBehaviour
 
     IEnumerator LoadAsyncScene()
     {
+        yield return new WaitForSeconds(0.1f);
         asyncLoad = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         asyncLoad.allowSceneActivation = false;
-        
+       // asyncLoad.completed += LoadingDone;
         //wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
@@ -56,10 +60,28 @@ public class MainMenuUI : MonoBehaviour
             // the last 10% can't be multi-threaded
             if (asyncLoad.progress >= 0.9f)
             {
-                asyncLoad.allowSceneActivation = true;
+                LoadingDone();
             }
             yield return null;
         }
-        
+        //while (fakeFlag == false)
+        //{
+        //    yield return null;
+        //}
+        //asyncLoad.allowSceneActivation = true;
+    }
+
+    private void LoadingDone()
+    {
+       
+        loadingFinished.SetActive(true);
+        fakeFlag = true;
+    }
+
+    [ContextMenu("Allow Loading")]
+    public void AllowLevelLoading()
+    {
+        if (asyncLoad == null) return;
+        asyncLoad.allowSceneActivation = true;       
     }
 }
