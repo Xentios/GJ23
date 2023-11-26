@@ -12,6 +12,10 @@ public class AligatorRunner : MonoBehaviour
     TextMeshProUGUI textFieldInMouth;
     [SerializeField]
     TextMeshProUGUI textToAnimate;
+
+    [SerializeField]
+    AudioSource typeWriterSound;
+
     [SerializeField]
     private float typingSpeed = 0.1f;
     void Start() {
@@ -52,8 +56,16 @@ public class AligatorRunner : MonoBehaviour
     {
         textToAnimate.text = "Tip:I GUESS YOU CAN STILL CLICK....";
         textToAnimate.maxVisibleCharacters = 4;
-        DOTween.To(() => textToAnimate.maxVisibleCharacters, x => textToAnimate.maxVisibleCharacters = x, textToAnimate.text.Length, 3f);
+        DOTween.To(() => textToAnimate.maxVisibleCharacters, x => textToAnimate.maxVisibleCharacters = x, textToAnimate.text.Length, 3f).OnUpdate(PlaySound);
     }
-    // Update is called once per frame
 
+    private int lastChar;
+    private void PlaySound()
+    {
+        if (textToAnimate.maxVisibleCharacters == lastChar) return;
+
+        Debugger.Log("TypeWriterSound");
+        typeWriterSound.Play();
+        lastChar = textToAnimate.maxVisibleCharacters;
+    } 
 }

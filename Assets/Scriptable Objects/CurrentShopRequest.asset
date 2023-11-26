@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShapeID: 1
   ShapeName: Hexagon
-  Color: {r: 0, g: 0, b: 1, a: 1}
-  ColorPercentage: 0.8440075
-  ColorName: BLUE
-  PressScale: 0.7911591
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  ColorPercentage: 0.5712688
+  ColorName: RED
+  PressScale: 0.09998398
   SpikeTypeID: 0
-  SpikeCount: 4
+  SpikeCount: 5
