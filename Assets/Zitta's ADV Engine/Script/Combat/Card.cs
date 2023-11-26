@@ -23,6 +23,7 @@ namespace ADV
         public float Radius;
         public CardAnim Anim;
         public CardMovement Movement;
+        public GameObject HealthBarPrefab;
         [Space]
         [HideInInspector] public Card Summoner;
         [HideInInspector] public Card Source;
@@ -99,6 +100,10 @@ namespace ADV
             SetKey("Life", Life);
             SetKey("MaxLife", MaxLife);
             SetKey("BaseDamage", BaseDamage);
+
+            GameObject G = Instantiate(HealthBarPrefab, FindFirstObjectByType<Canvas>().transform);
+            HealthBar HB = G.GetComponent<HealthBar>();
+            HB.Source = this;
         }
 
         // Start is called before the first frame update
