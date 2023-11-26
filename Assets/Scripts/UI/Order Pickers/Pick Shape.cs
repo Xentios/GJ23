@@ -6,9 +6,12 @@ using TMPro;
 
 public class PickShape : Pickers
 {
+    [SerializeField]
+    private List<Sprite> imageList;
    
     private void OnEnable()
     {       
         textField.text = shopRequest.ShapeName;
+        image.sprite = imageList[shopRequest.ShapeID];
     }
 }

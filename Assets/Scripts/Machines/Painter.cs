@@ -106,7 +106,7 @@ public class Painter : MonoBehaviour
 
     private void MouseLeftDownEvent(InputAction.CallbackContext obj)
     {       
-        StartPainting(obj.startTime);
+        StartPainting(obj.startTime);      
     }
 
     private void MouseLeftUpEvent(InputAction.CallbackContext obj)
@@ -192,6 +192,10 @@ public class Painter : MonoBehaviour
     {
         brush.Color = color.color;
     }
+    public void ChangeSizeOfBrush(float value)
+    {
+        brush.Scale = value;
+    }
 
-   
+
 }
