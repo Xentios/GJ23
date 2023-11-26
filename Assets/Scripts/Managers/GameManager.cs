@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         switch (currentGamePhase)
         {
             case GamePhases.Start:
-            ShopRequest.Randomize();
+           
             currentShopResult = ShopResults[customerIndex];
             targetObject = Instantiate(targetObjectPrefab).transform.GetChild(0).gameObject;
             PlacedSpikes = 0;
@@ -123,8 +123,10 @@ public class GameManager : MonoBehaviour
 
             break;
             case GamePhases.Press:
-
-            SliderShapeArea.FinalValue = CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale) / 25;//TODO HARDCODED
+            float calculatedArea = CalculateArea(targetObject.GetComponent<MeshFilter>().mesh, targetObject.transform.lossyScale);
+            float resultOfArea = MathF.Min(calculatedArea/ShopRequest.GetWantedArea(), 1f);
+            float wantedShape = slicer.GetComponent<Slicer>().IndexOfSliceHolder == ShopRequest.ShapeID ? 1f : 0f;
+            SliderShapeArea.FinalValue = (resultOfArea+wantedShape)/2f;
             currentShopResult.CutPercentage = SliderShapeArea.FinalValue * 100f;
 
             break;
@@ -205,7 +207,7 @@ public class GameManager : MonoBehaviour
             v3 = Vector3.Scale(v3, scale);
 
             if (Vector3.up == normal)
-            {              
+            {
                 area += Vector3.Cross(v2 - v1, v3 - v1).magnitude * 0.5f;
             }
         }
@@ -257,7 +259,7 @@ public class GameManager : MonoBehaviour
         if (PlacedSpikes <= 0)
         {
             SliderHammerScore.FinalValue = result;
-            currentShopResult.HammerPercentage = result*100;
+            currentShopResult.HammerPercentage = result * 100;
             GoToNextGameEvent();
         }
     }
@@ -291,12 +293,12 @@ public class GameManager : MonoBehaviour
         targetObject.transform.parent = ShowCaseLocation[customerIndex];
         targetObject.transform.localPosition = Vector3.zero;
         var bottomPosition = GetBottomOffPositionOfAnObject(targetObject.transform.GetChild(0).gameObject);
-        var distance=Vector3.Distance(targetObject.transform.position, bottomPosition);
+        var distance = Vector3.Distance(targetObject.transform.position, bottomPosition);
         Debug.Log(distance);
-        distance *= targetObject.transform.localScale.y;       
+        distance *= targetObject.transform.localScale.y;
         var currentPosition = targetObject.transform.localPosition;
         currentPosition.y -= distance;
-        targetObject.transform.localPosition = currentPosition;       
+        targetObject.transform.localPosition = currentPosition;
         targetObject.GetComponent<Rotate>().StopRotating();
         customerIndex++;
 

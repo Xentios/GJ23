@@ -14,6 +14,11 @@ public class ShopRequest : ScriptableObject
         Pangon,
     }
 
+ 
+    
+    private int[] ShapeSizeArray = new int[4] { 30, 20, 18, 10};
+
+
 
     [SerializeField]
     public int ShapeID;
@@ -74,5 +79,10 @@ public class ShopRequest : ScriptableObject
         }
 
         return rangeAttribute;
+    }
+
+    public float GetWantedArea()
+    {
+        return (float) ShapeSizeArray[ShapeID];
     }
 }

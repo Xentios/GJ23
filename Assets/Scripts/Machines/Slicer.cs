@@ -1,12 +1,8 @@
+using DG.Tweening;
 using EzySlice;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using DG.Tweening;
-using System.Reflection;
-using UnityEngine.Events;
 
 public class Slicer : MonoBehaviour
 {
@@ -32,7 +28,8 @@ public class Slicer : MonoBehaviour
     [SerializeField]
     private Transform sliceHolder;
 
-    private int indexOfSliceHolder;
+    [HideInInspector]
+    public int IndexOfSliceHolder;
 
     [SerializeField]
     private List<GameObject> sliceHolderPrefabs;
@@ -201,10 +198,10 @@ public class Slicer : MonoBehaviour
     {
         if (isSlicing == true) return;
 
-        indexOfSliceHolder++;
-        indexOfSliceHolder %= sliceHolderPrefabs.Count;
+        IndexOfSliceHolder++;
+        IndexOfSliceHolder %= sliceHolderPrefabs.Count;
         GameObject.Destroy(sliceHolder.gameObject);
-        sliceHolder = Instantiate(sliceHolderPrefabs[indexOfSliceHolder], transform).transform;
+        sliceHolder = Instantiate(sliceHolderPrefabs[IndexOfSliceHolder], transform).transform;
     }
 
     private void MouseMovementEvent(InputAction.CallbackContext callback)
