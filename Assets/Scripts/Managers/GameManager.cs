@@ -155,7 +155,11 @@ public class GameManager : MonoBehaviour
 
             break;
             case GamePhases.Hammer:
-            SliderSpikeCount.FinalValue = (float) PlacedSpikes / (float) ShopRequest.SpikeCount;
+            float diff = PlacedSpikes - ShopRequest.SpikeCount;
+            float negativeResult =diff>0 ?diff / (float) ShopRequest.SpikeCount:0;
+            float result = (float) PlacedSpikes / (float) ShopRequest.SpikeCount;
+            result = MathF.Min(result, 1f);
+            SliderSpikeCount.FinalValue = result - negativeResult;
             currentShopResult.SpikePercentage = SliderSpikeCount.FinalValue * 100f;
 
             break;
@@ -247,7 +251,7 @@ public class GameManager : MonoBehaviour
     public void ASpikePlaced()
     {
         PlacedSpikes++;
-        if (PlacedSpikes >= ShopRequest.SpikeCount)
+        if (PlacedSpikes >= ShopRequest.SpikeCount*2)
         {
             GoToNextGameEvent();
         }

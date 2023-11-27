@@ -18,6 +18,8 @@ public class Painter : MonoBehaviour
 
     [SerializeField]
     private GameEvent jobFinished;
+    [SerializeField]
+    private GameEvent paintAmountChanged;
 
     [SerializeField]
     private InputActionReference mouseMovement;
@@ -40,7 +42,10 @@ public class Painter : MonoBehaviour
 
     [SerializeField]
     private double setTimeLeftToPaint;
-    
+
+    [SerializeField]
+    private FloatVariable timeLeftToPaintSO;
+
     private double timeLeftToPaint;
     private double  timeStartedToPaint;
 
@@ -59,6 +64,7 @@ public class Painter : MonoBehaviour
         timeLeftToPaint = setTimeLeftToPaint;
         timeStartedToPaint = 0;
         isPainting = false;
+        timeLeftToPaintSO.Value = 1f;        
 
         var topPosition=GameManager.Instance.GetTopPlaneOfTarget();
         visualPlane= new Plane(Vector3.up, topPosition+Vector3.up);
@@ -148,6 +154,11 @@ public class Painter : MonoBehaviour
         if (usedTime > timeLeftToPaint)
         {
             jobFinished.TriggerEvent();
+        }
+        else
+        {
+            timeLeftToPaintSO.Value =(float)  (( timeLeftToPaint- usedTime )/setTimeLeftToPaint);
+            paintAmountChanged.TriggerEvent();
         }
 
 

@@ -54,7 +54,7 @@ public class AligatorRunner : MonoBehaviour
 
     private void WriteSorry()
     {
-        textToAnimate.text = "Tip:I GUESS YOU CAN STILL CLICK....";
+        textToAnimate.text = "Tip:I GUESS YOU COULD ALWAYS JUST CLICK....";
         textToAnimate.maxVisibleCharacters = 4;
         DOTween.To(() => textToAnimate.maxVisibleCharacters, x => textToAnimate.maxVisibleCharacters = x, textToAnimate.text.Length, 3f).OnUpdate(PlaySound);
     }

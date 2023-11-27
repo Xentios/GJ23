@@ -101,7 +101,7 @@ public class Slicer : MonoBehaviour
     private void SetPlanes()
     {
         planeList.Clear();
-        for (int i = 0; i < sliceHolder.childCount; i++)
+        for (int i = 0; i < sliceHolder.childCount-1; i++)
         {
             var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();
             var bounds = sliceTargetMeshFilter.sharedMesh.bounds;

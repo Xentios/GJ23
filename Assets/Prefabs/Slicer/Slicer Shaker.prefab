@@ -221,6 +221,7 @@ MonoBehaviour:
   randomness: 134
   snapping: 0
   fadeout: 0
+  debugging: 0
 --- !u!1 &6676074527442975634
 GameObject:
   m_ObjectHideFlags: 0
