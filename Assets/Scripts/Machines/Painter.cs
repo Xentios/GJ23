@@ -53,8 +53,10 @@ public class Painter : MonoBehaviour
 
     private Plane visualPlane;
 
+    private AudioSource spraySound;
     private void Awake()
     {
+        spraySound = GetComponent<AudioSource>();
         visualPlane  = new Plane(Vector3.up, Vector3.zero);
     }
 
@@ -64,7 +66,9 @@ public class Painter : MonoBehaviour
         timeLeftToPaint = setTimeLeftToPaint;
         timeStartedToPaint = 0;
         isPainting = false;
-        timeLeftToPaintSO.Value = 1f;        
+        timeLeftToPaintSO.Value = 1f;
+        spraySound.volume = 1;
+        spraySound.pitch = 1;
 
         var topPosition=GameManager.Instance.GetTopPlaneOfTarget();
         visualPlane= new Plane(Vector3.up, topPosition+Vector3.up);
@@ -122,14 +126,17 @@ public class Painter : MonoBehaviour
 
     private void StartPainting(double time)
     {
+        spraySound.Play();
         isPainting = true;
         timeStartedToPaint = time;
     }
 
     private void StopPainting(double time)
     {
+        spraySound.Stop();       
         isPainting = false;       
         timeLeftToPaint -= time-timeStartedToPaint;
+        spraySound.volume =(float) ((timeLeftToPaint*2) / (setTimeLeftToPaint));
     }
 
     private void MouseMovementEvent(InputAction.CallbackContext callback)
@@ -158,6 +165,7 @@ public class Painter : MonoBehaviour
         else
         {
             timeLeftToPaintSO.Value =(float)  (( timeLeftToPaint- usedTime )/setTimeLeftToPaint);
+            spraySound.volume = Mathf.Max(0.3f, timeLeftToPaintSO.Value);
             paintAmountChanged.TriggerEvent();
         }
 

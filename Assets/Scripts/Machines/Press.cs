@@ -35,6 +35,13 @@ public class Press : MonoBehaviour
     private float setPressTimer;  
     private float pressTimer;
 
+    private AudioSource steamSound;
+
+    private void Awake()
+    {
+        steamSound = GetComponent<AudioSource>();
+    }
+
     private void OnEnable()
     {
         animationState = 0;
@@ -156,6 +163,13 @@ public class Press : MonoBehaviour
             scale.y = resultY;
             GameManager.Instance.targetObject.transform.parent.localScale = scale;
             changeSlider.Invoke(resultY);
+
+            if (steamSound.isPlaying == false)
+            {
+                steamSound.pitch = Random.Range(1f, 3f);
+                steamSound.Play();
+            }
+           
         }
     }
 

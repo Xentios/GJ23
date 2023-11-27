@@ -6,7 +6,7 @@ using TMPro;
 
 public class PickSpikes : Pickers
 {
-    private void OnEnable()
+    protected override void OnEnableActions()
     {        
         textField.text = ""+shopRequest.SpikeCount;
     }

@@ -8,8 +8,8 @@ public class PickShape : Pickers
 {
     [SerializeField]
     private List<Sprite> imageList;
-   
-    private void OnEnable()
+
+    protected override void OnEnableActions()
     {       
         textField.text = shopRequest.ShapeName;
         image.sprite = imageList[shopRequest.ShapeID];

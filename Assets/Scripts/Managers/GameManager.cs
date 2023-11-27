@@ -91,7 +91,14 @@ public class GameManager : MonoBehaviour
 
     private GamePhases currentGamePhase;
 
+    [SerializeField]
+    private List<AudioClip> spikeSounds;
+    private AudioSource audioSource;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Start()
     {
         ChangePhases();
@@ -251,6 +258,8 @@ public class GameManager : MonoBehaviour
     public void ASpikePlaced()
     {
         PlacedSpikes++;
+        var spikeSoundClip = spikeSounds[UnityEngine.Random.Range(0, spikeSounds.Count)];
+        audioSource.PlayOneShot(spikeSoundClip);
         if (PlacedSpikes >= ShopRequest.SpikeCount*2)
         {
             GoToNextGameEvent();

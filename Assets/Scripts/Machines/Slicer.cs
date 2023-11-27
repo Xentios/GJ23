@@ -50,9 +50,11 @@ public class Slicer : MonoBehaviour
     private float bottomPositionYValue;
     private float topPositionYValue;
 
+    private AudioSource slicingSound;
     private void Awake()
     {
         planeList = new();
+        slicingSound = GetComponent<AudioSource>();
     }
 
     private void ONStart()
@@ -177,6 +179,7 @@ public class Slicer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
        
         SetPlanes();
+        slicingSound.Play();
         transform.DOMoveY(bottomPositionYValue, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
         transform.DOMoveY(topPositionYValue, 1f).SetEase(Ease.InOutSine).OnComplete(() =>
         {

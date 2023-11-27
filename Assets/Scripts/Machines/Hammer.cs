@@ -24,6 +24,12 @@ public class Hammer : MonoBehaviour
     [SerializeField]
     private AnimationCurve animationCurve;
 
+    [SerializeField]
+    private AudioClip goodHammerSound;
+    [SerializeField]
+    private AudioClip badHammerSound;
+    private AudioSource audioSource;
+
     private Plane visualPlane;
 
     private GameObject spike;
@@ -32,6 +38,11 @@ public class Hammer : MonoBehaviour
     private MeshRenderer hammerHeadMesh;
 
     public List<GameObject> hammeredSpikes;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnEnable()
     {
         hammeredSpikes = new List<GameObject>();
@@ -82,7 +93,9 @@ public class Hammer : MonoBehaviour
         spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
         spike.layer = 0;
         hammeredSpikes.Add(spike);
+        PlaySound(angle);
         //spike.transform.parent = GameManager.Instance.targetObject.transform;
+       
         var rb=spike.GetComponent<Rigidbody>();
         GameObject.Destroy(rb);        
         GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
@@ -180,4 +193,16 @@ public class Hammer : MonoBehaviour
         return average;
     }
 
+    private void PlaySound(float angle)
+    {
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.3f);
+        if (angle > 85)
+        {
+            audioSource.PlayOneShot(goodHammerSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(badHammerSound);
+        }
+    }
 }

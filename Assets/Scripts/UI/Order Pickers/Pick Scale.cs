@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class PickScale : Pickers
 {
 
-    private void Awake()
+    protected override void OnAwakeActions()
     {       
         image.rectTransform.localScale = Vector3.one;
     }
 
-    private void OnEnable()
+    protected override void OnEnableActions()
     {
+        
         var imageScale = image.rectTransform.localScale;
         imageScale.y =  shopRequest.PressScale;
         image.rectTransform.localScale = imageScale;

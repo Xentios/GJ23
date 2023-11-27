@@ -1,8 +1,8 @@
 
 public class PickColor : Pickers
 {
-  
-    private void OnEnable()
+
+    protected override void OnEnableActions()
     {
         image.color = shopRequest.Color;
         textField.text = shopRequest.ColorName;
