@@ -35,6 +35,8 @@ public class Press : MonoBehaviour
     private float setPressTimer;  
     private float pressTimer;
 
+    [SerializeField]
+    private ParticleSystem steamEffect;
     private AudioSource steamSound;
 
     private void Awake()
@@ -168,6 +170,7 @@ public class Press : MonoBehaviour
             {
                 steamSound.pitch = Random.Range(1f, 3f);
                 steamSound.Play();
+                steamEffect.Play();
             }
            
         }

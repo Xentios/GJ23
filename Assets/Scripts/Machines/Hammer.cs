@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -122,8 +123,10 @@ public class Hammer : MonoBehaviour
         {
            
             var hitObject = hitinfo.transform.gameObject;
-            hammerVisual.transform.localRotation = new Quaternion(0, 0.142496109f, 1.49011594e-08f, 0.989795446f);
-
+            //hammerVisual.transform.localRotation = new Quaternion(0, 0.142496109f, 1.49011594e-08f, 0.989795446f);
+            //transform.DOMoveY()
+            hammerVisual.transform.DOLocalMoveZ(-2f, 0.4f).SetEase(Ease.OutBack);
+;
             DisableSpikeOutline();
             spike = hitObject;
             EnableSpikeOutline();
@@ -132,7 +135,8 @@ public class Hammer : MonoBehaviour
         else
         {
             DisableSpikeOutline();
-            hammerVisual.transform.localRotation = new Quaternion(0, 0, 0, 1);
+            hammerVisual.transform.DOLocalMoveZ(-1.6f, 0.3f).SetEase(Ease.OutBounce);
+            //hammerVisual.transform.localRotation = new Quaternion(0, 0, 0, 1);
         }
     }
 
