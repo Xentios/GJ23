@@ -49,9 +49,9 @@ public class Press : MonoBehaviour
         var targetObject=GameManager.Instance.targetObject;
         targetObject.transform.parent = new GameObject("targetPivot").transform;
         var tPos=targetObject.transform.position;
-        tPos.y = 2;
+        tPos.y = targetObject.transform.localScale.y;
         targetObject.transform.position = tPos;
-        targetObject.transform.parent.position = new Vector3(0, -4, 0);
+        targetObject.transform.parent.position = new Vector3(0, -2.5f, 0);
 
         animator = GetComponent<Animator>();
         SetAnimatorSpeed();
@@ -103,7 +103,7 @@ public class Press : MonoBehaviour
         float rotX = delta.x;
         float rotY = delta.y;
 
-        var displacement = rotY;
+        var displacement = rotY*2;
         //This is normal spin
         //Vector3 right = Vector3.Cross(Camera.main.transform.up, spindle.transform.position - Camera.main.transform.position);
         //Vector3 up = Vector3.Cross(spindle.transform.position - Camera.main.transform.position, right);
