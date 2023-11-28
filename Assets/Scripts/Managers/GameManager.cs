@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
 
             SliderPaintArea.FinalValue = CalculateColor() / 0.028f;//TODO HARD CODED
             currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;//TODO FIX HERE
-
+            //currentShopResult.
             CalculateAllColors();
             
 

@@ -40,6 +40,8 @@ public class Hammer : MonoBehaviour
 
     public List<GameObject> hammeredSpikes;
 
+
+    private bool hammering;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -81,35 +83,43 @@ public class Hammer : MonoBehaviour
     {       
         Debugger.Log("Hammer Strike", Debugger.PriorityLevel.High);
         if (spike == null) return;
-       
-        var size = colliderBounds.extents.y;      
+
+        hammering = true;
+
+        var size = colliderBounds.extents.y;
         var center = hammerHead.GetComponent<MeshRenderer>().bounds.center;
-        var angle = AngleBetweenTwoPoints(colliderBounds.center,center);
-        Debugger.Log("Hammer Strike angle "+angle, Debugger.PriorityLevel.MustShown);
+        var angle = AngleBetweenTwoPoints(colliderBounds.center, center);
+        Debugger.Log("Hammer Strike angle " + angle, Debugger.PriorityLevel.MustShown);
         Debugger.Log("colliderBounds.center  " + colliderBounds.center, Debugger.PriorityLevel.MustShown);
-        Debugger.Log("hammerHead.GetComponent<MeshRenderer>().bounds.center " + center, Debugger.PriorityLevel.MustShown);       
-        spike.transform.parent.transform.position += Vector3.down*(size);
-        var resultAngle=animationCurve.Evaluate(Mathf.Abs(90 - angle));
+        Debugger.Log("hammerHead.GetComponent<MeshRenderer>().bounds.center " + center, Debugger.PriorityLevel.MustShown);
+        spike.transform.parent.transform.position += Vector3.down * (size);
+        var resultAngle = animationCurve.Evaluate(Mathf.Abs(90 - angle));
         Debugger.Log("Animated Angle " + resultAngle, Debugger.PriorityLevel.MustShown);
-        spike.transform.Rotate(Vector3.forward, resultAngle*Mathf.Sign(90- angle));       
+        spike.transform.Rotate(Vector3.forward, resultAngle * Mathf.Sign(90 - angle));
         spike.layer = 0;
         hammeredSpikes.Add(spike);
         PlaySound(angle);
-        //spike.transform.parent = GameManager.Instance.targetObject.transform;
-       
-        var rb=spike.GetComponent<Rigidbody>();
-        GameObject.Destroy(rb);        
-        GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
-        DisableSpikeOutline();
-    
+        
+
+        hammerVisual.transform.DOLocalMoveZ(-1.2f, 0.3f).SetEase(Ease.OutBounce).OnComplete(()=>
+        {
+
+            var rb = spike.GetComponent<Rigidbody>();
+            GameObject.Destroy(rb);
+            GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
+            DisableSpikeOutline();
+            hammering = false;
+        });
+
 
     }
 
     private void MouseMovementEvent(InputAction.CallbackContext callback)
     {
+        if (hammering == true) return;
+
         var mousePosition = callback.ReadValue<Vector2>();
         var ray = Camera.main.ScreenPointToRay(mousePosition);
-
 
         var modelPos = Vector3.zero;
         if (visualPlane.Raycast(ray, out float distance))
@@ -135,7 +145,7 @@ public class Hammer : MonoBehaviour
         else
         {
             DisableSpikeOutline();
-            hammerVisual.transform.DOLocalMoveZ(-1.6f, 0.3f).SetEase(Ease.OutBounce);
+            hammerVisual.transform.DOLocalMoveZ(-1.6f, 0.4f).SetEase(Ease.OutBack);
             //hammerVisual.transform.localRotation = new Quaternion(0, 0, 0, 1);
         }
     }
