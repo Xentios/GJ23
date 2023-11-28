@@ -2,15 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-
+using DG.Tweening;
 public class MainMenuUI : MonoBehaviour
 {
    
     [SerializeField] private GameObject loadingFinished;
     [SerializeField] private Animator screenWipe;
     [SerializeField] private AudioMixer mainMixer;
+
+    [SerializeField] private AudioSource mainMusic;
     private AsyncOperation asyncLoad;
     private bool fakeFlag;
+
 
     public void SetMusicVolume(float sliderValue)
     {
@@ -52,8 +55,7 @@ public class MainMenuUI : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         asyncLoad = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         asyncLoad.allowSceneActivation = false;
-       // asyncLoad.completed += LoadingDone;
-        //wait until the asynchronous scene fully loads
+        
         while (!asyncLoad.isDone)
         {
             //scene has loaded as much as possible,
@@ -64,16 +66,11 @@ public class MainMenuUI : MonoBehaviour
             }
             yield return null;
         }
-        //while (fakeFlag == false)
-        //{
-        //    yield return null;
-        //}
-        //asyncLoad.allowSceneActivation = true;
+     
     }
 
     private void LoadingDone()
-    {
-       
+    {       
         loadingFinished.SetActive(true);
         fakeFlag = true;
     }
@@ -83,5 +80,10 @@ public class MainMenuUI : MonoBehaviour
     {
         if (asyncLoad == null) return;
         asyncLoad.allowSceneActivation = true;       
+    }
+
+    public void FadeOutMusic()
+    {
+        DOTween.To(() => mainMusic.volume, volume => mainMusic.volume = volume, 0.15f, 2.5f);            
     }
 }
