@@ -153,7 +153,8 @@ public class GameManager : MonoBehaviour
             SliderPaintArea.FinalValue = CalculateColor() / 0.028f;//TODO HARD CODED
             currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;//TODO FIX HERE
 
-            //TODO CALCULATE OTHER COLORS
+            CalculateAllColors();
+            
 
 
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
@@ -233,6 +234,11 @@ public class GameManager : MonoBehaviour
     {
         return painter.GetComponent<Painter>().CheckColors(targetObject.GetComponent<MeshRenderer>(), ShopRequest.Color);
 
+    }
+
+    private void CalculateAllColors()
+    {
+       var result= painter.GetComponent<Painter>().CheckALLColors(targetObject.GetComponent<MeshRenderer>());
     }
 
     [ContextMenu("AddInkCanvas")]

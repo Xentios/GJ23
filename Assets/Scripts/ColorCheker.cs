@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ColorCheker : MonoBehaviour
@@ -34,6 +35,36 @@ public class ColorCheker : MonoBehaviour
             SaveTextureToPNG("Texture2D", targetTexture);
         }
         return result;
+    }
+
+    public int[] CalculateAllColors(MeshRenderer meshRenderer)
+    {
+        var coloursList = new List<Color>() { Color.red, Color.green, Color.blue, Color.yellow };
+        int[] colorPersentanges = new int[coloursList.Count];
+        Texture2D targetTexture = ConvertRenderTextureWithTemporary(meshRenderer.material.mainTexture as RenderTexture, 128/2, 128/2);
+
+        int width = targetTexture.width;
+        int height = targetTexture.height;
+        
+        for (int i = 0; i < colorPersentanges.Length; i++)
+        {
+
+       
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color pixelColor = targetTexture.GetPixel(x, y);
+                    if (AreColorsCloseRGBA(pixelColor, coloursList[i], 0.05f))
+                    {
+                        colorPersentanges[i]++;
+                    }
+                }
+            }
+        }
+
+        return colorPersentanges;
+
     }
     private void CalculateColorArea()
     {

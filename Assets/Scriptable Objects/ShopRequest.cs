@@ -45,8 +45,8 @@ public class ShopRequest : ScriptableObject
         ShapeID = Random.Range(0, System.Enum.GetValues(typeof(ShapeEnums)).Length);        
         ShapeName = ((ShapeEnums) ShapeID).ToString();
 
-        var coloursList = new List<Color>() { Color.red, Color.blue, Color.green };
-        var coloursListNames = new List<string>() { "RED","BLUE","GREEN" };
+        var coloursList = new List<Color>() { Color.red,  Color.green ,Color.blue,Color.yellow };
+        var coloursListNames = new List<string>() { "RED","GREEN", "BLUE","YELLOW" };
         var colorIndex = Random.Range(0, coloursList.Count);
         Color = coloursList[colorIndex];
         ColorName = coloursListNames[colorIndex];

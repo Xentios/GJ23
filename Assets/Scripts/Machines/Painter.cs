@@ -207,6 +207,11 @@ public class Painter : MonoBehaviour
         return colorCheker.CalculateColorArea(meshRenderer, requestedColor);
     }
 
+    public int[] CheckALLColors(MeshRenderer meshRenderer)
+    {
+        return colorCheker.CalculateAllColors(meshRenderer);
+    }
+
     public void ChangeColorOfBrush(Image color)
     {
         brush.Color = color.color;

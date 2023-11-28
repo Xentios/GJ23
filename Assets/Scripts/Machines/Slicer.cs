@@ -20,7 +20,7 @@ public class Slicer : MonoBehaviour
     [SerializeField]
     private InputActionReference mouseScroll;
 
-    
+
     private GameObject sliceTarget;
     [SerializeField]
     private Material slicedFaceMaterial;
@@ -36,6 +36,9 @@ public class Slicer : MonoBehaviour
 
     [SerializeField]
     private LayerMask sliceableLayer;
+
+    [SerializeField]
+    private GameObject visualEffect;
 
     private List<EzySlice.Plane> planeList;
 
@@ -65,7 +68,7 @@ public class Slicer : MonoBehaviour
         var height = Vector3.Scale(Vector3.up, sliceTarget.transform.lossyScale) * sliceTarget.GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
         Vector3 topPosition = sliceTarget.transform.position + height;
         bottomPositionYValue = (sliceTarget.transform.position.y - height.y);
-        topPositionYValue= (topPosition + Vector3.up).y;
+        topPositionYValue = (topPosition + Vector3.up).y;
         visualPlane = new UnityEngine.Plane(Vector3.up, topPosition + Vector3.up);
 
     }
@@ -103,7 +106,7 @@ public class Slicer : MonoBehaviour
     private void SetPlanes()
     {
         planeList.Clear();
-        for (int i = 0; i < sliceHolder.childCount-1; i++)
+        for (int i = 0; i < sliceHolder.childCount - 1; i++)
         {
             var sliceTargetMeshFilter = sliceTarget.GetComponent<MeshFilter>();
             var bounds = sliceTargetMeshFilter.sharedMesh.bounds;
@@ -122,7 +125,7 @@ public class Slicer : MonoBehaviour
     public void Slice(EzySlice.Plane thePlane)
     {
         var tr = new TextureRegion(0f, 0f, 1.0f, 1.0f);
-        EzySlice.SlicedHull result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial); 
+        EzySlice.SlicedHull result = EzySlice.Slicer.Slice(sliceTarget, thePlane, tr, slicedFaceMaterial);
 
         if (result != null)
         {
@@ -131,7 +134,7 @@ public class Slicer : MonoBehaviour
 
             lowerHull.transform.position = sliceTarget.transform.position;
             upperHull.transform.position = sliceTarget.transform.position;
-            Destroy(lastLowerPart);           
+            Destroy(lastLowerPart);
             lastLowerPart = lowerHull;
             lastUpperPart = upperHull;
             var rb = lastUpperPart.AddComponent<Rigidbody>();
@@ -177,18 +180,24 @@ public class Slicer : MonoBehaviour
         sliceHolder.GetComponent<Shaker>().StopShaking();
         Vector2 cursorPosition = Mouse.current.position.ReadValue();
         Cursor.lockState = CursorLockMode.Locked;
-       
+
         SetPlanes();
         slicingSound.Play();
+        visualEffect.SetActive(true);
         transform.DOMoveY(bottomPositionYValue, 0.5f).SetEase(Ease.InCubic).OnComplete(() =>
-        transform.DOMoveY(topPositionYValue, 1f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            isSlicing = false;
-            Cursor.lockState = CursorLockMode.None;
-            Mouse.current.WarpCursorPosition(cursorPosition);
-            jobFinished.TriggerEvent(sliceTarget);
-        }
-        )); ;
+            visualEffect.SetActive(false);
+            transform.DOMoveY(topPositionYValue, 1f).SetEase(Ease.InOutSine).OnComplete(() =>
+                {
+                    isSlicing = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Mouse.current.WarpCursorPosition(cursorPosition);
+                    jobFinished.TriggerEvent(sliceTarget);
+                }
+
+
+            );
+        });
 
 
         foreach (var plane in planeList)
@@ -219,7 +228,7 @@ public class Slicer : MonoBehaviour
         {
             modelPos = ray.GetPoint(distance);
         }
-        transform.position = modelPos;      
+        transform.position = modelPos;
     }
 
     private void MouseScrollEvent(InputAction.CallbackContext callback)
