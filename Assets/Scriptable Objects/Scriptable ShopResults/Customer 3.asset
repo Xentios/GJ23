@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CutPercentage: 100
   PressPercentage: 99.3801
-  PaintPercentage: 0
+  PaintPercentage: 100
   SpikePercentage: 100
   HammerPercentage: 96.79564
-  RedColorPercentage: 0
-  BlueColorPercentage: 0
-  GreenColorPercentage: 0
+  RedColorPercentage: 83.3
+  BlueColorPercentage: 91.8
+  GreenColorPercentage: 78.4

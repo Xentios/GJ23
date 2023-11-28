@@ -49,6 +49,8 @@ namespace ADV
                 return;
 
             QueueUpdate();
+            if (!UIControl.Main.End)
+                VictoryCheck();
 
             InputProtection -= Time.deltaTime;
         }
@@ -86,7 +88,24 @@ namespace ADV
             QueuingSkill = null;
             QueueTime = 0f;
 
-            UIControl.Main.OnCombatEnd();
+            //UIControl.Main.OnCombatEnd();
+        }
+
+        public void VictoryCheck()
+        {
+            bool Victory = true;
+            bool Defeat = true;
+            for (int i = Cards.Count - 1; i >= 0; i--)
+            {
+                if (Cards[i].CombatActive() && Cards[i].GetSide() == 0)
+                    Defeat = false;
+                if (Cards[i].CombatActive() && Cards[i].GetSide() == 1)
+                    Victory = false;
+            }
+            if (Victory)
+                UIControl.Main.OnCombatEnd(1);
+            else if (Defeat)
+                UIControl.Main.OnCombatEnd(-1);
         }
 
         public void QueueSkill(Mark_Skill Skill)

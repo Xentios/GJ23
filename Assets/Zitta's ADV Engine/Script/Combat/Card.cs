@@ -101,9 +101,12 @@ namespace ADV
             SetKey("MaxLife", MaxLife);
             SetKey("BaseDamage", BaseDamage);
 
-            GameObject G = Instantiate(HealthBarPrefab, FindFirstObjectByType<Canvas>().transform);
-            HealthBar HB = G.GetComponent<HealthBar>();
-            HB.Source = this;
+            if (GetID() != "Global")
+            {
+                GameObject G = Instantiate(HealthBarPrefab, FindFirstObjectByType<Canvas>().transform);
+                HealthBar HB = G.GetComponent<HealthBar>();
+                HB.Source = this;
+            }
         }
 
         // Start is called before the first frame update

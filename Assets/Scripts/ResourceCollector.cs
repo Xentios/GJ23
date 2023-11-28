@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ADV;
 
 public class ResourceCollector : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class ResourceCollector : MonoBehaviour
         var count = Physics.OverlapSphereNonAlloc(modelPos, 2.2f, results, layerMask);
         for (int i = count-1; i >=0; i--)
         {
+            CombatControl.Main.GlobalCard.ChangeKey("Point", 1);
             Destroy(results[i].gameObject);
            
         }

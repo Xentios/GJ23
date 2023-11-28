@@ -22,7 +22,7 @@ namespace ADV
         {
             if (!Source)
                 return;
-            if (Source.GetLife() <= 0)
+            if (Source.GetLife() <= 0 || UIControl.Main.End)
             {
                 Destroy(gameObject);
                 return;

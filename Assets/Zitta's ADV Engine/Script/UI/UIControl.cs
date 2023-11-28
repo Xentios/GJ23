@@ -15,6 +15,12 @@ namespace ADV
         public float SelectingDelay;
         public float SelectingTime;
         [Space]
+        public Animator EndRenderer;
+        public TextMeshPro ResultText;
+        public TextMeshPro PointText;
+        public bool End;
+        public float EndTime;
+        [Space]
         public bool Mute;
 
         public void Awake()
@@ -31,7 +37,22 @@ namespace ADV
         // Update is called once per frame
         public void Update()
         {
+            if (End)
+                EndTime += Time.deltaTime;
+            if (EndTime >= 1)
+            {
+                InputUpdate();
+            }
+        }
 
+        public void InputUpdate()
+        {
+            if (false/* Press any key */)
+            {
+                /* Transit to the next scene */
+                
+                EndTime = -99f;
+            }
         }
 
         public void LateUpdate()
@@ -55,9 +76,15 @@ namespace ADV
 
         }
 
-        public void OnCombatEnd()
+        public void OnCombatEnd(int Result)
         {
-
+            End = true;
+            EndRenderer.SetTrigger("Effect");
+            if (Result == -1)
+                ResultText.text = "Defeat!";
+            else if (Result == 1)
+                ResultText.text = "Victory!";
+            PointText.text = CombatControl.Main.GlobalCard.GetKey("Point").ToString();
         }
 
         public void NumberEffect(string Key, string text, Card Source)
