@@ -306,14 +306,25 @@ public class GameManager : MonoBehaviour
         return bottomPosition;
     }
 
+    public void RejectProduct()
+    {
+        var lenght = cinemachineTargetGroup.m_Targets.Length;
+        for (int i = lenght - 1; i >= 0; i--)
+        {
+            cinemachineTargetGroup.RemoveMember(cinemachineTargetGroup.m_Targets[i].target.transform);
+        }
+        Destroy(targetObject);
+        currentGamePhase = 0;
+        ChangePhases();
+    }
+
     public void StartNextPhase()
     {
 
         targetObject.transform.parent = ShowCaseLocation[customerIndex];
         targetObject.transform.localPosition = Vector3.zero;
         var bottomPosition = GetBottomOffPositionOfAnObject(targetObject.transform.GetChild(0).gameObject);
-        var distance = Vector3.Distance(targetObject.transform.position, bottomPosition);
-        Debug.Log(distance);
+        var distance = Vector3.Distance(targetObject.transform.position, bottomPosition);       
         distance *= targetObject.transform.localScale.y;
         var currentPosition = targetObject.transform.localPosition;
         currentPosition.y -= distance;

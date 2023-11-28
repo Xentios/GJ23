@@ -21,20 +21,10 @@ public class ShopItemInstantiate : MonoBehaviour
         spawnPoint = transform.GetChild(0).transform.position;
     }
 
-    private IEnumerator NOTStart()
-    {
-        for (int i = 0; i < SpawnCount; i++)
-        {            
-            Instantiate(itemPrefab, spawnPoint, Random.rotation).name="Spike "+i+1;
-
-            GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(3f/SpawnCount);
-        }
-    }
-
     private void OnEnable()
     {
         StartCoroutine(OnEnableSpawn());
+        GetComponent<AudioSource>().PlayDelayed(1f);
     }
 
     private IEnumerator OnEnableSpawn()
@@ -43,7 +33,7 @@ public class ShopItemInstantiate : MonoBehaviour
         {
             Instantiate(itemPrefab, spawnPoint, Random.rotation).name = "Spike " + i + 1;
 
-            GetComponent<AudioSource>().Play();
+           
             yield return new WaitForSeconds(3f / SpawnCount);
         }
     }

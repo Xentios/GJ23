@@ -9,20 +9,23 @@ public class ChangeCursor : MonoBehaviour
     private InputActionAsset map;
 
     [SerializeField]
+    private GameObject cursorVisibilityObject;
+
+    [SerializeField]
     private bool IsVisible;
 
     private bool WasVisible;
 
     private void OnEnable()
     {
-        WasVisible = Cursor.visible;
-        Cursor.visible = IsVisible;
+        Cursor.visible = cursorVisibilityObject.activeInHierarchy;
         map.Enable();
     }
 
     private void OnDisable()
     {
-        Cursor.visible = WasVisible;
+        WasVisible = Cursor.visible;
+        Cursor.visible = IsVisible;
         map.Disable();
     }
    
