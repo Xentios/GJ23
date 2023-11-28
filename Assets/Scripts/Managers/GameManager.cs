@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
 
     private void ChangePhases()
     {
+        if ((int) currentGamePhase >= GameEvents.Count) return;
+
         GameEvents[(int) currentGamePhase].TriggerEvent();
         switch (currentGamePhase)
         {

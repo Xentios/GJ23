@@ -25,7 +25,7 @@ public class UIMoverSideWays : MonoBehaviour
 
         Hidden = true;
         Debugger.Log("HideY of " + gameObject.name, Debugger.PriorityLevel.Medium);
-        rectTransform.DOAnchorPosX(rectTransform.anchoredPosition.x - MoveDelta, Duration);      
+        rectTransform.DOAnchorPosX(rectTransform.anchoredPosition.x - MoveDelta, Duration/4);      
     }
     [ContextMenu("Show")]
     public void ShowX()
