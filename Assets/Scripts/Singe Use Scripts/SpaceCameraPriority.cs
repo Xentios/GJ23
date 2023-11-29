@@ -35,7 +35,7 @@ public class SpaceCameraPriority : MonoBehaviour
 
     public void DeActiveMyCamera()
     {
-       
+        if (lastActiveCam == null) return;
         if (lastActiveCam.Equals(myCinemachineVirtualCamera)) return;
         myCinemachineVirtualCamera.Priority = 9;
         InputSystem.EnableDevice(Mouse.current);
