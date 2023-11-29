@@ -33,6 +33,8 @@ public class ChangeTextWhenClicked : MonoBehaviour
 
     private void MouseClicked(InputAction.CallbackContext callbackContext)
     {
+        if (button.IsInteractable() == false) return;
+
         textField.text = "NEXT";
     }
 

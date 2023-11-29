@@ -25,10 +25,10 @@ public class ChangeClipBasedOnScore : MonoBehaviour
         if (GameManager.Instance.currentShopResult.SpikePercentage > 95f) win = true;
         if (GameManager.Instance.currentShopResult.HammerPercentage >95f) win = true;
         var total = GameManager.Instance.currentShopResult.CutPercentage +
-                    GameManager.Instance.currentShopResult.CutPercentage +
-                    GameManager.Instance.currentShopResult.CutPercentage +
-                    GameManager.Instance.currentShopResult.CutPercentage +
-                    GameManager.Instance.currentShopResult.CutPercentage;
+                    GameManager.Instance.currentShopResult.PressPercentage +
+                    GameManager.Instance.currentShopResult.PaintPercentage +
+                    GameManager.Instance.currentShopResult.SpikePercentage +
+                    GameManager.Instance.currentShopResult.HammerPercentage;
 
         total /= 5;
         if (total > 80f) win = true;
