@@ -35,6 +35,9 @@ public class Painter : MonoBehaviour
     private Brush brush;
 
     [SerializeField]
+    private GameObject sprayFX;
+
+    [SerializeField]
     private UseMethodType useMethodType = UseMethodType.RaycastHitInfo;
 
     [SerializeField]
@@ -126,6 +129,7 @@ public class Painter : MonoBehaviour
 
     private void StartPainting(double time)
     {
+        sprayFX.SetActive(true);
         spraySound.Play();
         isPainting = true;
         timeStartedToPaint = time;
@@ -133,6 +137,7 @@ public class Painter : MonoBehaviour
 
     private void StopPainting(double time)
     {
+        sprayFX.SetActive(false);
         spraySound.Stop();       
         isPainting = false;       
         timeLeftToPaint -= time-timeStartedToPaint;
@@ -212,10 +217,24 @@ public class Painter : MonoBehaviour
         return colorCheker.CalculateAllColors(meshRenderer);
     }
 
-    public void ChangeColorOfBrush(Image color)
+    public void ChangeColorOfBrush(Image image)
     {
-        brush.Color = color.color;
+        brush.Color = image.color;
+        var results=sprayFX.GetComponentsInChildren<ParticleSystem>();
+        
+
+        
+        foreach (var vfx in results)
+        {
+            ParticleSystem.MainModule settings = vfx.main;
+            settings.startColor = image.color;
+            
+            //vfx.gets.GetSetData<Color>("colorOverLifetime", color);
+        }
     }
+      
+       // sprayFX.SetActive(true);
+    
     public void ChangeSizeOfBrush(float value)
     {
         brush.Scale = value;

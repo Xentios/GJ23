@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 
 namespace ADV
 {
@@ -23,37 +27,29 @@ namespace ADV
         [Space]
         public bool Mute;
 
-        public void Awake()
-        {
 
-        }
-
-        // Start is called before the first frame update
-        public void Start()
-        {
-
-        }
-
-        // Update is called once per frame
+        private bool reallyCallOnce;
         public void Update()
         {
             if (End)
                 EndTime += Time.deltaTime;
             if (EndTime >= 1)
             {
-                InputUpdate();
+                InputSystem.onAnyButtonPress.CallOnce(control => InputUpdate(control));
+
             }
         }
 
-        public void InputUpdate()
+        private void InputUpdate(InputControl control)
         {
-            if (false/* Press any key */)
-            {
-                /* Transit to the next scene */
-                
-                EndTime = -99f;
-            }
+            if (reallyCallOnce == true) return;
+            reallyCallOnce = true;
+
+            SceneManager.LoadScene(0);
+            EndTime = -99f;
         }
+
+       
 
         public void LateUpdate()
         {
