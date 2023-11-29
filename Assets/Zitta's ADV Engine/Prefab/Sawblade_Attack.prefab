@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &724826507527251958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7685996564543698570}
+  - component: {fileID: 597586920497138377}
+  - component: {fileID: 7939189614737638305}
+  m_Layer: 0
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7685996564543698570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724826507527251958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2012406294062480026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597586920497138377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724826507527251958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfff84904107734494f577e4aac0ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KB: {fileID: 7939189614737638305}
+  Info: {fileID: 0}
+  Source: {fileID: 0}
+  Target: {fileID: 0}
+  Position: {x: 0, y: 0}
+  Prefab: {fileID: 5481029223504463566, guid: b269bc8515c1fcb489e9ec05de0b6955, type: 3}
+--- !u!114 &7939189614737638305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724826507527251958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a633e0759bedc534ab833bc63a16cbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Keys:
+  - Target[1
+  - TargetSnap[1
 --- !u!1 &893006674241557889
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +167,7 @@ Transform:
   - {fileID: 6722512711867404019}
   - {fileID: 6089971081567164590}
   - {fileID: 6530722578235052838}
+  - {fileID: 7685996564543698570}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1744104194607279859
@@ -122,6 +189,7 @@ MonoBehaviour:
   - {fileID: 7022978061041230492}
   - {fileID: 6451995002167601115}
   - {fileID: 893006674241557889}
+  - {fileID: 724826507527251958}
   Targetings:
   - {fileID: 8679305193726622861}
   Conditions: []

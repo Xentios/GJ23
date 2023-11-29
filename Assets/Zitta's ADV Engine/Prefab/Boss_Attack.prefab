@@ -66,6 +66,72 @@ MonoBehaviour:
   - Target[1
   - Damage[5
   - Variance[0.1
+--- !u!1 &1037135145998809123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7315734882777940215}
+  - component: {fileID: 6807140236230515963}
+  - component: {fileID: 2391381132051490400}
+  m_Layer: 0
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7315734882777940215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037135145998809123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9106807703348061479}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6807140236230515963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037135145998809123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfff84904107734494f577e4aac0ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KB: {fileID: 2391381132051490400}
+  Info: {fileID: 0}
+  Source: {fileID: 0}
+  Target: {fileID: 0}
+  Position: {x: 0, y: 0}
+  Prefab: {fileID: 5481029223504463566, guid: b269bc8515c1fcb489e9ec05de0b6955, type: 3}
+--- !u!114 &2391381132051490400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037135145998809123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a633e0759bedc534ab833bc63a16cbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Keys:
+  - Target[1
+  - TargetSnap[1
 --- !u!1 &2161577811750921008
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +231,7 @@ Transform:
   - {fileID: 6125102111687610175}
   - {fileID: 3535200265713403667}
   - {fileID: 4552479597443304603}
+  - {fileID: 7315734882777940215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9059039036287840590
@@ -187,6 +254,7 @@ MonoBehaviour:
   - {fileID: 3191874162053163632}
   - {fileID: 4325275070857164902}
   - {fileID: 7631623696187656764}
+  - {fileID: 1037135145998809123}
   Targetings:
   - {fileID: 2161577811750921008}
   Conditions: []

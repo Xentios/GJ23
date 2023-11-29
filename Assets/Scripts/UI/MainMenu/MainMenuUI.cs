@@ -84,6 +84,6 @@ public class MainMenuUI : MonoBehaviour
 
     public void FadeOutMusic()
     {
-        DOTween.To(() => mainMusic.volume, volume => mainMusic.volume = volume, 0.15f, 2.5f);            
+        DOTween.To(() => mainMusic.volume, volume => mainMusic.volume = volume, 0f, 5f);            
     }
 }

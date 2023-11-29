@@ -1,12 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
-using UnityEngine.SceneManagement;
 
 namespace ADV
 {
@@ -23,33 +19,48 @@ namespace ADV
         public TextMeshPro ResultText;
         public TextMeshPro PointText;
         public bool End;
+        public int EndResult;
         public float EndTime;
         [Space]
         public bool Mute;
 
+        public void Awake()
+        {
 
-        private bool reallyCallOnce;
+        }
+
+        // Start is called before the first frame update
+        public void Start()
+        {
+
+        }
+
+        // Update is called once per frame
         public void Update()
         {
             if (End)
                 EndTime += Time.deltaTime;
             if (EndTime >= 1)
             {
-                InputSystem.onAnyButtonPress.CallOnce(control => InputUpdate(control));
-
+                InputUpdate();
             }
         }
 
-        private void InputUpdate(InputControl control)
+        public void InputUpdate()
         {
-            if (reallyCallOnce == true) return;
-            reallyCallOnce = true;
-
-            SceneManager.LoadScene(0);
-            EndTime = -99f;
+            if (false/* Press key */)
+            {
+                if (EndResult == -1)
+                {
+                    /* Transit to defeat scene */
+                }
+                else if (EndResult == 1)
+                {
+                    /* Transit to victory scene */
+                }
+                EndTime = -99f;
+            }
         }
-
-       
 
         public void LateUpdate()
         {
@@ -75,6 +86,7 @@ namespace ADV
         public void OnCombatEnd(int Result)
         {
             End = true;
+            EndResult = Result;
             EndRenderer.SetTrigger("Effect");
             if (Result == -1)
                 ResultText.text = "Defeat!";
