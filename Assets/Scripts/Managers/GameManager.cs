@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> ShowCaseLocation;
     [SerializeField]
     public List<ShopResult> ShopResults;
-    private ShopResult currentShopResult;
+    public ShopResult currentShopResult;
     private int customerIndex;
 
     [SerializeField]
@@ -120,7 +120,11 @@ public class GameManager : MonoBehaviour
     {
         if ((int) currentGamePhase >= GameEvents.Count) return;
 
-        GameEvents[(int) currentGamePhase].TriggerEvent();
+        if (currentGamePhase != GamePhases.End)//TODO too much spagetthi sauce here
+        {
+            GameEvents[(int) currentGamePhase].TriggerEvent();
+        }
+
         switch (currentGamePhase)
         {
             case GamePhases.Start:
@@ -196,6 +200,12 @@ public class GameManager : MonoBehaviour
 
             break;
             case GamePhases.End:
+
+            var hammerResult=Hammer.GetComponent<Hammer>().CalculateSpikeScore();
+            SliderHammerScore.FinalValue = hammerResult;
+            currentShopResult.HammerPercentage = hammerResult * 100;
+            GameEvents[(int) currentGamePhase].TriggerEvent();
+
 
             var realScale = targetObject.transform.lossyScale;
             targetObject.transform.parent = null;
@@ -299,13 +309,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ASpikeHammered(float result)
+    public void ASpikeHammered()
     {
         PlacedSpikes--;
         if (PlacedSpikes <= 0)
-        {
-            SliderHammerScore.FinalValue = result;
-            currentShopResult.HammerPercentage = result * 100;
+        {           
             GoToNextGameEvent();
         }
     }

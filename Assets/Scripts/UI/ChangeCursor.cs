@@ -20,13 +20,14 @@ public class ChangeCursor : MonoBehaviour
     {
         Cursor.visible = cursorVisibilityObject.activeInHierarchy;
         map.Enable();
+        
     }
 
     private void OnDisable()
     {
         WasVisible = Cursor.visible;
         Cursor.visible = IsVisible;
-        map.Disable();
+        map.Disable();       
     }
    
 }

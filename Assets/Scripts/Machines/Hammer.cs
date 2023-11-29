@@ -83,6 +83,7 @@ public class Hammer : MonoBehaviour
     {       
         Debugger.Log("Hammer Strike", Debugger.PriorityLevel.High);
         if (spike == null) return;
+        if (hammering == true) return;
 
         hammering = true;
 
@@ -106,7 +107,7 @@ public class Hammer : MonoBehaviour
 
             var rb = spike.GetComponent<Rigidbody>();
             GameObject.Destroy(rb);
-            GameManager.Instance.ASpikeHammered(CalculateSpikeScore());
+            GameManager.Instance.ASpikeHammered();
             DisableSpikeOutline();
             hammering = false;
         });
@@ -202,7 +203,7 @@ public class Hammer : MonoBehaviour
             Debugger.Log(current, Debugger.PriorityLevel.High);
             average += current;
         }
-        average /= hammeredSpikes.Count;
+        if(hammeredSpikes.Count>0)  average /= hammeredSpikes.Count;
 
         return average;
     }
