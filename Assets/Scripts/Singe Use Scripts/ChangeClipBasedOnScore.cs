@@ -24,13 +24,22 @@ public class ChangeClipBasedOnScore : MonoBehaviour
         if (GameManager.Instance.currentShopResult.PaintPercentage > 95f) win = true;
         if (GameManager.Instance.currentShopResult.SpikePercentage > 95f) win = true;
         if (GameManager.Instance.currentShopResult.HammerPercentage >95f) win = true;
+        var total = GameManager.Instance.currentShopResult.CutPercentage +
+                    GameManager.Instance.currentShopResult.CutPercentage +
+                    GameManager.Instance.currentShopResult.CutPercentage +
+                    GameManager.Instance.currentShopResult.CutPercentage +
+                    GameManager.Instance.currentShopResult.CutPercentage;
+
+        total /= 5;
+        if (total > 80f) win = true;
+
         if (win == true)
         {
             audioSource.clip = VictorySound;
             audioSource.volume = 1f;
             audioSource.pitch = 0.95f;
         }
-        else
+        else 
         {
             audioSource.clip = LoseSound;
             audioSource.volume = 0.3f;
