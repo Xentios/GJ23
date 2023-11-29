@@ -37,14 +37,15 @@ public class ShopResult : ScriptableObject
     [Range(0, 100)]
     [SerializeField]
     public float RedColorPercentage;
-    [Tooltip("Ice Dmg")]
-    [Range(0, 100)]
-    [SerializeField]
-    public float BlueColorPercentage;
     [Tooltip("Poison Dmg")]
     [Range(0, 100)]
     [SerializeField]
     public float GreenColorPercentage;
+    [Tooltip("Ice Dmg")]
+    [Range(0, 100)]
+    [SerializeField]
+    public float BlueColorPercentage;
+    
 
     //NEED MORE?
     //[SerializeField]

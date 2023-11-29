@@ -6,6 +6,7 @@ using DG.Tweening;
 using static Es.InkPainter.InkCanvas;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -152,11 +153,32 @@ public class GameManager : MonoBehaviour
                 cinemachineTargetGroup.RemoveMember(cinemachineTargetGroup.m_Targets[i].target.transform);
             }
 
-            SliderPaintArea.FinalValue = CalculateColor() / 0.028f;//TODO HARD CODED
-            currentShopResult.PaintPercentage = SliderPaintArea.FinalValue;//TODO FIX HERE
-            //currentShopResult.
-            CalculateAllColors();
+            float[] floatConstants= new float[] { 10000f, 9000f, 5000f, 6000f };
+            float requestedPerc = ShopRequest.ColorPercentage;
+            float specialConstant = floatConstants[ShopRequest.ShapeID];
+            specialConstant /= 16384f;
+            specialConstant*= requestedPerc;
+            float calculated = CalculateColor();
+            float finalResult=calculated / specialConstant;
+            SliderPaintArea.FinalValue = finalResult;
+            currentShopResult.PaintPercentage = SliderPaintArea.FinalValue * 100f;
             
+            var colorResults=CalculateAllColors();
+            float sum= colorResults.Sum();
+            if (sum > 0)
+            {
+                currentShopResult.RedColorPercentage =   ( ((float) colorResults[0] / sum))*100f;
+                currentShopResult.GreenColorPercentage = ( ((float) colorResults[1] / sum))*100f;
+                currentShopResult.BlueColorPercentage =  ( ((float) colorResults[2] / sum))*100f;
+            }
+            else
+            {
+                currentShopResult.RedColorPercentage = 0f;
+                currentShopResult.GreenColorPercentage = 0f;
+                currentShopResult.BlueColorPercentage = 0f;
+            }
+          
+
 
 
             targetObject.layer = LayerMask.NameToLayer("Sliceable");
@@ -238,9 +260,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void CalculateAllColors()
+    private int[] CalculateAllColors()
     {
        var result= painter.GetComponent<Painter>().CheckALLColors(targetObject.GetComponent<MeshRenderer>());
+        var text = String.Join("-",new List<int>(result).ConvertAll(i => i.ToString()).ToArray());
+        Debugger.Log(text, Debugger.PriorityLevel.High);
+        return result;
     }
 
     [ContextMenu("AddInkCanvas")]
