@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace ADV
 {
@@ -48,15 +50,15 @@ namespace ADV
 
         public void InputUpdate()
         {
-            if (false/* Press key */)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (EndResult == -1)
                 {
-                    /* Transit to defeat scene */
+                    SceneManager.LoadScene(0);
                 }
                 else if (EndResult == 1)
                 {
-                    /* Transit to victory scene */
+                    SceneManager.LoadScene(1);//ShopScene
                 }
                 EndTime = -99f;
             }
