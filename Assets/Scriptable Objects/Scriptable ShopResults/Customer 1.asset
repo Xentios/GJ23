@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Customer 1
   m_EditorClassIdentifier: 
   CutPercentage: 50
-  PressPercentage: 39.328373
-  PaintPercentage: 87.4
-  SpikePercentage: 100
-  HammerPercentage: 100
-  RedColorPercentage: 96.4
-  BlueColorPercentage: 94.8
-  GreenColorPercentage: 93.7
+  PressPercentage: 81.71316
+  PaintPercentage: 0
+  SpikePercentage: 0
+  HammerPercentage: 0
+  RedColorPercentage: 0
+  GreenColorPercentage: 0
+  BlueColorPercentage: 0
