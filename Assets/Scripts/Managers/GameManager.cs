@@ -148,7 +148,8 @@ public class GameManager : MonoBehaviour
 
             break;
             case GamePhases.Paint:
-            SliderPressValue.FinalValue = (1 - (Mathf.Abs(ShopRequest.PressScale - targetObject.transform.lossyScale.y)));
+            var pressResult = ( 1- (Mathf.Abs(ShopRequest.PressScale - targetObject.transform.lossyScale.y)));
+            SliderPressValue.FinalValue = pressResult / 0.98f;
             currentShopResult.PressPercentage = SliderPressValue.FinalValue * 100f;
 
             InkCanvasAdder();
