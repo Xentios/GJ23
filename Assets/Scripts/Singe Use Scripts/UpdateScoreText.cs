@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
 public class UpdateScoreText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private FloatVariable highScore;
+
+    private TextMeshProUGUI textField;
+    private void Awake()
     {
-        
+        textField = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        textField.text = "Current High Score is: " + highScore.Value;
     }
 }

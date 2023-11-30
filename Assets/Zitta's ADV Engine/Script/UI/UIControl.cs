@@ -9,6 +9,11 @@ using UnityEngine.SceneManagement;
 namespace ADV
 {
     public class UIControl : MonoBehaviour {
+        [SerializeField]
+        private FloatVariable score;
+        [SerializeField]
+        private FloatVariable Highscore;
+
         public static UIControl Main;
         public GameObject CardBase;
         [Space]
@@ -52,8 +57,14 @@ namespace ADV
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
+                if (score.Value > Highscore.Value)
+                {
+                    Highscore.Value = score.Value;
+                }
+
                 if (EndResult == -1)
                 {
+                    score.Value = 0;
                     SceneManager.LoadScene(0);
                 }
                 else if (EndResult == 1)
