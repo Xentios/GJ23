@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9732,15 +9732,120 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1458835854}
     m_Modifications:
+    - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -986.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 604908060278162551, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 604908060278162551, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 604908060278162551, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 604908060278162551, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 604908060278162551, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -986.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 922.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074211663776936741, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -461.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 999.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093055007581545294, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 2087114189266159195, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
@@ -9752,9 +9857,102 @@ PrefabInstance:
       propertyPath: m_Name
       value: Story
       objectReference: {fileID: 0}
+    - target: {fileID: 2820599092726169490, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267805419859635408, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267805419859635408, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 922.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267805419859635408, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267805419859635408, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267805419859635408, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -461.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376128621720740066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376128621720740066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999
+      objectReference: {fileID: 0}
     - target: {fileID: 3376128621720740066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 999.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741161116726325565, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741161116726325565, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741161116726325565, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741161116726325565, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741161116726325565, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -986.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126973964712041111, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_text
+      value: "In a vibrant forest, pangolins thrive in harmony with nature, \ntheir
+        scales reflecting the beauty of their peaceful coexistence.          "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126973964712041111, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 4126973964712041111, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126973964712041111, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5470596999761672105, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 4126973964712041111, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4146933322005343260, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
@@ -9857,6 +10055,129 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4704459370906778066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_text
+      value: "Successfully crafted \"Chroma Scales\" provide the pangolins \nwith
+        formidable combat prowess as they prepare for adventures.          "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704459370906778066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5961108c18918ea40b84f9bf2d717e70,
+        type: 2}
+    - target: {fileID: 4704459370906778066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704459370906778066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5470596999761672105, guid: 5961108c18918ea40b84f9bf2d717e70,
+        type: 2}
+    - target: {fileID: 4704459370906778066, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008036910356441541, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399298234897476494, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399298234897476494, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399298234897476494, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399298234897476494, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399298234897476494, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -986.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 922.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -461.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440157195364438228, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600675041148084069, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982056563319368952, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982056563319368952, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 922.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982056563319368952, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982056563319368952, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982056563319368952, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -461.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166184520841922757, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7294142421021088264, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: unityEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9867,6 +10188,94 @@ PrefabInstance:
       propertyPath: unityEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 505226150}
+    - target: {fileID: 7839112214337642570, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_text
+      value: "Gigantic Komodo dragons menace the pangolin's haven,drawn by the enchanting
+        magic within \nthe precious scales, endangering the tranquility of their
+        homeland.          "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839112214337642570, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 7839112214337642570, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839112214337642570, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5470596999761672105, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 7839112214337642570, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112428332145986774, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319948141363916292, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1999.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319948141363916292, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 922.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319948141363916292, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319948141363916292, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 999.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319948141363916292, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -461.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_text
+      value: "The pangolin tribe seeks your help. As a legendary prop merchant, craft
+        \"Chroma Scales\" \ninfused with magical elements to empower pangolins and
+        thwart imminent threats."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5470596999761672105, guid: 59023d16bd5c5fb4999e6db280f3275d,
+        type: 2}
+    - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
