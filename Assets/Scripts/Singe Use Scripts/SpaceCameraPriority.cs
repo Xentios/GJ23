@@ -17,14 +17,25 @@ public class SpaceCameraPriority : MonoBehaviour
     [SerializeField]
     private Volume volume;
 
+    [SerializeField]
+    private UIMover holdSpaceUI;
+
     private ICinemachineCamera lastActiveCam;
-  
+
+    private RectTransform rectTransform;
+    private void Start()
+    {
+        rectTransform = holdSpaceUI.rectTransform;
+    }
 
     public void ActiveMyCamera()
     {
         lastActiveCam = cinemachineBrain.ActiveVirtualCamera;
        
         if (lastActiveCam.Equals(myCinemachineVirtualCamera)) return;
+      
+
+        rectTransform.DOAnchorPosY(-120f, 0.3f);
         InputSystem.DisableDevice(Mouse.current, keepSendingEvents: false);
         myCinemachineVirtualCamera.Priority = 11;
         DOTween.To(() => volume.weight, x => volume.weight = x, 1f, 0.6f);
@@ -38,6 +49,7 @@ public class SpaceCameraPriority : MonoBehaviour
         if (lastActiveCam == null) return;
         if (lastActiveCam.Equals(myCinemachineVirtualCamera)) return;
 
+        rectTransform.DOAnchorPosY(-60f, 0.3f);
         myCinemachineVirtualCamera.Priority = 9;
         InputSystem.EnableDevice(Mouse.current);
         DOTween.To(() => volume.weight, x => volume.weight = x, 0.005f, 0.6f);

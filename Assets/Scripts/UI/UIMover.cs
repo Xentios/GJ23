@@ -14,7 +14,7 @@ public class UIMover : MonoBehaviour
     public bool Hidden = false;
 
     [SerializeField]
-    private RectTransform rectTransform;
+    public RectTransform rectTransform;
 
     private void Awake()
     {
