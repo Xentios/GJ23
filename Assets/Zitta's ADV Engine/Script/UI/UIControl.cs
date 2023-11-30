@@ -58,7 +58,7 @@ namespace ADV
                 }
                 else if (EndResult == 1)
                 {
-                    SceneManager.LoadScene(1);//ShopScene
+                    SceneManager.LoadScene(3);//Victory
                 }
                 EndTime = -99f;
             }
