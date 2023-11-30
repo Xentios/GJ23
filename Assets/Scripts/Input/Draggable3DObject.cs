@@ -76,7 +76,7 @@ public class Draggable3DObject : MonoBehaviour, IPointerExitHandler, IPointerEnt
         if (isPlaced == true)
         {
             gameObject.layer = LayerMask.NameToLayer("Hammerable");
-            GameManager.Instance.ASpikePlaced();
+            GameManager.Instance.ASpikePlaced( this);
         }
         else
         {

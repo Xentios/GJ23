@@ -96,8 +96,11 @@ public class GameManager : MonoBehaviour
     private List<AudioClip> spikeSounds;
     private AudioSource audioSource;
 
+
+    private List<Draggable3DObject> placedSpikes;
     private void Awake()
     {
+        placedSpikes = new();
         audioSource = GetComponent<AudioSource>();
     }
     private void Start()
@@ -128,8 +131,8 @@ public class GameManager : MonoBehaviour
         switch (currentGamePhase)
         {
             case GamePhases.Start:
-           
-            currentShopResult = ShopResults[customerIndex];
+            placedSpikes.Clear();
+             currentShopResult = ShopResults[customerIndex];
             targetObject = Instantiate(targetObjectPrefab).transform.GetChild(0).gameObject;
             PlacedSpikes = 0;
             break;
@@ -201,7 +204,17 @@ public class GameManager : MonoBehaviour
             break;
             case GamePhases.End:
 
-            var hammerResult=Hammer.GetComponent<Hammer>().CalculateSpikeScore();
+            var hamahmer = Hammer.GetComponent<Hammer>();
+            var hammerResult= hamahmer.CalculateSpikeScore();
+            foreach (var spike in placedSpikes)
+            {
+                if (-1==hamahmer.hammeredSpikes.IndexOf(spike.gameObject))
+                {
+                    spike.gameObject.SetActive(false);
+                }
+            }
+            
+           
             SliderHammerScore.FinalValue = hammerResult;
             currentShopResult.HammerPercentage = hammerResult * 100;
             GameEvents[(int) currentGamePhase].TriggerEvent();
@@ -298,8 +311,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ASpikePlaced()
+    public void ASpikePlaced(Draggable3DObject draggable3DObject)
     {
+        placedSpikes.Add(draggable3DObject);
+
         PlacedSpikes++;
         var spikeSoundClip = spikeSounds[UnityEngine.Random.Range(0, spikeSounds.Count)];
         audioSource.PlayOneShot(spikeSoundClip);
