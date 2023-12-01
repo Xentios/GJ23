@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -819,7 +819,7 @@ PrefabInstance:
     - target: {fileID: 8379473288908894637, guid: 44da1c7ef35c3b64dbde537ce8d5ed27,
         type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button Exit
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7682116157262483276, guid: 44da1c7ef35c3b64dbde537ce8d5ed27, type: 3}
@@ -1197,7 +1197,7 @@ PrefabInstance:
     - target: {fileID: 8379473288908894637, guid: 44da1c7ef35c3b64dbde537ce8d5ed27,
         type: 3}
       propertyPath: m_Name
-      value: Button.1
+      value: Button Shop Return
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7682116157262483276, guid: 44da1c7ef35c3b64dbde537ce8d5ed27, type: 3}
