@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
 public class UIMoverSideWays : MonoBehaviour
@@ -17,6 +18,11 @@ public class UIMoverSideWays : MonoBehaviour
 
     [SerializeField]
     private RectTransform rectTransform;
+
+    [SerializeField]
+    public Button denyButton;
+    [SerializeField]
+    public Button acceptButton;
 
     [ContextMenu("Hide")]
     public void HideX()
@@ -34,6 +40,12 @@ public class UIMoverSideWays : MonoBehaviour
        
         Hidden = false;
         Debugger.Log("ShowY of " + gameObject.name, Debugger.PriorityLevel.Medium);
-        rectTransform.DOAnchorPosX(rectTransform.anchoredPosition.x + MoveDelta, Duration).SetDelay(ShowDelay);
+        rectTransform.DOAnchorPosX(rectTransform.anchoredPosition.x + MoveDelta, Duration).SetDelay(ShowDelay).OnComplete(ShowEnableButtons);
+    }
+
+    private void ShowEnableButtons()
+    {
+        denyButton.interactable = true;
+        acceptButton.interactable = true;            
     }
 }
