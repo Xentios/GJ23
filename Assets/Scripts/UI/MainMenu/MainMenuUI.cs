@@ -12,17 +12,23 @@ public class MainMenuUI : MonoBehaviour
 
     [SerializeField] private AudioSource mainMusic;
     private AsyncOperation asyncLoad;
-    private bool fakeFlag;
 
+    private void Start()
+    {
+        SetMusicVolume(PlayerPrefs.GetFloat("MainMusic", 1f));
+        SetSoundsVolume(PlayerPrefs.GetFloat("MainSounds", 1f));
+    }
 
     public void SetMusicVolume(float sliderValue)
     {
         mainMixer.SetFloat("MainMusic", Mathf.Log10(sliderValue) * 20);
+        PlayerPrefs.SetFloat("MainMusic", sliderValue);
     }
 
     public void SetSoundsVolume(float sliderValue)
     {
         mainMixer.SetFloat("MainSounds", Mathf.Log10(sliderValue) * 20);
+        PlayerPrefs.SetFloat("MainSounds", sliderValue);
     }
 
     public void ScreenWipeIn()
@@ -71,8 +77,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void LoadingDone()
     {       
-        loadingFinished.SetActive(true);
-        fakeFlag = true;
+        loadingFinished.SetActive(true);       
     }
 
     [ContextMenu("Allow Loading")]
@@ -85,5 +90,10 @@ public class MainMenuUI : MonoBehaviour
     public void FadeOutMusic()
     {
         DOTween.To(() => mainMusic.volume, volume => mainMusic.volume = volume, 0f, 5f);            
+    }
+
+    public void SavePlayerPrefs()
+    {       
+        PlayerPrefs.Save();
     }
 }
