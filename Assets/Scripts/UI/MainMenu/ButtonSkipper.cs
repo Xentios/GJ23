@@ -11,6 +11,9 @@ public class ButtonSkipper : MonoBehaviour
     [SerializeField]
     private List<GameObject> StoryPanels;
 
+    [SerializeField]
+    private GameObject ErrorPanel;
+
     private int panelIndex;
 
     private void OnEnable()
@@ -36,8 +39,12 @@ public class ButtonSkipper : MonoBehaviour
             StoryPanels[panelIndex].SetActive(true);
         }
         else
-        {
+        {           
+#if UNITY_WEBGL
+            ErrorPanel.SetActive(true);
+#else
             unityEvents.Invoke();
+#endif
         }      
     }
 }
