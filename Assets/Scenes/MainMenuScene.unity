@@ -748,6 +748,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150856266}
   m_CullTransparentMesh: 1
+--- !u!1 &154099332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8929646972016747753, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031619068749120922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &154099334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7294142421021088264, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031619068749120922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154099332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6ea8790a3554482de9da998800ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &154099338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154099332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddc3387b9d84e7409de2bce586f6f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPress: {fileID: -6096281831958714060, guid: bdede9fe2639ae3468c83a492aa97504,
+    type: 3}
+  pressEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 154099334}
+        m_TargetAssemblyTypeName: ButtonSkipper, Assembly-CSharp
+        m_MethodName: Skip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  canvelEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &220305993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2820599092726169490, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
@@ -10486,7 +10536,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8929646972016747753, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 154099338}
   m_SourcePrefab: {fileID: 100100000, guid: 44d1c94d2c53c7446a5a9a2942136d2f, type: 3}
 --- !u!1001 &5851557167130210333
 PrefabInstance:
