@@ -49,9 +49,11 @@ public class SpaceCameraPriority : MonoBehaviour
         if (lastActiveCam == null) return;
         if (lastActiveCam.Equals(myCinemachineVirtualCamera)) return;
 
+        lastActiveCam = null;
         rectTransform.DOAnchorPosY(-60f, 0.3f);
         myCinemachineVirtualCamera.Priority = 9;
         InputSystem.EnableDevice(Mouse.current);
         DOTween.To(() => volume.weight, x => volume.weight = x, 0.005f, 0.6f);
+       
     }
 }
