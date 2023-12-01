@@ -17,13 +17,13 @@ MonoBehaviour:
     m_To: Virtual Camera Game End
     m_Blend:
       m_Style: 7
-      m_Time: 7
+      m_Time: 3
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.000000059604645
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -31,19 +31,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.39361563
-          value: 0.9995834
-          inSlope: 1.2196934
-          outSlope: 1.2196934
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.8360136
-          value: 0.020208962
-          inSlope: -1.4967537
-          outSlope: -1.4967537
+          time: 0.79095775
+          value: 0.29047564
+          inSlope: 1.0644116
+          outSlope: 1.0644116
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
