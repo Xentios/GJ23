@@ -8739,7 +8739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1902672673
@@ -9927,7 +9927,7 @@ PrefabInstance:
     - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1999.2
+      value: 1504.3
       objectReference: {fileID: 0}
     - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
@@ -9937,12 +9937,12 @@ PrefabInstance:
     - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 999.6
+      value: 1003.8
       objectReference: {fileID: 0}
     - target: {fileID: 347567323269288255, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
@@ -10310,6 +10310,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -986.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6094316976691018602, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: duration
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094316976691018602, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
+        type: 3}
+      propertyPath: startDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6379713757469211051, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -10447,9 +10457,9 @@ PrefabInstance:
     - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
       propertyPath: m_text
-      value: "The pangolin tribe seeks your help. As a legendary prop merchant, craft
-        \"Chroma Scales\" \ninfused with magical elements to empower pangolins and
-        thwart imminent threats."
+      value: 'The pangolin tribe seeks your help. As a legendary prop merchant, craft
+        Chroma Scales infused with magical elements to empower pangolins and thwart
+        imminent threats.    '
       objectReference: {fileID: 0}
     - target: {fileID: 8411983714323734303, guid: 44d1c94d2c53c7446a5a9a2942136d2f,
         type: 3}
